@@ -1,0 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<th>標題</th>
+			<th>敘述</th>
+			<th>數量</th>
+		</tr>
+		<tbody>
+<% @products.each { |product| %>
+			<tr>
+				<td><%= product.title %></td>
+				<td><%= product.description %></td>
+				<td><%= product.quantity %></td>
+			</tr>
+<% } %>
+		</tbody>
+	</thead>
+</table>
