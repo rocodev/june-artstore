@@ -38,3 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use devise
+
+gem 'devise'
+
+# bootstra
+
+gem 'bootstrap-sass'
