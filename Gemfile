@@ -42,6 +42,6 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
-# bootstra
+# bootstrap
 
 gem 'bootstrap-sass'
