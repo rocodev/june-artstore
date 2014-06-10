@@ -1,11 +1,14 @@
 class Admin::ProductsController < ApplicationController
 
+    before_action :authenticate_user!
+    before_action :admin_required
+
     def new
-	@product = Product.new
+	   @product = Product.new
     end
 
     def create
-	@product = Product.new(product_params)
+	   @product = Product.new(product_params)
  
         if @product.save
 	       redirect_to admin_products_path
@@ -21,6 +24,6 @@ class Admin::ProductsController < ApplicationController
     private
 
     def product_params
-	params.requires(:product).permit(:title, :description, :quantity)
+	   params.requires(:product).permit(:title, :description, :quantity)
     end
 end

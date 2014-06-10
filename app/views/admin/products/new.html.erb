@@ -3,13 +3,13 @@
 <%= form_for [:admin, @product] do |f| %>
 
   <div class = "group">
-  	<%= f.label("權限") %>
-	<%= f.text_field :title %>
+  	<%= f.label("標題") %>
+    <%= f.text_field :title %>
   </div>
 
   <div class = "group">
   	<%= f.label("敘述") %>
-	<%= f.text_area :description %>
+	  <%= f.text_area :description %>
   </div>
 
   <div class ="group" >
