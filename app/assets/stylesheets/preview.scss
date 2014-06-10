@@ -1,0 +1,275 @@
+.page {
+  clear:            both;
+  width:            550px;
+  margin:           0 auto;
+  margin-bottom:    40px;
+  .link {
+    height:           160px;
+    overflow:         hidden;
+    background-color: #F2F2F2;
+    .thumb{
+      float:    left;
+      width:    160px;
+      height:   160px;
+      overflow: hidden;
+      margin:   0 10px 0 0;
+      position: relative;
+      img{
+        width:   160px;
+        height:  160px;}
+    }
+
+    h5 {
+      font-size:     16px;
+      padding-top:   5px;
+      margin-bottom: 10px;}
+    a {font-size:    14px;}
+    p {margin-top:   3px;}
+  }
+
+  .page_funtion_bar {
+    margin-top: 5px;
+    .author { color: #808080; }
+  }
+
+  .funtion { float:right;}
+}
+
+.page_tag {
+  margin-bottom: 30px;
+  text-align:    center;
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  .tag_name {
+    font-size: 21px;
+    padding: 0px 5px 0px 5px;
+  }
+
+  input[type="radio"] {
+    margin: 0px;
+  }
+}
+
+.page_text {
+  font-size: 21px;
+}
+
+.page_head_title {
+  margin: 50px 0px 20px 0px;
+  clear:both;
+}
+
+.page_head_text {
+  margin-bottom: 50px;
+  clear:both;
+}
+
+#show_page_messenge {
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.page_show_titles {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.page_index_titles{
+  margin-top: 20px;
+}
+
+
+
+#page_input {
+  margin-top: 10px; 
+  width: 450px;
+
+  .form-area {
+    margin-top: 10px;
+  }
+
+  textarea {
+    height: 200px;
+  }
+  label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  
+    .label-top{
+      margin-top: 20px;
+    }
+  }
+
+  .new_page_form {
+  height: 160px;
+  }
+
+  .page_form-control {
+    width: 430px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    margin-right: 50px;
+  }
+
+
+}
+
+
+
+.selector {
+  margin: 10px auto;
+  position:relative;
+  min-height: 85px;
+
+
+  input {
+    width: 420px;
+  }
+  textarea {
+    width: 420px;
+    margin: 5px 0;
+  }
+  .media {
+    iframe, object, embed, img {
+      margin: 10px auto;
+      display: block;
+    }
+    img {
+      max-width: 500px;
+    }
+  }
+
+
+  .attributes {
+    a {
+      text-decoration:none;
+      &.title, &.description{
+        &:hover{
+          text-decoration:none;
+          background-color:#FFF6D9;
+        }
+      }
+      &.description{
+       color:#000;
+      }
+      &.title{
+        margin: 0 0 5px;
+        display: block;
+      }
+    }
+
+    .meta {
+      display: block;
+      .favicon{
+        width:16px;
+        height:16px;
+        vertical-align: middle;
+        margin: 0 3px 0 0;
+      }
+      .provider {
+
+      }
+    }
+
+  }
+  .action{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display:none;
+    .close {
+
+    }
+  }
+}
+
+.loading {
+  display:none;
+  img{
+    display:block;
+    margin : 10px auto;
+  }
+}
+
+.item {
+  margin : 10px 0;
+  border-top: 1px solid #DDD;
+  padding: 10px 0;
+
+  &.video, &.rich, &.photo {
+    .media {
+      iframe, object, embed, img {
+        margin: 10px auto;
+        display: block;
+      }
+      img {
+        max-width: 560px;
+      }
+    }
+    .title {
+      margin: 10px 0;
+      display: block;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #333;
+    }
+  }
+
+  .status{
+    line-height: 1.2em;
+    margin: 10px 0;
+    padding: 5px;
+  }
+  .thumbnail {
+    margin: 10px 10px 10px 5px;
+    width: 105px;
+    float: left;
+    a {
+      display: table-cell;
+      width: 100px;
+      height: 75px;
+      overflow: hidden;
+      background-color: #DDD;
+      vertical-align: middle;
+      position:relative;
+      text-align: center;
+    }
+    img {
+      max-width: 100px;
+      vertical-align:middle;
+      max-height: 75px;
+    }
+    &.video, &.rich {
+      .overlay {
+        background-image: url(../images/play.png);
+        width: 26px;
+        height: 25px;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+      }
+    }
+  }
+  .attributes {
+    background-color: #EFEFEF;
+    padding: 5px;
+  }
+
+  .meta {
+    display: block;
+    .favicon{
+      width:16px;
+      height:16px;
+      vertical-align: middle;
+      margin: 0 3px 0 0;
+    }
+    .provider {
+
+    }
+  }
+}
