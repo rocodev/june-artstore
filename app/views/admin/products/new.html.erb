@@ -1,20 +1,23 @@
-<%= form_for [:admin, @product] { |f| %>
+<%= simple_form_for [:admin, @product], :html => { :multipart => true } do |f| %>
 
 	<div class="group">
-		<%= f.label("標題") %>
-		<%= f.text_field :title %>
-	</div>
-<!-- fftf -->
-	<div class="group">
-		<%= f.label("敘述") %>
-		<%= f.text_area :description %>
+		<%= f.input :title, :label => "標題", :required => true, :autofocus => true %>
 	</div>
 <!-- ffta -->
 	<div class="group">
-		<%= f.label("數量") %>
-		<%= f.text_field :quantity %>
+		<%= f.input :description, :required => true,:required => true, :label => "敘述" %>
 	</div>
-<!-- ffs -->
-	<%= f.submit "Submit", :disable_with => "Submiting ..." %>
+<!-- fftf -->
+	<div class="group">
+		<%= f.input :quantity, :required => true, :label => "數量" %>
+	</div>
 
-<% } %>
+	<div class="group">
+		<%= f.file_field :image %>
+		<%= f.hidden_field :image_cache %>
+	</div>
+
+<!-- ffs -->
+	<%= f.button :submit, "送出", :disable_with => "Submiting ...", class: "btn-success" %>
+
+<% end %>
