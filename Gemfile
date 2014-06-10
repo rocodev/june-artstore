@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'minitest', '~>5.3.4'
 
 gem 'devise' 
+
+gem 'bootstrap-sass'
