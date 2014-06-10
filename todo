@@ -11,3 +11,10 @@
    ✔ 後台必須要有登入的功能 @done (14-06-10 20:14)
    ✔ 使用者身份分為「管理者」和「消費者」兩種 @done (14-06-10 20:14)
    ✔ 只有「管理者」身份的使用者可以進入後台頁面 @done (14-06-10 20:14)
+
+ ☐ Week1 Homework
+   ☐ 寫後台的 User Story
+   ☐ 實作圖片上傳
+   ☐ 用 Bootstrap 做一個「有 navbar」的 layout
+   ✔ 使用 simple_form 換掉 form_for @done (14-06-10 21:44)
+   ☐ products/show, products, index 實作
