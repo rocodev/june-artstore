@@ -45,3 +45,7 @@ gem 'devise'
 # bootstrap
 
 gem 'bootstrap-sass'
+
+# simple_form replace by form
+
+gem 'simple_form'
