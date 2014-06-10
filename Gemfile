@@ -40,3 +40,7 @@ gem 'spring',        group: :development
 
 # Devise 提供使用者登入功能
 gem 'devise'
+# 加入 bootstrap css framework
+gem 'bootstrap-sass'
+# Rails forms made easy
+gem 'simple_form'
