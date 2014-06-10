@@ -1,5 +1,12 @@
 class Admin::ProductsController < ApplicationController
 
+  # 使用者必須先登入
+  before_action :authenticate_user!
+
+  # 使用者的身份必須是 admin
+  # admin_required 在 applicationController 裡定義
+  before_action :admin_required
+
   def new
     @product = Product.new
   end
