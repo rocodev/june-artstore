@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 gem "devise"
 gem "bootstrap-sass"
-gem "carrierwave", :require => 'RMagick'
+gem "carrierwave"
 gem "rmagick"
 gem "mini_magick"
 

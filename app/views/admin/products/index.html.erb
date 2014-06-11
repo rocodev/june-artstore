@@ -1,32 +1,30 @@
-<div>
-  <div>
-    <%= link_to("New Product", new_admin_product_path) %>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <td> # </td>
-        <td> Title </td>
-        <td> Description </td>
-        <td> Quantity </td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-      <tr>
-        <td> # </td>
-        <td> <%= link_to(product.title, admin_product_path(product)) %> </td>
-        <td> <%= product.description %> </td>
-        <td> <%= product.quantity %> </td>
-        <td> 
-          <%= link_to("Edit", edit_admin_product_path(product)) %> 
-          <%= link_to("Delete", admin_product_path(product), :method => :delete, data: {confirm: 'Are you sure?'}) %>
+<div class="span12">    
+    <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <td> # </td>
+          <td> Title </td>
+          <td> Description </td>
+          <td> Quantity </td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td> # </td>
+          <td> <%= link_to(product.title, admin_product_path(product)) %> </td>
+          <td> <%= product.description %> </td>
+          <td> <%= product.quantity %> </td>
+          <td> 
+            <%= link_to("Edit", edit_admin_product_path(product)) %> 
+            <%= link_to("Delete", admin_product_path(product), :method => :delete, data: {confirm: 'Are you sure?'}) %>
 
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
 
-  </table>
-
+    </table>
+    </div>
 </div>
