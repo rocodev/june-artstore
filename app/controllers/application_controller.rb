@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def admin_required
   	current_user.admin?
   end
+  
 end
