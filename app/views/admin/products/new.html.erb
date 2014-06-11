@@ -1,6 +1,6 @@
 
 
-<%= form_for [:admin, @product] do |f| %>
+<%= simple_form_for [:admin, @product] do |f| %>
 
   <div class = "group">
   	<%= f.label("標題") %>
@@ -15,6 +15,10 @@
   <div class ="group" >
   	<%= f.label("數量") %>
   	<%= f.text_field :quantity %>
+  </div>
+
+  <div class="group">
+    <%= f.input :photo, as: :file, label: '照片上傳' %> 
   </div>
 
   <%= f.submit "Submit", :disable_with => 'Submiting...' %> 	
