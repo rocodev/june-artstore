@@ -14,10 +14,12 @@
 				<td><%= product.description %></td>
 				<td><%= product.quantity %></td>
 				<td>
-					<%= link_to("刪除", "#", class: "btn btn-default btn-xs", data: { confirm: "確定要刪除嗎 ?" }) %>
 					<%= link_to("編輯", "#", class: "btn btn-success btn-xs") %>
 				</td>
-				<td><%= distance_of_time_in_words(Time.now, product.created_at, include_seconds: true) %>前</td>
+				<td><%= distance_of_time_in_words(Time.now, product.created_at, include_seconds: true) %>前
+					<%= link_to("下架商品", admin_product_path(product) , class: "", 
+					data: { confirm: "確定要刪除嗎 ?" }, 
+					:method => "delete") %></td>
 			</tr>
 <% } %>
 		</tbody>

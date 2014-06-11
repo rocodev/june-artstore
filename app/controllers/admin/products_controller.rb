@@ -18,13 +18,29 @@ class Admin::ProductsController < ApplicationController
 
 		@image = @product.photos.build(image_params)
 		#@image.image = File.open('public/imageupload')
-		@image.save
-		render plain: @image.inspect
+		if @image.save
+			redirect_to(admin_products_path)
+			flash[:message] = "上架成功！"
+		else
+			render :new
+			flash[:message] = "上架失敗！"
+		end
 	end
 
 	def show
 		@product = Product.find(params[:id])
 		@photo = Photo.find_by(:product_id => @product.id)
+	end
+
+	def destroy
+		@product = Product.find(params[:id])
+		if @product.destroy
+			redirect_to(admin_products_path)
+			flash[:message] = "下架成功！"
+		else
+			redirect_to(admin_products_path)
+			flash[:message] = "下架失敗！"
+		end
 	end
 
 	private

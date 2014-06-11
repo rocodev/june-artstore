@@ -11,9 +11,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 end
 class Product < ActiveRecord::Base
+	
 	has_many :photos
+	
 	mount_uploader :image, ImageUploader
+	
 	before_save :update_banner_attributes
+
+	validates :image, presence: true
 
 	def update_banner_attributes
     if image.present? && image_changed?
