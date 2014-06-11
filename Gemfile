@@ -49,3 +49,11 @@ gem 'bootstrap-sass'
 # simple_form replace by form
 
 gem 'simple_form'
+
+# photo upload
+
+gem 'carrierwave'
+
+# upload image for form
+
+gem 'nested_form'
