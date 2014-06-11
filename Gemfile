@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 # Use bootstap 3
 gem 'bootstrap-sass'
+
+# Use simple form
+gem 'simple_form'
