@@ -1,0 +1,7 @@
+<div class='group'>
+  <h2>標題：<%= @product.title %> </h2>
+  <p>描述：<%= @product.description %> </p>
+  <p>數量：<%= @product.quantity %> </p>
+  <p>圖片：</p>
+  <%= image_tag @product.photos.first.image.url %>
+</div>
