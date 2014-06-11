@@ -38,3 +38,22 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use devise
+
+gem 'devise'
+
+# bootstrap
+
+gem 'bootstrap-sass'
+
+# simple_form replace by form
+
+gem 'simple_form'
+
+# photo upload
+
+gem 'carrierwave'
+
+# upload image for form
+
+gem 'nested_form'
