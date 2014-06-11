@@ -1,6 +1,6 @@
 <%= form_for  [:admin, @product] do |f| %>
   <div class="group">
-    <%= f.label("權限") %>
+    <%= f.label("標題") %>
     <%= f.text_field :title %>
   </div>
 
@@ -10,8 +10,12 @@
   </div>
 
   <div class="group">
-    <%= f.label("權限") %>
+    <%= f.label("數量") %>
     <%= f.text_field :quantity %>
+  </div>
+  <div class="group">
+    <%= f.label("圖片") %>
+    <%= f.file_field :photo %>
   </div>
   <%= f.submit "Submit", :disable_with => 'Submiting....' %>
 <% end %>
