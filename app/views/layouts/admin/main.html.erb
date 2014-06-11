@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artstore | 管理後台</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render "admin/shared/header" %>
+	<div class="container">
+		<%= render "admin/shared/menu" %>
+
+		<%= yield() %>
+	</div>
+	<%= render "admin/shared/footer" %>
+
+</body>
+</html>
