@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-  mount_uploader :photo, PhotoUploader
+  has_many :photos
+  accepts_nested_attributes_for :photos
 end
