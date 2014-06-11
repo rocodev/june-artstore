@@ -9,5 +9,8 @@
 
   <%= f.input :quantity, label: '商品數量' %>
 
+  <%= f.input :photo, as: :file, label: '照片上傳' %>
+
   <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+
 <% end %>
