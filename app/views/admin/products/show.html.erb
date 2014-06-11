@@ -1,0 +1,25 @@
+<div>
+<table>
+  <thead>
+    <tr>
+      <td> Photo </td>
+      <td> Title </td>
+      <td> Description </td>
+      <td> Quantity </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <%= image_tag @product.image_url(:thumb).to_s %> </td>
+      <td> <%= @product.title %> </td>
+      <td> <%= @product.description %> </td>
+      <td> <%= @product.quantity %> </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+
+<div></div>
+
+</div>

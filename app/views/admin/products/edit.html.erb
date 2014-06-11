@@ -1,0 +1,25 @@
+<%= form_for [:admin, @product], :html => {:multipart => true} do |f| %>
+
+  <div class="group">
+    <%= f.label("標題") %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="group">
+    <%= f.label("敘述") %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="group">
+    <%= f.label("數量") %>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="group">
+    <%= f.file_field :image %>
+  </div>
+  <div class="group">
+    <%= f.label("Or image URL") %>
+    <%= f.text_field :remote_image_url %>
+  </div>
+
+  <%= f.submit "Submit", :disable_with => "Submiting..." %>
+
+  <% end %>
