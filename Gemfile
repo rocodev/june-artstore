@@ -46,3 +46,5 @@ gem 'bootstrap-sass'
 
 #for upload file
 gem 'carrierwave'
+
+gem 'simple_form'
