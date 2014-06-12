@@ -1,0 +1,31 @@
+<h1>商品列表</h1>
+
+
+<%= link_to "新增產品", new_admin_product_path %> 
+<table>
+  <thead>
+    <tr>
+      <th>產品名稱</th>
+      <th>敘述</th>
+      <th>可購買數量</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.quantity %></td>
+        <td>
+          <%= link_to product.title, admin_product_path(product) %>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
