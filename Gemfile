@@ -40,6 +40,12 @@ gem 'spring',        group: :development
 
 gem 'minitest', '~>5.3.4'
 
+gem "simple_form", "~> 3.0.0.rc"
+
+#使用者帳號管理
 gem 'devise' 
 
 gem 'bootstrap-sass'
+
+#圖片上傳
+gem 'carrierwave'

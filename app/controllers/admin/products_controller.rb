@@ -18,12 +18,38 @@ class Admin::ProductsController < ApplicationController
     end
 
     def index
-    @product = Product.all
+        @products = Product.all
+    end
+
+    def show
+        @product = Product.find(params[:id])
+    end
+
+    def edit
+        @product = Product.find(params[:id])
+    end
+
+    def update
+        @product = Product.find(params[:id])
+
+        if @product.save(product_params)
+            redirect_to admin_products_path(@product)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @product = Product.find(params[:id])
+
+        @product.destroy
+
+        redirect_to admin_products_path
     end
 
     private
 
     def product_params
-	   params.require(:product).permit(:title, :description, :quantity)
+	   params.require(:product).permit(:title, :description, :quantity, :photo)
     end
 end
