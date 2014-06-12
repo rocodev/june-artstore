@@ -5,4 +5,8 @@ Rails.application.routes.draw do
     resources :products
   end
 
+
+  resources :procuts
+
+  root :to => "products#index"
 end
