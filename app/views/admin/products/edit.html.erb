@@ -1,25 +1,20 @@
-<%= form_for [:admin, @product], :html => {:multipart => true} do |f| %>
+<div class="col-sm-3 col-sm-offset-4">
+  <h2>Edit Product</h2>
+  <%= simple_form_for [:admin, @product], :html => {:multipart => true} do |f| %>
 
-  <div class="group">
-    <%= f.label("標題") %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="group">
-    <%= f.label("敘述") %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="group">
-    <%= f.label("數量") %>
-    <%= f.text_field :quantity %>
-  </div>
-  <div class="group">
-    <%= f.file_field :image %>
-  </div>
-  <div class="group">
-    <%= f.label("Or image URL") %>
-    <%= f.text_field :remote_image_url %>
-  </div>
+    <div>  
+    <%= f.input :title, :input_html => {:class => "input"} %>
+    </div>
+    <%= f.input :description, :input_html => {:class => "input"} %>
+    <%= f.input :quantity, :input_html => {:class => "input"} %>
+    <%= f.input :image, :input_html => {:class => "input"} %>
+    <%= f.input :remote_image_url, label: "Or image URL", :input_html => {:class => "input"} %>
 
-  <%= f.submit "Submit", :disable_with => "Submiting..." %>
 
-  <% end %>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :disable_with => "Submiting...", :class => "btn btn-mini btn-success" %>
+
+    </div>
+    <% end %>
+</div>

@@ -1,5 +1,5 @@
 <div>
-<table>
+<!-- <table class="jumbotron">
   <thead>
     <tr>
       <td> Photo </td>
@@ -17,7 +17,22 @@
       
     </tr>
   </tbody>
-</table>
+</table> -->
+
+
+<div class="container">
+  <div class="show-photo img-thumbnail">
+  <%= image_tag @product.image_url(:thumb).to_s %>
+  </div>
+  <div class="show-div">
+    <p class="show-title"> <%= @product.title %> </p>
+    <hr>
+    <p class="show-description"> <%= @product.description %> </p>
+    <hr>
+    <p class="show-quantity"> <%= "數量:" + @product.quantity.to_s %> </p>
+  </div>
+</div>
+
 
 
 <div></div>

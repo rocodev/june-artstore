@@ -1,18 +1,18 @@
+<div class="col-sm-3 col-sm-offset-4">
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  
+  <%= f.input :email, :autofocus => true, :require => true, :input_html => {:class => "input"} %>
+  <%= f.input :password, :require => true, :input_html => {:class => "input"} %>
+  <%= f.input :password_confirmation, :require => true, :input_html => {:class => "input"} %>
+  
+  <div class="form-actions">
+    <%= f.submit "Sign up", :class => "btn btn-mini btn-primary" %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
