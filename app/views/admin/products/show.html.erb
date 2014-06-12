@@ -1,4 +1,16 @@
 
+<br>
 This is the show page 
 <br>
+<br>
+
 <%= @product.title %> <%= @product.description %>
+<br> 
+產品照片:
+<br>
+<%= image_tag(@product.product_img_url(:normal)) if @product.product_img.present? %>
+
+
+<br>
+
+<%= link_to("back to index page", admin_products_path) %> 
