@@ -4,7 +4,11 @@ module ProductsHelper
     if photo.present?
       image_tag(photo.image.thumb.url, :class => "thumbnail")
     else
-      "no pic"
+      image_tag("http://placehold.it/200x200&text=No Pic", :class => "thumbnail")
     end
+  end
+
+  def render_product_name(product)
+    product.title
   end
 end
