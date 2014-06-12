@@ -2,8 +2,8 @@
  ✔ 管理者必須要有一個後台 @done (14-06-12 17:56)
  ✔ 後台必須要可以新增產品 @done (14-06-12 17:56)
  ✔ 產品內容必須要有標題、文字、數量 @done (14-06-12 18:02)
- ☐ 產品必須要有價格
- ☐ 產品內容必須要有圖片
+ ✔ 產品必須要有價格 @done (14-06-13 03:21)
+ ✔ 產品內容必須要有圖片 @done (14-06-13 03:21)
 
 身為商家的管理者，我要能夠在後台設定權限，權限分成管理者以及消費者:
    ☐ 身為管理者，才可以進入後台
@@ -23,10 +23,12 @@ Admin:
   ✔ Admin Should able to see admin panel link in dropdown menu @done (14-06-13 01:59)
     Product:
       ✔ Refine with Product List with table @done (14-06-13 02:14)
-
+      ☐ should able update image when create product
+      ☐ should able to upload image after update
+        
 其他:
  ✔ 套 Bootstrap 版 @done (14-06-12 18:33)
    ✔  Login / Logout using bootstrap nav @done (14-06-12 18:33)
    ✔ SimpleForm with Bootstrap @done (14-06-13 02:39)
- ☐ 安裝 Carrierwave
+ ✔ 安裝 Carrierwave @done (14-06-13 03:21)
 

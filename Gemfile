@@ -32,6 +32,9 @@ gem "devise"
 
 gem "bootstrap-sass"
 gem "simple_form", "3.1.0rc1"
+gem 'carrierwave'
+gem "mini_magick"
+
 
 group :development do 
   gem "annotate"
