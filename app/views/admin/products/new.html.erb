@@ -1,0 +1,47 @@
+<div class="container">
+    <%= simple_nested_form_for [:admin, @product], html: {multipart: true}  do |f| %>
+        <%= f.input :title, label: '標題' %>
+        <%= f.input :description, label: '敘述'  %>
+        <%= f.input :quantity, label: '數量', collection: 1..10  %>
+
+        <p><%= f.link_to_add "Add Photo", :photos, :data => { :target => "#photos_upload" }, class: 'btn btn-success'%></p>
+        <table id="photos_upload" class="table">
+          <%= f.fields_for :photos, :wrapper => false do |photo_form| %>
+          <tr class="fields">
+            <td><%= photo_form.file_field :photo %></td>
+            <td><%= photo_form.link_to_remove "remove" , :class => 'btn btn-danger'%></td>
+          </tr>
+          <% end %>
+        </table>
+        <%= f.submit 'Submit', disable_with: 'Submiting ...', :class => 'btn btn-primary btn-lg'%>
+
+        <%= javascript_tag do %>
+            $(function() {
+            var fieldsCount,
+            maxFieldsCount = 2,
+            $addLink = $('a.add_nested_fields');
+
+            function toggleAddLink() {
+                $addLink.toggle(fieldsCount <= maxFieldsCount)
+            }
+
+            $(document).on('nested:fieldAdded', function() {
+                fieldsCount += 1;
+                toggleAddLink();
+            });
+
+            $(document).on('nested:fieldRemoved', function() {
+                fieldsCount -= 1;
+                toggleAddLink();
+            });
+
+            // count existing nested fields after page was loaded
+            fieldsCount = $('form .fields').length;
+                toggleAddLink();
+            })
+        <% end %>
+
+    <% end %>
+</div>
+
+

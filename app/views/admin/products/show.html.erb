@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-md-6">
+    <h2>照片</h2>
+    <ul>
+      <% @product.photos.each do |photo| %>
+          <li><img style="width: 300px; height: 300px;" src="<%= photo.image %>"></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>標題</h2>
+    <p><%= @product.title %></p>
+    <h2>敘述</h2>
+    <p><%= @product.description %></p>
+  </div>
+</div>
