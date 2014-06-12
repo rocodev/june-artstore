@@ -1,5 +1,5 @@
+<h2 class = "text-center"> 修改商品 </h2>
 
-<h2 class = "text-center"> 新增商品 </h2>
 <%= simple_form_for [:admin, @product] do |f| %>
 
   <div class = "group">
@@ -17,10 +17,5 @@
   	<%= f.text_field :quantity %>
   </div>
 
-  <div class="group">
-    <%= f.input :photo, as: :file, label: '照片上傳' %> 
-  </div>
-
   <%= f.submit "Submit", :disable_with => 'Submiting...' %> 	
 <% end %>
- 	

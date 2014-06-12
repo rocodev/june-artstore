@@ -11,6 +11,7 @@
 		<td> 商品名稱 </td>
 		<td> 敘述 </td>
 		<td> 數量 </td>
+		<td> 功能 </td>
 	</tr>
 	</thead>
 
@@ -21,6 +22,8 @@
    		<td><%= link_to(product.title, admin_product_path(product)) %></td>
    		<td><%= product.description %></td>
    		<td><%= product.quantity %></td>
+   		<td><%= link_to("Edit",edit_admin_product_path(product), :class => "btn btn-mini") %>
+   			<%= link_to("Delete", admin_product_path(product), :class=> "btn btn-mini", :method => :delete, :comfirm => "Are u sure?") %></td>
    	</tr>
    <% end %>
    </tbody>
