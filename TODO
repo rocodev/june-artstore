@@ -21,6 +21,8 @@
 
 Admin:
   ✔ Admin Should able to see admin panel link in dropdown menu @done (14-06-13 01:59)
+    Product:
+      ✔ Refine with Product List with table @done (14-06-13 02:14)
 
 其他:
  ✔ 套 Bootstrap 版 @done (14-06-12 18:33)

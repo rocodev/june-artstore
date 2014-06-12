@@ -1,9 +1,24 @@
 
-<ul>
-<% @products.each do |product| %>
+<h2> Product List </h2>
 
-  <li> <%= link_to(product.title, admin_product_path(product)) %> </li>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Product Name</th>
+      <th>Manage Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td> <%= product.id %>
+      <td> <%= link_to(product.title, admin_product_path(product)) %> </td>
+      <td># TBD </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
 
 
-</ul>
