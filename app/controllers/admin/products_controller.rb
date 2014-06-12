@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-
+    # todo : 要改成 user has many :products, 不然誰登入後知道路徑都可以刪除?
     @product = Product.new(product_params)
 
     if @product.save
@@ -46,6 +46,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def destroy
+    # todo : 要改成 user has many :products, 不然誰登入後知道路徑都可以刪除?
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to admin_products_path
@@ -55,6 +56,13 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :description, :quantity, tasks_attributes: [:id, :name, :_destroy])
+  end
+
+  def admin_required
+    if !current_user.is_admin
+      flash[:alert] = 'you have no permission!'
+      redirect_to root_url
+    end
   end
 
 end
