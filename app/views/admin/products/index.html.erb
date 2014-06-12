@@ -1,0 +1,27 @@
+<div class="pull-right">
+	<%= link_to("新增產品", new_admin_product_path, :class => "btn btn-primary") %>
+</div>
+<div class="container">
+<h1>產品列表</h1>
+	<table class="table">
+		<tr>
+			<th>ID</th>
+			<th class="col-md-6">產品名稱</th>
+			<th>剩餘數量</th>
+			<th>狀態</th>
+			<th class="col-md-2">功能</th>
+		</tr>
+		<% @products.each do |product| %>
+			<tr>
+				<td><%= product.id%></td>
+				<td><%= link_to(product.name, admin_product_path(product)) %></td>
+				<td><%= product.quantity %></td>
+				<td class="text-center">草稿</td>
+				<td class="text-right">
+					<%= link_to("編輯", edit_admin_product_path(product), :class => "btn btn-primary") %>
+					<%= link_to("刪除", admin_product_path(product), :class => "btn btn-default", :method => :delete,  :confirm => "Are you sure?") %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>

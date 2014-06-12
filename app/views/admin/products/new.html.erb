@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+	<%= f.input :name, placeholder: '產品名稱', :input_html => { :class => 'input'} %>
+	<%= f.input :description, placeholder: '產品敘述', :input_html => { :class => 'input'}  %>
+	<%= f.input :quantity, placeholder: '數量', :input_html => { :class => 'input'}  %>
+	<%= f.input :price, placeholder: '價格', :input_html => { :class => 'input'}  %>
+	<%= f.submit "送出", :disable_with => "送出中 ... ", :class => 'btn btn-primary' %>
+<% end %>
+
