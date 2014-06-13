@@ -5,25 +5,46 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="/assets/bootstrap.min.css?body=1">
+  <link rel="stylesheet" href="/assets/bootstrap.min.css">
 </head>
 <body>
 
-
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/admin/products">斑馬購物商城</a>   
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/admin/products">斑馬購物商城</a> 
+      
+
+    </div>
+     <p class="navbar-text pull-right">
+       <% if user_signed_in? %>
+          <strong><%= current_user.email %></strong>
+          <%= link_to "帳號", edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "登出", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+       <% else %>
+            <%= link_to "註冊", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "登入", new_user_session_path, :class => 'navbar-link'  %>
+       <% end %>
+     </p>
     </div>
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  <strong><%= current_user.email %></strong>.
-  <%= link_to "帳號", edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "登出", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "註冊", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "登入", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+    
+
+  </div>
+</nav>  
+
+
+
+
+
+
+
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
