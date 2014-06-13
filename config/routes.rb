@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  get 'photos/create'
+  get 'photos/destroy'
+  
+  devise_for :users
+    namespace :admin do 
+      resources :products          
+  end 
+  
+  resources :products do
+    resource :photos
+  end   
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

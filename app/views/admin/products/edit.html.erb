@@ -1,0 +1,25 @@
+<h3 class ="text">Let's do some Edit !!! Upload Some Photos</h3>
+
+<%= form_for @product do |f| %>
+
+  <table>
+   <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+    <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+   <p>
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity%>
+  </p>
+
+  </table>
+
+  <% end %>
+
+<div class ="container">
+<%= render "photos/form" %>
+</div>

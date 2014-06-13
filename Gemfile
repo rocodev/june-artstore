@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
@@ -37,4 +38,15 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# 上傳圖片用
+gem "carrierwave"
+# 
+gem "bootstrap-sass"
+# 身分驗證用
+gem "devise"
+# simple_form 
+gem 'simple_form'
+
+
 

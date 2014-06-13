@@ -1,0 +1,24 @@
+
+<li><%= @product.title %></li>
+<li><%= @product.description %></li>
+<li><%= @product.quantity %></li>
+
+
+
+<h1>Let me show some photos</h1>
+
+<% @product.photos.each do |photo| %>
+<tr>
+<td><%= photo.image_name %></td>>
+<td><%= image_tag photo.image_url%></td>>
+<!-- adding photo delete-->
+
+
+</tr>
+<% end %>
+
+
+
+</nav>
+
+
