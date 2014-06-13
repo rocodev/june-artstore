@@ -1,0 +1,24 @@
+<h2> 產品列表 </h2>
+
+<div>
+  <%= link_to "新增產品", new_admin_product_path %>
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>名稱</th>
+    <th>描述</th>
+    <th>數量</th>
+  </tr>
+
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.id %></td>
+    <td><%= link_to product.title, admin_product_path(product.id) %></td>
+    <td><%= truncate(product.description, length: 70) %></td>
+    <td><%= product.quantity %></td>
+    <td><%= link_to "編輯", edit_admin_product_path(product.id) %></td>
+  </tr>
+  <% end %>
+</table>
