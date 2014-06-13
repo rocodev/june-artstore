@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'static_pages/LayoutSample'
+
   devise_for :users
   namespace :admin do
     resources :products
