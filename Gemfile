@@ -43,3 +43,6 @@ gem 'bootstrap-sass'
 
 # Use simple form
 gem 'simple_form'
+
+# Use carrierwave
+gem 'carrierwave'
