@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
   end
+
+  resources :products
+
+  # 暫時先把 root 放到這邊
+  root :to => "products#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
