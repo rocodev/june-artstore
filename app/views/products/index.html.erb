@@ -1,7 +1,7 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <%= link_to(product.title, products_path(product)) %>
+      <%= link_to(product.title, product_path(product)) %>
     </li>
   <% end %>
 </ul>
