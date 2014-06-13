@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="http://artstore.dev/admin/products">Art Store</a>
+              <div class="navbar-brand"><%= link_to("Art Store", admin_products_path) %></div>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -19,10 +19,11 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 -->
+
                 <li> <%= link_to("New Product", new_admin_product_path) %> </li>
-                <li class="dropdown">
+                                <li class="dropdown-right nav-dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu nav-dropdown-menu">
 
                     <% if current_user %>
                     <li> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %> </li>
@@ -38,6 +39,13 @@
                     -->
                   </ul>
                 </li>
+                <form class="navbar-form navbar-right" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                
               </ul>
             </div>
           </div>
