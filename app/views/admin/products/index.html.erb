@@ -17,16 +17,16 @@
 
   <tbody>
   	<% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.picture_url(:thumb) if product.picture.present? %></td>
-        <td><%= link_to product.title, admin_product_path(product) %></td>
-        <td><%= product.description %></td>
-        <td><%= product.quantity %></td>
-        <td></td>
-        
-        <td><%= link_to '編輯', edit_admin_product_path(product) %></td>
-        <td><%= link_to '刪除', admin_product_path(product), method: :DELETE, data: { confirm: '你確定要刪除這筆資料嗎?' } %></td>
-      </tr>
+    <tr>
+      <td><%= image_tag product.picture_url(:thumb) if product.picture.present? %></td>
+      <td><%= link_to product.title, admin_product_path(product) %></td>
+      <td><%= product.description %></td>
+      <td><%= product.quantity %></td>
+      <td></td>
+      
+      <td><%= link_to '編輯', edit_admin_product_path(product) %></td>
+      <td><%= link_to '刪除', admin_product_path(product), method: :DELETE, data: { confirm: '你確定要刪除這筆資料嗎?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
