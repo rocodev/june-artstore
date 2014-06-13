@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  product_name :string(255)
-#  price        :integer
+#  price        :float
 #  quantity     :integer
 #  order_id     :integer
 #  created_at   :datetime
