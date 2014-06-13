@@ -40,6 +40,8 @@ gem "aasm"
 
 group :development do 
   gem "annotate"
+  gem "letter_opener"
+  gem 'roadie'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
