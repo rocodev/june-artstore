@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140613034055) do
     t.string   "title"
     t.text     "description"
     t.integer  "quantity"
+    t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

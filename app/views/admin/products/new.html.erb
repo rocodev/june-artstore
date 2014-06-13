@@ -1,23 +1,4 @@
-<h1>新增產品</h1>
+<h1>新增商品</h1>
 
-<%= form_for [:admin, @product] do |f| %>
-  <div class="group">
-   <%= f.label("產品名稱") %>
-   <%= f.text_field :title %>
-  </div>
+<%= render 'form' %>
 
-  <div class="group">
-  	<%= f.label("敘述") %>
-  	<%= f.text_area :description %>
-  </div>
-
-  <div class="group">
-  	<%= f.label("數量") %>
-  	<%= f.number_field :quantity %>
-
-  </div>
-
-  <%= f.submit "送出", :disable_with => 'Submiting...' %>
-  <%= link_to "取消", admin_products_path %>
-
-  <% end %>
