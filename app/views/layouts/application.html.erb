@@ -5,10 +5,53 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="/assets/bootstrap.min.css">
+
 </head>
 <body>
 
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/admin/products">斑馬購物商城</a> 
+      </div>
+
+      <div class="navbar-collapse collapse">
+       <div class="navbar-text pull-right">
+        <ul class="nav navbar-nav">
+         <% if user_signed_in? %>
+         <li><strong><%= current_user.email %></strong></li>
+         <li><%= link_to "帳號", edit_user_registration_path, :class => 'navbar-link' %> </li>
+         <li> <%= link_to "登出", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+         <% else %>
+         <li> <%= link_to "註冊", new_user_registration_path, :class => 'navbar-link'  %> </li>
+         <li><%= link_to "登入", new_user_session_path, :class => 'navbar-link'  %></li>
+         <% end %>
+        </ul>
+       </div>
+     </div>
+
+    </div>
+</nav>  
+</br>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+</br>
+
 <%= yield %>
+
+
 
 </body>
 </html>
