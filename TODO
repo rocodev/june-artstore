@@ -6,6 +6,7 @@
 			- [v] 建立 migration. @done (14-06-14 12:30)
 			- [v] model relations. @done (14-06-14 12:32)
 			- [v] 修改 CRUD actions. @done (14-06-14 12:40) 
+			- [v] 自己的文章只有自己可以改  @done (14-06-14 13:17)
 		- [ ] 身為商家的管理者，我要能夠在後台新增產品 
 			-	[v] 身為商家的管理者，新增產品的時候可以輸入 商品名稱 商品敘述 商品價格 商品數量 (use simple form)
 			- [ ] 商品照片 (add carrierwave)

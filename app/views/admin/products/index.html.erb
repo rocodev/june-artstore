@@ -18,8 +18,10 @@
 				<td><%= product.quantity %></td>
 				<td class="text-center">草稿</td>
 				<td class="text-right">
-					<%= link_to("編輯", edit_admin_product_path(product), :class => "btn btn-primary") %>
-					<%= link_to("刪除", admin_product_path(product), :class => "btn btn-default", :method => :delete,  :confirm => "Are you sure?") %>
+					<% if current_user && product.editable_by?(current_user) %>
+						<%= link_to("編輯", edit_admin_product_path(product), :class => "btn btn-primary") %>
+						<%= link_to("刪除", admin_product_path(product), :class => "btn btn-default", :method => :delete,  :confirm => "Are you sure?") %>
+					<% end %>
 				</td>
 			</tr>
 		<% end %>
