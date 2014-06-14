@@ -6,7 +6,8 @@
 	<table class="table">
 		<tr>
 			<th>ID</th>
-			<th class="col-md-6">產品名稱</th>
+			<th class="col-md-1">縮圖</th>
+			<th class="col-md-3">產品名稱</th>
 			<th>剩餘數量</th>
 			<th>狀態</th>
 			<th class="col-md-2">作者</th>
@@ -14,7 +15,8 @@
 		</tr>
 		<% @products.each do |product| %>
 			<tr>
-				<td><%= product.id%></td>
+				<td><%= product.id %></td>
+				<td><%= image_tag(product.photos.first.image.thumb.url, :class => "thumbnail") if product.photos.first.present? %></td>
 				<td><%= link_to(product.name, admin_product_path(product)) %></td>
 				<td><%= product.quantity %></td>
 				<td class="text-center">草稿</td>
