@@ -1,4 +1,4 @@
-<h2>新增產品</h2>
+<h2>編輯產品 <%= @product.title %></h2>
 
 <%= simple_nested_form_for [:admin, @product], html: {multipart: true, class: 'form form-horizontal'}  do |f| %>
 
@@ -50,27 +50,27 @@
 
 <%= javascript_tag do %>
     $(function() {
-        var fieldsCount,
-        maxFieldsCount = 2,
-        $addLink = $('a.add_nested_fields');
+    var fieldsCount,
+    maxFieldsCount = 2,
+    $addLink = $('a.add_nested_fields');
 
-        function toggleAddLink() {
-            $addLink.toggle(fieldsCount <= maxFieldsCount)
-        }
+    function toggleAddLink() {
+    $addLink.toggle(fieldsCount <= maxFieldsCount)
+    }
 
-        $(document).on('nested:fieldAdded', function() {
-            fieldsCount += 1;
-            toggleAddLink();
-        });
+    $(document).on('nested:fieldAdded', function() {
+    fieldsCount += 1;
+    toggleAddLink();
+    });
 
-        $(document).on('nested:fieldRemoved', function() {
-            fieldsCount -= 1;
-            toggleAddLink();
-        });
+    $(document).on('nested:fieldRemoved', function() {
+    fieldsCount -= 1;
+    toggleAddLink();
+    });
 
-        // count existing nested fields after page was loaded
-        fieldsCount = $('form .fields').length;
-        toggleAddLink();
+    // count existing nested fields after page was loaded
+    fieldsCount = $('form .fields').length;
+    toggleAddLink();
     })
 <% end %>
 
