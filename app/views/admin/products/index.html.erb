@@ -1,22 +1,19 @@
-<div class="container">
-    <%= link_to 'NEW', new_admin_product_path, class: 'btn btn-primary pull-right' %>
-    <table class="table">
-      <thead>
-      <tr>
-        <td>標題</td>
-        <td>建立時間</td>
-        <td></td>
-      </tr>
-      </thead>
-      <tbody>
-      <% @products.each do |product| %>
-          <tr>
-            <td><%= link_to product.title, admin_product_path(product)%></td>
-            <td><%= product.created_at.to_s :long %></td>
-            <td><%= link_to 'delete', admin_product_path(product), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure ?' } %></td>
-          </tr>
-          </tbody>
-      <% end %>
-      </table>
-  </div>
-</div>
+<h2>Product List</h2>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Manage Option</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+  <tr>
+    <td> <%= product.id %></td>
+    <td> <%= link_to product.title, admin_product_path(product) %> </td>
+    <td> #TBD </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
