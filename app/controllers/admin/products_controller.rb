@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def create
-		@product = Product.new(product_params)
+		@product = current_user.products.build(product_params)
 
 		if @product.save
 			redirect_to admin_products_path
@@ -31,11 +31,11 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def edit
-		@product = Product.find(params[:id])
+		@product = current_user.products.find(params[:id])
 	end
 
 	def update
-		@product = Product.find(params[:id])
+		@product = current_user.products.find(params[:id])
 
 		if @product.update(product_params)
 			redirect_to admin_products_path(@product)
@@ -46,7 +46,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def destroy
-		@product = Product.find(params[:id])
+		@product = current_user.products.find(params[:id])
 		@product.destroy
 
 		redirect_to admin_products_path
