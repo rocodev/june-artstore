@@ -1,55 +1,55 @@
 class Admin::ProductsController < ApplicationController
 
-    before_action :authenticate_user!
-    before_action :admin_required
+  before_action :authenticate_user!
+  before_action :admin_required
 
-    def new
-	   @product = Product.new
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to admin_products_path
+    else
+      render :new
     end
+  end
 
-    def create
-	   @product = Product.new(product_params)
- 
-        if @product.save
-	       redirect_to admin_products_path
-	    else
-	       render :new
-	   end
+  def index
+    @products = Product.all
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.save(product_params)
+      redirect_to admin_products_path(@product)
+    else
+      render :edit
     end
+  end
 
-    def index
-        @products = Product.all
-    end
+  def destroy
+    @product = Product.find(params[:id])
 
-    def show
-        @product = Product.find(params[:id])
-    end
+    @product.destroy
 
-    def edit
-        @product = Product.find(params[:id])
-    end
+    redirect_to admin_products_path
+  end
 
-    def update
-        @product = Product.find(params[:id])
+  private
 
-        if @product.save(product_params)
-            redirect_to admin_products_path(@product)
-        else
-            render :edit
-        end
-    end
-
-    def destroy
-        @product = Product.find(params[:id])
-
-        @product.destroy
-
-        redirect_to admin_products_path
-    end
-
-    private
-
-    def product_params
-	   params.require(:product).permit(:title, :description, :quantity, :photo)
-    end
+  def product_params
+    params.require(:product).permit(:title, :description, :quantity, :photo)
+  end
 end

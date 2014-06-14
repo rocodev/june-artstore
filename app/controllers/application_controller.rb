@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def admin_required
-  	current_user.admin?
+    current_user.admin?
   end
-  
+
 end
