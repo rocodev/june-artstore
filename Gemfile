@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 # Use bootstap 3
 gem 'bootstrap-sass'
 
+# Use rails_layout to generate layout of bootstrap
+gem 'rails_layout', group: :development
+
 # Use simple form
 gem 'simple_form', "3.1.0rc1"
 
