@@ -9,6 +9,7 @@
 			<th class="col-md-6">產品名稱</th>
 			<th>剩餘數量</th>
 			<th>狀態</th>
+			<th class="col-md-2">作者</th>
 			<th class="col-md-2">功能</th>
 		</tr>
 		<% @products.each do |product| %>
@@ -17,6 +18,10 @@
 				<td><%= link_to(product.name, admin_product_path(product)) %></td>
 				<td><%= product.quantity %></td>
 				<td class="text-center">草稿</td>
+				<td>
+					<%= product.creater.email %><br>
+					<%= product.created_at.localtime.strftime("%Y-%m-%d %T") %>
+				</td>
 				<td class="text-right">
 					<% if current_user && product.editable_by?(current_user) %>
 						<%= link_to("編輯", edit_admin_product_path(product), :class => "btn btn-primary") %>
