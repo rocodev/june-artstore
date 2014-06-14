@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
+  before_action :authenticate_user! # Devise Helper
+  before_action :admin_required
 
   def index
     @products = Product.all
