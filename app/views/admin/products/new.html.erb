@@ -1,47 +1,70 @@
-<div class="container">
-    <%= simple_nested_form_for [:admin, @product], html: {multipart: true}  do |f| %>
-        <%= f.input :title, label: '標題' %>
-        <%= f.input :description, label: '敘述'  %>
-        <%= f.input :quantity, label: '數量', collection: 1..10  %>
+<h2>新增產品</h2>
 
+<%= simple_nested_form_for [:admin, @product], html: {multipart: true, class: 'form form-horizontal'}  do |f| %>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+        <%= f.input :title, label: '標題' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+        <%= f.input :description, label: '敘述', as: :text %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <%= f.input :quantity, label: '數量', collection: 1..10  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
         <p><%= f.link_to_add "Add Photo", :photos, :data => { :target => "#photos_upload" }, class: 'btn btn-success'%></p>
         <table id="photos_upload" class="table">
           <%= f.fields_for :photos, :wrapper => false do |photo_form| %>
-          <tr class="fields">
-            <td><%= photo_form.file_field :photo %></td>
-            <td><%= photo_form.link_to_remove "remove" , :class => 'btn btn-danger'%></td>
-          </tr>
+              <tr class="fields">
+                <td><%= photo_form.file_field :photo %></td>
+                <td><%= photo_form.link_to_remove "remove" , :class => 'btn btn-danger'%></td>
+              </tr>
           <% end %>
         </table>
-        <%= f.submit 'Submit', disable_with: 'Submiting ...', :class => 'btn btn-primary btn-lg'%>
+      </div>
+    </div>
 
-        <%= javascript_tag do %>
-            $(function() {
-                var fieldsCount,
-                maxFieldsCount = 2,
-                $addLink = $('a.add_nested_fields');
 
-                function toggleAddLink() {
-                    $addLink.toggle(fieldsCount <= maxFieldsCount)
-                }
 
-                $(document).on('nested:fieldAdded', function() {
-                    fieldsCount += 1;
-                    toggleAddLink();
-                });
+    <div class="form-group">
+      <%= f.submit 'Submit', disable_with: 'Submiting ...', :class => 'btn btn-default'%>
+    </div>
 
-                $(document).on('nested:fieldRemoved', function() {
-                    fieldsCount -= 1;
-                    toggleAddLink();
-                });
+<% end %>
 
-                // count existing nested fields after page was loaded
-                fieldsCount = $('form .fields').length;
-                toggleAddLink();
-            })
-        <% end %>
+<%= javascript_tag do %>
+    $(function() {
+        var fieldsCount,
+        maxFieldsCount = 2,
+        $addLink = $('a.add_nested_fields');
 
-    <% end %>
-</div>
+        function toggleAddLink() {
+            $addLink.toggle(fieldsCount <= maxFieldsCount)
+        }
 
+        $(document).on('nested:fieldAdded', function() {
+            fieldsCount += 1;
+            toggleAddLink();
+        });
+
+        $(document).on('nested:fieldRemoved', function() {
+            fieldsCount -= 1;
+            toggleAddLink();
+        });
+
+        // count existing nested fields after page was loaded
+        fieldsCount = $('form .fields').length;
+        toggleAddLink();
+    })
+<% end %>
 

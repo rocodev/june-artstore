@@ -48,7 +48,7 @@ gem 'bootstrap-sass'
 
 # simple_form replace by form
 
-gem 'simple_form'
+gem 'simple_form', '3.1.0rc1'
 
 # photo upload
 
@@ -57,3 +57,9 @@ gem 'carrierwave'
 # upload image for form
 
 gem 'nested_form'
+
+# it will add schema for your model.rb
+
+group :development do
+  gem 'annotate'
+end
