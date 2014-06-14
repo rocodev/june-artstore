@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'static_pages/LayoutSample'
+  get 'static_pages/LayoutSP'
 
   devise_for :users
   namespace :admin do

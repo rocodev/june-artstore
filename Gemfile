@@ -34,6 +34,8 @@ gem 'mini_magick'
 
 gem 'css3buttons'
 
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -3,9 +3,8 @@
 
 <%= render 'layouts/header' %> 
 <body>
-<%= render 'layouts/navbar' %>
-
-
+<div class="container">
+  <%= render 'layouts/navbar' %>
 
  <% if !current_user %> 
      <%= link_to("登入", new_user_session_path)   %>
@@ -13,8 +12,13 @@
 	 <%= link_to("登出", destroy_user_session_path, :method => :delete ) %>  
  <% end  %>
 
+<div class="row">
+	<div class="col-md-9"> <h2> left block </h2> </div>
+	<div class="col-md-3"> <h2> right block </h2></div>
+</div>
 
 <%= yield %>
 
+</div>
 </body>
 </html>
