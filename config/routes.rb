@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'admin/products#index'
+  root 'products#show'
 
   devise_for :users
   
