@@ -50,4 +50,7 @@ gem 'simple_form', "3.1.0rc1"
 # Use carrierwave
 gem 'carrierwave'
 
+# Use MiniMagick (less memory footprint then RMagick)
+gem "mini_magick"
+
 gem "devise"
