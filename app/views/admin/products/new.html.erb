@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @product], :html => { :multipart => true } do |f| %>
+<%= simple_form_for [:admin, @product], :html => { :multipart => true, :class => "form form-horizontal" } do |f| %>
 
 	<div class="group">
 		<%= f.input :title, :label => "標題", :required => true, :autofocus => true %>
@@ -15,11 +15,13 @@
 		<%= f.input :quantity, :required => true, :label => "數量" %>
 	</div>
 
-	<div class="group">
-		<%= f.file_field :image %>
-		<%= f.hidden_field :image_cache %>
-	</div>
 
+	
+	<div class="group">
+		<%= f.simple_fields_for :photos do |c| %>
+			<%= c.input :image, :as => :file %>
+		<% end %>
+	</div>
 <!-- ffs -->
 	<%= f.button :submit, "送出", :disable_with => "Submiting ...", class: "btn-success" %>
 

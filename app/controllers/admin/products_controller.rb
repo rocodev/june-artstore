@@ -9,21 +9,22 @@ class Admin::ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
+		@photo = @product.photos.new
 	end
 
 	def create
 		@product = Product.new(product_params)
+		#render plain: @product.inspect
+		#@product.save
 
-		@product.save
-
-		@image = @product.photos.build(image_params)
+		#@image = @product.photos.build(image_params)
 		#@image.image = File.open('public/imageupload')
-		if @image.save
+		
+		if @product.save
 			redirect_to(admin_products_path)
 			flash[:message] = "上架成功！"
 		else
 			render :new
-			flash[:message] = "上架失敗！"
 		end
 	end
 
@@ -46,11 +47,11 @@ class Admin::ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:title, :description, :quantity, :price)
+		params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes => [:image])
 	end
 
-	def image_params
-		params.require(:product).permit(:image)
-	end
+	#def image_params
+	#	params.require(:product).permit(:image)
+	#end
 
 end
