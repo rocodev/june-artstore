@@ -1,0 +1,16 @@
+<div class="container">
+ <div class="row">
+  <div class="text-center col-md-6">
+    <p>商品圖片</p>
+		<p><%=  image_tag(@photo.image) %></p>
+  </div>
+  <div class="col-md-6">
+   <p class="text-center">商品介紹</p>
+   <p> 產品名稱： <%= @product.title %></p>
+   <p> 產品描述： <%= @product.description %></p>
+   <p> 產品價格：<%= @product.price %> 美金</p>
+   <p> 產品庫存：<%= @product.quantity %>個</p>
+   <p><%= link_to("加入購物車", "#", class: "btn btn-success btn-xs") %></p>
+  </div>
+ </div>
+</div>

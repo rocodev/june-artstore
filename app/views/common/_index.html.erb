@@ -1,0 +1,27 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>商品</th>
+			<th>基本敘述</th>
+			<th>數量</th>
+			<th>操作</th>
+			<th>上架日期</th>
+		</tr>
+		<tbody>
+<% @products.each { |product| %>
+			<tr>
+				<td><%= link_to(product.title, product_path(product)) %></td>
+				<td><%= product.description %></td>
+				<td><%= product.quantity %></td>
+				<td>
+					<%= link_to("編輯", "#", class: "btn btn-success btn-xs") %>
+				</td>
+				<td><%= distance_of_time_in_words(Time.now, product.created_at, include_seconds: true) %>前
+					<%= link_to("下架商品", admin_product_path(product) , class: "", 
+					data: { confirm: "確定要刪除嗎 ?" }, 
+					:method => "delete") %></td>
+			</tr>
+<% } %>
+		</tbody>
+	</thead>
+</table>

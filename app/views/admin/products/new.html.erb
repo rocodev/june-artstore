@@ -1,0 +1,28 @@
+<%= simple_form_for [:admin, @product], :html => { :multipart => true, :class => "form form-horizontal" } do |f| %>
+
+	<div class="group">
+		<%= f.input :title, :label => "標題", :required => true, :autofocus => true %>
+	</div>
+<!-- ffta -->
+	<div class="group">
+		<%= f.input :description, :required => true,:required => true, :label => "敘述" %>
+	</div>
+	<div class="group">
+		<%= f.input :price, :required => true, :label => "金額" %>
+	</div>
+<!-- fftf -->
+	<div class="group">
+		<%= f.input :quantity, :required => true, :label => "數量" %>
+	</div>
+
+
+	
+	<div class="group">
+		<%= f.simple_fields_for :photos do |c| %>
+			<%= c.input :image, :as => :file %>
+		<% end %>
+	</div>
+<!-- ffs -->
+	<%= f.button :submit, "送出", :disable_with => "Submiting ...", class: "btn-success" %>
+
+<% end %>
