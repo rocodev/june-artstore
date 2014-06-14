@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :products
   end
 
+  resources :products
+
   #namespace
   #要把admin功能關起來，所以用namespace來設定。
 
