@@ -38,6 +38,7 @@ gem "mini_magick"
 
 group :development do 
   gem "annotate"
+  gem "better_errors"
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
