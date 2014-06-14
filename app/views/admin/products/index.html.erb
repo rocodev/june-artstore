@@ -16,7 +16,7 @@
 		<% @products.each do |product| %>
 			<tr>
 				<td><%= product.id %></td>
-				<td><%= image_tag(product.photos.first.image.thumb.url, :class => "thumbnail") if product.photos.first.present? %></td>
+				<td><%= render_product_photo_thumb(product.default_photo) %></td>
 				<td><%= link_to(product.name, admin_product_path(product)) %></td>
 				<td><%= product.quantity %></td>
 				<td class="text-center">草稿</td>

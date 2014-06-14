@@ -10,4 +10,8 @@ class Product < ActiveRecord::Base
 	def editable_by?(user)
 		user && user == creater
 	end
+
+	def default_photo
+		photos.first
+	end
 end
