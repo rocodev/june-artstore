@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
-namespace :admin do
+  namespace :admin do
+    resources :products
+  end
+
   resources :products
-end
 
-
+  root :to => "products#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
