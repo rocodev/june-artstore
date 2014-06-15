@@ -17,4 +17,11 @@ module Admin::ProductsHelper
 			image_tag("http://placehold.it/50x50&text=No+Photo", :class => "thumbnail")
 		end
 	end
+
+	# render product photo grid
+	def render_product_photo_grid(photos)
+		photos.each do |photo|
+			image_tag(photo.image.url)
+		end 
+	end
 end

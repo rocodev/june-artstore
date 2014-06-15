@@ -1,3 +1,6 @@
+<div class="pull-right">
+	<%= link_to("編輯產品", edit_admin_product_path(@product), :class => "btn btn-primary") %>
+</div>
 <h1>產品細節：<%= @product.name %> </h1>	
 
 <div class="container">
@@ -20,7 +23,9 @@
 		</tr>
 		<tr>
 			<th>產品照片</th>
-			<td><%=  %></td>
+			<td>
+				<%= render_product_photo_grid(@photos) %> 
+			</td>
 		</tr>
 	</table>
 </div>
