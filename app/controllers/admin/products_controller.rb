@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
+	include ApplicationHelper # To use application helper
+
 	before_action :authenticate_user!
 	before_action :admin_required
 
