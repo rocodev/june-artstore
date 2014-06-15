@@ -6,6 +6,7 @@ before_action :admin_required
 
 def new
 	@product = Product.new
+	@photo = @product.photos.new
 end
 
 def create
@@ -39,14 +40,13 @@ end
 def destroy
   @product = Product.find(params[:id])
   @product.destroy
-  flash[:notice] = "deleted"
-  redirect_to admin_products_path
+  redirect_to admin_products_path, :flash => { :notice => "deleted" }
 end
 
 private
 
 def product_params
-	params.require(:product).permit(:title, :description, :quantity, :price)
+	params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes => [:image])
 end
 
 end
