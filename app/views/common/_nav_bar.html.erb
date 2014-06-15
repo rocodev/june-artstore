@@ -4,6 +4,7 @@
   </div>
   <div>
     <ul class="nav navbar-nav pull-right">
+      <li><%= link_to("購物", products_path) %></li>
       <% if !current_user %>
         <li><%= link_to("登入", new_user_session_path) %></li>
       <% else %>
