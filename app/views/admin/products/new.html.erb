@@ -1,6 +1,6 @@
 <h2>新增產品</h2>
 
-<%= simple_nested_form_for [:admin, @product], html: {multipart: true, class: 'form form-horizontal'}  do |f| %>
+<%= simple_form_for [:admin, @product], html: {multipart: true, class: 'form form-horizontal'}  do |f| %>
 
     <div class="form-group">
       <div class="col-sm-10">
@@ -27,17 +27,9 @@
     </div>
 
     <div class="form-group">
-      <div class="col-sm-10">
-        <p><%= f.link_to_add "Add Photo", :photos, :data => { :target => "#photos_upload" }, class: 'btn btn-success'%></p>
-        <table id="photos_upload" class="table">
-          <%= f.fields_for :photos, :wrapper => false do |photo_form| %>
-              <tr class="fields">
-                <td><%= photo_form.file_field :photo %></td>
-                <td><%= photo_form.link_to_remove "remove" , :class => 'btn btn-danger'%></td>
-              </tr>
-          <% end %>
-        </table>
-      </div>
+      <%= f.simple_fields_for :photos do |c| %>
+        <%= c.input :image, as: :file %>
+      <% end %>
     </div>
 
 

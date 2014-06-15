@@ -14,7 +14,10 @@
   <% @products.each do |product| %>
   <tr>
     <td> <%= product.id %></td>
-    <td> <%= link_to product.title, admin_product_path(product) %> </td>
+    <td>
+      <%= render_product_photo(product.default_photo) %>
+      <%= link_to product.title, admin_product_path(product) %>
+    </td>
     <td> <%= link_to 'edit', edit_admin_product_path(product) %> </td>
   </tr>
   <% end %>
