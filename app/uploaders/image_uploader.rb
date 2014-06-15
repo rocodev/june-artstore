@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # 製作最長邊 500 的中等尺寸
-  version :midum do
+  version :mid do
     process :resize_to_fit => [500, 500]
   end
 
