@@ -1,14 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
-	#app/controller/admin/products_controller.rb
-	require 'carrierwave/orm/activerecord'
-
 	before_action :authenticate_user!
 	before_action :admin_required
-
-	def admin_required
-		current_user.admin?
-	end	
 
 	def index
 		@products = Product.all
@@ -16,6 +9,7 @@ class Admin::ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
+		@product.photos.new
 	end
 	
 	def create 
