@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x200" >
+      <div class="caption">
+        <h3><%= @product.title %></h3>
+        <p><%= @product.description %></p>
+        <p><%= @product.quantity %></p>
+        <tr> 
+          <% @product.photos.each do |photo| %>
+          <%= image_tag photo.image_url%>
+          <% end %> 
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

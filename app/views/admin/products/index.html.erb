@@ -1,0 +1,29 @@
+<ul>
+
+	<table class="table table-hover">
+		<tr>
+			<div class= "group">
+				<td>產品名稱</td>	
+				<td>數量</td>
+				<td>更新產品內容</td>
+				<td>刪除產品</td>
+			</div>
+		</tr>
+	</table>	
+
+	<table class="table table-hover">
+		<% @products.each do |product|%>
+		<tr>
+			<div class= "group">
+				<td><%= link_to product.title, admin_product_path(product) %></td>
+			</div>	
+			<div class= "group">
+				<td><%= product.quantity %> </td>
+			</div>	
+				<td><%=link_to 'Edit', edit_admin_product_path(product)%></td>
+				<td><%= link_to 'Delete',  admin_product_path(product), method: :delete, confirm: "Are you sure that you wish to delete #{product.title}?" %></td>	
+			</div>
+		</tr> 
+		<% end %>
+	</table>
+</ul>
