@@ -3,7 +3,14 @@
   <%= f.input :title, label: '標題' %>
   <%= f.input :description, label: '產品敘述' %>
   <%= f.input :quantity, label: '數量' %>
-
+  <!--
+  Wrapper to use Simple Form inside a default rails form.
+  It works in the same way that the fields_for Rails
+  helper, but change the builder to use the SimpleForm::FormBuilder.
+  -->
+  <%= f.simple_fields_for :photos do |c| %>
+      <%= c.input :image , :as => :file %>
+  <% end %>
   <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end %>
 
