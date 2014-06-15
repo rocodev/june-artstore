@@ -1,0 +1,88 @@
+User Story
+
+管理者
+  ☐ 後台上架，設定可賣
+    ☐ 上架商品，設定商品資訊 (品名、貨號)
+    ☐ 上傳商品照片 (自動產生不同 size 縮圖)
+    ☐ 設定庫存量
+    ☐ 設定重量、size，可計算運費
+  ☐ 商品可設定多類別 (類似 tag)
+  ☐ 後台設定使用者權限，指定管理者
+  ☐ 指定上架人員
+  ☐ 設定結帳方式的參數 (信用卡、ATM ... )
+  ☐ 設定 onsale 商品
+  ☐ 可刪除商品頁的留言
+  ☐ 說定 ip, 帳號黑名單做封鎖
+
+系統
+  ☐ 商品價格變動時，發信通知所有註記 "有興趣" 的消費者
+
+消費者
+  ☐ 可以註冊會員
+    ☐ 註冊完會收到歡迎信件
+  ☐ 可以查詢商品
+    ☐ 商品可註記 "有興趣"
+  ☐ 有圖文介面，可以瀏覽商品
+    ☐ 顯示 breadcrumb
+    ☐ 顯示 onsale 商品
+  ☐ 列出相關商品
+  ☐ 紀錄商品瀏覽次數
+  ☐ 匿名及登入者，皆可加商品到購物車
+  ☐ 購物車可以計算運費，要求消費者輸入送貨地址
+  ☐ 可以選擇 ATM，自動產生收款帳號
+  ☐ 可以選擇 paypal，導向 paypal 結帳頁面
+  ☐ 可以選擇信用卡，導向 https 結帳頁面
+  ☐ contact us 可 email 聯絡客服
+  ☐ 可在商品頁留言、討論
+
+
+
+ ☐ 管理者必須要有一個後台
+  rails g controller admin::products
+ ☐ 後台必須要可以新增商品
+ ☐ 產品內容必須要有標題、文字、數量
+  rails g model product title:string description:text quantity:integer
+
+  管理者可以在後台設定權限，分管理者與消費者
+    身為管理者才可以進後台
+    身為管理者，必須要登入且是 admin
+    權限分為 admin/user
+
+
+first time
+  git push -u origin mybranch
+
+Bonus (User story)
+  加入購物車 (Session)
+    顯示購物車內容
+    可修改數量，重新計算購物車價格
+    登入後，購物車保存在資料庫
+  結帳填寫資訊 (nested attributes)
+    填寫地址、收件人、電話
+  訂單寄送確認信 (Mailer with mailgun)
+  訂單狀態 (state_machine)
+    訂單分成幾個狀態，新建立->已結帳->已付款, *->作廢
+    使用者後台有訂單列表、訂單明細
+    未付款可取消訂單
+    已結帳未付款可以接著付款
+    訂單可以留言給管理者 (發信通知)
+
+回家作業 (store-v1 發 pull request)
+  上傳圖片
+    gem carrierwave
+    product has_many:phots
+    photos mount ImageUploader
+  Bootstrap
+      layout 在網路找
+      要有 login/logout bar
+   SimpleForm with bootstrap
+   Product#new
+     圖片、標題、價格 (可以加入購物車)
+
+
+
+
+
+
+
+
