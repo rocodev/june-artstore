@@ -1,33 +1,19 @@
-<div class="form-group">
-  <%= f.label "標題", class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-</div>
+<%= f.input :title, label: "標題", label_html: { class: "col-sm-2 control-label" },
+                                  input_html: { class: "form-control" } %>
 
-<div class="form_group">
-  <%= render_photo(product.main_photo) %>
-</div>
 
-<div class="form-group">
-  <%= f.label "圖片上傳", class: "col-sm-2 control-label" %>
-  <%= f.fields_for :photos, product.photos.build do |build| %>
-    <%= build.file_field :image %>
-  <% end %>
-</div>
+<%= f.input :description, as: :text, label: "敘述", label_html: { class: "col-sm-2 control-label" },
+                                                   input_html: { class: "form-control", rows: 10, } %>
 
-<div class="form-group">
-  <%= f.label "敘述", class: "col-sm-2 control-label" %>
-  <%= f.text_area :description, rows: 5, class: "form-control" %>
-</div>
+<%= f.input :quantity, label: "數量", label_html: { class: "col-sm-2 control-label" },
+                                     input_html: { class: "form-control" } %>
 
-<div class="form-group">
-  <%= f.label "數量", class: "col-sm-2 control-label" %>
-  <%= f.text_field :quantity %>
-</div>
+<%= render_photo(product.main_photo) %>
 
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <%= f.submit "送出", disable_with: "...", class: "btn btn-primary" %>
-  </div>
+<%= f.simple_fields_for :photos, product.photos.build do |build| %>
+  <%= build.input :image, as: :file, label: "圖片上傳", label_html: { class: "col-sm-2 control-label" } %>
+<% end %>
+
+<div class="col-sm-offset-2 col-sm-10">
+  <%= f.submit "送出", disable_with: "...", class: "btn btn-primary" %>
 </div>
