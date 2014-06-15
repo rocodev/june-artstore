@@ -42,4 +42,5 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem "bootstrap_helper", ">= 4.2.2.1"
+gem "anjlab-bootstrap-rails", "2.3.1.2", :require => "bootstrap-rails"
 
