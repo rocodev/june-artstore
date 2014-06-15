@@ -21,7 +21,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">商品分類 <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">第一類商品</a></li>
-            <li><a href="#">第二類商品n</a></li>
+            <li><a href="#">第二類商品</a></li>
             <li><a href="#">第三類商品</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -33,6 +33,12 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">加入購物車</a></li>
+         <% if !current_user %> 
+         <li> <%= link_to("登入", new_user_session_path)   %> </li>
+         <% else %>
+         <li> <%= link_to("登出", destroy_user_session_path, :method => :delete ) %></li>  
+         <% end  %>
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人設定 <b class="caret"></b></a>
           <ul class="dropdown-menu">

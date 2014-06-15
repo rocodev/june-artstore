@@ -1,10 +1,17 @@
 
-<%= simple_form_for [:admin , @product ] do |f| %>
+<div class="row">
+	<div class="col-md-4">
+<%= simple_form_for([:admin , @product ], html: {class: 'form-vertical' }) do |f| %>
 		<%= f.input :title, label: "標題", input_html: { maxlength: 20} %>
 		<%= f.input :description, label: "敘述", as: :text %> 
 		<%= f.input :quantity, label: "數量", as: :text %> 
 		<%= f.input :product_img, label: "上傳圖片", as: :file %> 
 		<%= f.input :product_img_cache, as: :hidden %> 		
 		<%= f.button :submit %> 
+	</div>
+
+	<div class="col-md-8">
+	<%= image_tag(@product.product_img_url(:normal)) if @product.product_img.present? %>
+	</div>
 <% end %> 		
 
