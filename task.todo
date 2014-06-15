@@ -1,4 +1,16 @@
-User Story
+
+回家作業 (store-v1 發 pull request)
+  ☐ 上傳圖片
+    ☐ gem carrierwave
+    ☐ product has_many:phots
+    ☐ photos mount ImageUploader
+  Bootstrap
+      ☐ layout 在網路找
+      ☐ 要有 login/logout bar
+   ☐ SimpleForm with bootstrap
+   ☐ Product#new
+     ☐ 圖片、標題、價格 (可以加入購物車)
+
 
 管理者
   ☐ 後台上架，設定可賣
@@ -66,19 +78,6 @@ Bonus (User story)
     未付款可取消訂單
     已結帳未付款可以接著付款
     訂單可以留言給管理者 (發信通知)
-
-回家作業 (store-v1 發 pull request)
-  上傳圖片
-    gem carrierwave
-    product has_many:phots
-    photos mount ImageUploader
-  Bootstrap
-      layout 在網路找
-      要有 login/logout bar
-   SimpleForm with bootstrap
-   Product#new
-     圖片、標題、價格 (可以加入購物車)
-
 
 
 
