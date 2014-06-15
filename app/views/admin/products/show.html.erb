@@ -1,4 +1,5 @@
 <div>
   <h1><%= @product.title %></h1>
+  <%= render_photo(@product.main_photo) %>
   <p><%= @product.description.html_safe %></p>
 </div>

@@ -5,6 +5,17 @@
   </div>
 </div>
 
+<div class="form_group">
+  <%= render_photo(product.main_photo) %>
+</div>
+
+<div class="form-group">
+  <%= f.label "圖片上傳", class: "col-sm-2 control-label" %>
+  <%= f.fields_for :photos, product.photos.build do |build| %>
+    <%= build.file_field :image %>
+  <% end %>
+</div>
+
 <div class="form-group">
   <%= f.label "敘述", class: "col-sm-2 control-label" %>
   <%= f.text_area :description, rows: 5, class: "form-control" %>

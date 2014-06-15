@@ -18,8 +18,9 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to admin_products_url
+      redirect_to admin_products_url, notice: "建立成功"
     else
+      flash.now[:alert] = "驗證失敗"
       render :new
     end
   end
@@ -29,8 +30,9 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to edit_admin_product_url(@product.id)
+      redirect_to edit_admin_product_url(@product.id), notice: "更新成功"
     else
+      flash.now[:alert] = "驗證失敗"
       render :edit
     end
   end
@@ -38,7 +40,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity)
+    params.require(:product).permit(:title, :description, :quantity, photos_attributes: [:image])
   end
 
   def set_product
