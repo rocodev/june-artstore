@@ -20,8 +20,12 @@ module Admin::ProductsHelper
 
 	# render product photo grid
 	def render_product_photo_grid(photos)
-		photos.each do |photo|
-			image_tag(photo.image.url)
+		_result = ""
+		photos.each do |photo, index|
+			_result = _result + image_tag(photo.image.url, :class => "col-md-3")
 		end 
+
+		# print actual HTML string out
+		_result.html_safe
 	end
 end
