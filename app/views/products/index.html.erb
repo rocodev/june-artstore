@@ -3,5 +3,7 @@
     <li>
       <%= link_to(product.title, product_path(product)) %>
     </li>
+    <!-- undefined method `image_url` ?-->
+    <%= image_tag product.photos.first.image_url(:thumb) %>
   <% end %>
 </ul>
