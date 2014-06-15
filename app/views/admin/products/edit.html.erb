@@ -30,7 +30,7 @@
     <div class="col-sm-1">
 
     <%= f.simple_fields_for :photos do |c| %>
-      <%# c.input :image , :as => :file %>
+      <%= c.input :image , :as => :file %>
       <%= image_tag c.object.image.thumb.url %>
     <% end %>
     </div>

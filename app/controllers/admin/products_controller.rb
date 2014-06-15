@@ -30,6 +30,10 @@ end
 def update
 	@product = Product.find(params[:id])
 
+	if params[:product][:photos_attributes].length > 0
+		@product.photos.clear
+	end
+
   if @product.update(product_params)
     redirect_to admin_products_path
   else
