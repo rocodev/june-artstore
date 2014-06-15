@@ -44,3 +44,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 # Rails forms made easy
 gem 'simple_form'
+
+# 圖片上傳
+gem 'carrierwave'
+# 圖片壓縮 resize
+gem 'mini_magick'
