@@ -1,0 +1,14 @@
+<h2>商品一覽</h2>
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-xs-6 col-md-3">
+      <div class="group">
+        <%= link_to product_path(product.id) do %>
+          <%= product.title %>
+          <%= render_photo(product.main_photo) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
