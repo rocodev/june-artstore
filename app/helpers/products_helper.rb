@@ -1,4 +1,5 @@
 module ProductsHelper
+
   def render_product_photo(photo, size = "thumb")
 
     if photo.present?
@@ -14,7 +15,6 @@ module ProductsHelper
 
       image_url = "http://placehold.it/#{volume}&text=No Pic"
     end
-
     image_tag(image_url, :class => "thumbnail")
 
   end

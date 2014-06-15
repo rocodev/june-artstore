@@ -1,6 +1,14 @@
 class Product < ActiveRecord::Base
-	# Tells rails to use this uploader for this model.
-	#mount_uploader :picture, PictureUploader 
+
 	has_many :photos
+
+  validates :title , :presence => true
+  validates :quantity , :presence => true
+
+  accepts_nested_attributes_for :photos
+
+  def default_photo
+    photos.first
+  end
 
 end
