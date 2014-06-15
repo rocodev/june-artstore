@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 
 gem "devise"
-
+gem "aasm"
 
 gem "bootstrap-sass"
 gem "simple_form", "3.1.0rc1"
