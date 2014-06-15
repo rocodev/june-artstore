@@ -41,5 +41,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
-
+gem "bootstrap_helper", ">= 4.2.2.1"
 

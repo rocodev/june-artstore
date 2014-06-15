@@ -22,7 +22,9 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+      	<% if current_user %>
+        	<li><%= link_to "Product List", admin_products_path %></li>
+        <% end %>
         <!-- <li><a href="#about">About</a></li> -->
         <!-- <li><a href="#contact">Contact</a></li> -->
         <!--
@@ -40,6 +42,16 @@
         </li>
         -->
       </ul>
+
+      <p class="nav-account navbar-text pull-right">
+        <% if !current_user %>
+        	<%= link_to "註冊", new_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
+					<%= link_to "登入", new_user_session_path, :class => 'navbar-link' %>
+				<% else %>
+					<%= link_to "修改密碼", edit_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
+					<%= link_to "登出", destroy_user_session_path, :method => :delete, :class => 'navbar-link' %>
+				<% end %>
+      </p>
     </div><!--/.nav-collapse -->
   </div>
 </div>
@@ -48,15 +60,9 @@
 <div class="container">
 	<div class="starter-template">
 
-	<% if !current_user %>
-		<%= link_to "登入", new_user_session_path %>
-	<% else %>
-		<%= link_to "登出", destroy_user_session_path, :method => :delete %>
-	<% end %>
+    <%= notice_message %>
 
-
-	<%= yield %>
-
+		<%= yield %>
 	</div>
 </div> <!-- /container -->
 
