@@ -6,18 +6,13 @@
   <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <title>Artstore</title>
+  <title>Art Store</title>
 </head>
 <body>
 
 <div class="container">
-  <% flash.each do |key ,value| %>
-      <p class="<%= flash_class(key)%>"><%= value %></p>
-  <% end %>
-</div>
-
-<div class="container">
   <%= render 'common/navbar' %>
+  <%= notice_message %>
   <%= yield %>
 </div>
 
