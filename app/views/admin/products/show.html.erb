@@ -7,9 +7,7 @@
   </div>
   <div class='row'>
     <div class='col-lg-5'>
-      <% @product.photos.each do |photo| %>
-        <%= image_tag photo.image.url, :class => "img-rounded", :alt => @product.title %>
-      <% end %>
+      <%= product_render_photo(@product) %>
     </div>
     <div class='col-lg-7'>
       <h2> <%= @product.title %> </h2>
