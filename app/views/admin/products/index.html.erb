@@ -1,0 +1,8 @@
+<%= link_to('新增物品',new_admin_product_path, :class => "btn btn-large btn-primary pull-right") %>
+
+<% @products.each do |p| %>
+<ul>
+<li>標題：<%= link_to(p.title,admin_product_path(p.id)) %></li>
+</ul>
+
+<% end %>
