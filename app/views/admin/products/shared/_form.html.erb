@@ -1,12 +1,25 @@
-<%= simple_form_for [:admin, @product] do |f| %>
-	<%= f.input :name, placeholder: '產品名稱', :input_html => { :class => 'input'} %>
-	<%= f.input :description, placeholder: '產品敘述', :input_html => { :class => 'input'}  %>
-	<%= f.input :quantity, placeholder: '數量', :input_html => { :class => 'input'}  %>
-	<%= f.input :price, placeholder: '價格', :input_html => { :class => 'input'}  %>
-	<% # Nested form for product photo uploading %>
-	<%= f.simple_fields_for :photos do |pf| %>
-		<%= pf.input :image, :as => :file %>
-	<% end %>
-	<%= f.submit "送出", :disable_with => "送出中 ... ", :class => 'btn btn-primary' %>
+<%= simple_form_for [:admin, @product], :html => { :class => "form form-horizontal"  } do |f| %>
+	<div class="form-group">
+		<%= f.input :name, label: '名稱', :placeholder => '產品名稱', :input_html => { :class => 'form-control'} %>
+	</div>
+	<div class="form-group">
+		<%= f.input :description, label: '產品敘述', :placeholder => '產品敘述', :input_html => { :class => 'form-control'}  %>
+	</div>
+	<div class="form-group">
+		<%= f.input :quantity, :label => '產品上架數量', :placeholder => '數量', :input_html => { :class => 'form-control'}  %>
+	</div>
+	<div class="form-group">
+		<%= f.input :price, :label => '價格', :placeholder => '價格', :input_html => { :class => 'form-control'}  %>
+	</div>
+	<div class="form-group">
+		<% # Nested form for product photo uploading %>
+		<%= f.simple_fields_for :photos do |pf| %>
+			<%= pf.input :image, :label => '上傳產品圖', :as => :file %>
+		<% end %>
+	</div>
+	<div class="form-group">
+		<%= f.submit "送出", :disable_with => "送出中 ... ", :class => 'btn btn-primary' %>
+		<%= link_to "取消", :back, :class => 'btn btn-default' %>
+	</div>
 <% end %>
 
