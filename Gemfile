@@ -46,5 +46,8 @@ gem 'bootstrap-sass'
 
 #for upload file
 gem 'carrierwave'
+#for process uploaded image
+gem 'subexec', :git => "https://github.com/nulayer/subexec.git"
+gem 'mini_magick'
 
 gem 'simple_form'

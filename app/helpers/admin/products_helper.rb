@@ -1,7 +1,7 @@
 module Admin::ProductsHelper
-  def product_render_photo(product)
+  def product_render_photo(product, size = "thumb")
     if product.default_photo.present?
-      image_url = product.default_photo.image.url
+      image_url = product.default_photo.image.send(size).url
     else
       image_url = "http://placehold.it/200x200&text=No Pic"
     end
