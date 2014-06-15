@@ -5,8 +5,11 @@
 	<tr>
 	<div class= "group">
 	<td><%= link_to product.title, admin_product_path(product) %></td>
+	
 	<td><%=link_to 'Edit', edit_admin_product_path(product)%></td>
 	<td><%= link_to 'Delete',  admin_product_path(product), method: :delete, confirm: "Are you sure that you wish to delete #{product.title}?" %></td>
+
+
 	</div>
 	</tr> 
 	<% end %>
