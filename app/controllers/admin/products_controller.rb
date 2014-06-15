@@ -30,7 +30,7 @@ end
 def update
 	@product = Product.find(params[:id])
 
-	if params[:product][:photos_attributes].length > 0
+	if params[:product][:photos_attributes] && params[:product][:photos_attributes].length > 0
 		@product.photos.clear
 	end
 
