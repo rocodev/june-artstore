@@ -3,8 +3,16 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :development do
+     # Use sqlite3 as the database for Active Record
+     gem 'sqlite3'
+end
+
+group :production do
+     gem 'pg'
+     gem 'rails_12factor'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,3 +46,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'minitest', '~>5.3.4'
+
+gem "simple_form", "~> 3.0.0.rc"
+
+#使用者帳號管理
+gem 'devise' 
+
+gem 'bootstrap-sass'
+
+#圖片上傳
+gem 'carrierwave'
