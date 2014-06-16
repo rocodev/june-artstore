@@ -11,6 +11,7 @@
           <th>商品資訊</th>
           <th>品名</th>
           <th>單價</th>
+          <th>數量</th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +20,8 @@
         <tr>
           <td><%= render_product_photo(product.default_photo) %></td>
           <td><%= link_to(product.title, admin_product_path(product)) %></td>
-          <td><%= product.price %> <br> <p> <%= link_to("刪除此項目", clear_item_cart_path(cart_item), :method => :delete) %></p> </td>
+          <td><%= product.price %> </td>
+          <td><%= link_to("數量調整", "#")%><br> <p> <%= link_to("移除購物車", clear_item_cart_path(cart_item), :method => :delete) %></p> </td>
         </tr>
           <% end %>
 
