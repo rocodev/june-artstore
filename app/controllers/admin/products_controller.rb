@@ -9,6 +9,10 @@ class Admin::ProductsController < AdminController
     @photo = @product.photos.new
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def create 
     @product = Product.new(product_params)
 
@@ -35,6 +39,6 @@ class Admin::ProductsController < AdminController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes=>[:image])
+    params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes => [:image])
   end
 end
