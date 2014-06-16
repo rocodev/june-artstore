@@ -12,6 +12,12 @@
   尚有 <span><%= @product.quantity %></span> 件商品
 </p>
 <%= render_product_photo(@product.default_photo) %>
+
+<p>
+  <%= link_to("加入購物車", "#", :class => "btn btn-danger") %>
+  <!-- add_to_cart_product_path(@product) , :method => :post , -->
+</p>
+
 <p>
   <%= link_to "回到商品列表", products_path %>
 </p>
