@@ -1,25 +1,18 @@
 <ul class="nav navbar-nav navbar-right">
   <li class="dropdown">
-  <% if current_user %>    
+    <% if current_user %>    
 
-      <%#= link_to user_path(current_user) , :class => "dropdown-toggle", :data => { :toggle => "dropdown" } do %>
-        <a class="dropdown-toggle"><%= current_user.email %></li>
-      <%# end %>
+    <li><%= link_to(current_user.email ,'') %></li>
 
-      <%= render_list :class => "dropdown-menu" do |li|
-          #li << link_to("個人頁",user_path(current_user) )
-          li << link_to("設定","/users/edit" )
-          li << link_to("登出",destroy_user_session_path, :method => :delete )
-      end %>
 
-    <%= link_to("登出", destroy_user_session_path, method: :delete) %>
+    <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
 
-  <% else %>
+    <% else %>
     <li> <%= link_to( "註冊" ,new_user_registration_path) %> </li>
     <li> <%= link_to( "登入", new_user_session_path )  %> </li>   
     <li> <%= link_to( "FACEBOOK登入", "/users/auth/facebook" )  %> </li>   
-  <% end %>
-</li>
+    <% end %>
+  </li>
 
 </ul>
 
