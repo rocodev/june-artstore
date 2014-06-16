@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="show-photo img-thumbnail">
+    <div class="show-photo img-thumbnail">
   <%= image_tag @product.image_url(:thumb).to_s %>
   </div>
   <div class="show-div">
@@ -8,5 +8,8 @@
     <p class="show-description"> <%= @product.description %> </p>
     <hr>
     <p class="show-quantity"> <%= "數量:" + @product.quantity.to_s %> </p>
+    <div class="pull-right">
+      <%= link_to("加入購物車", "#", :class => "btn btn-primary btn-lg btn-danger") %>
+     </div>
   </div>
 </div>
