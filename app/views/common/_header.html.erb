@@ -28,10 +28,12 @@
                   <% end %>
                 </li>
                 <li class="dropdown nav-dropdown">
+                <% if current_user %>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                     <%= "Hi, " + current_user.email %> 
                     <b class="caret"></b>
                   </a>
+                
                   <ul class="dropdown-menu nav-dropdown-menu">
                     <% if current_user.is_admin? %>
                       <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
@@ -45,6 +47,7 @@
                       <li> <%= link_to("Sign Up", new_user_registration_path) %> </li>
                       <li> <%= link_to("Sign In", new_user_session_path) %> </li>
                     <% end %>
+                  <% end %>
                     
                     <!--
                     <li class="divider"></li>

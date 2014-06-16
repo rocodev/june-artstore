@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders
+
   resources :carts do
     collection do
       post 'checkout'
