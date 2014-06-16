@@ -8,25 +8,25 @@
 </head>
 <body>
 
-<!-- Fixed navbar -->
-<div class="navbar navbar-default" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Artstore", root_path, :class => 'navbar-brand' %>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-      	<% if current_user %>
-        	<li><%= link_to "Product List", admin_products_path %></li>
-        <% end %>
-        <!-- <li><a href="#about">About</a></li> -->
-        <!-- <li><a href="#contact">Contact</a></li> -->
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Artstore", root_path, :class => 'navbar-brand' %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+         <% if current_user %>
+         <li><%= link_to "Product List", admin_products_path %></li>
+         <% end %>
+         <!-- <li><a href="#about">About</a></li> -->
+         <!-- <li><a href="#contact">Contact</a></li> -->
         <!--
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -40,20 +40,20 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        -->
-      </ul>
+      -->
+    </ul>
 
-      <p class="nav-account navbar-text pull-right">
-        <% if !current_user %>
-        	<%= link_to "註冊", new_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
-					<%= link_to "登入", new_user_session_path, :class => 'navbar-link' %>
-				<% else %>
-					<%= link_to "修改密碼", edit_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
-					<%= link_to "登出", destroy_user_session_path, :method => :delete, :class => 'navbar-link' %>
-				<% end %>
-      </p>
-    </div><!--/.nav-collapse -->
-  </div>
+    <p class="nav-account navbar-text pull-right">
+      <% if !current_user %>
+      <%= link_to "註冊", new_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
+      <%= link_to "登入", new_user_session_path, :class => 'navbar-link' %>
+      <% else %>
+      <%= link_to "修改密碼", edit_user_registration_path, :class => 'navbar-link' %> &nbsp;&nbsp;&nbsp;
+      <%= link_to "登出", destroy_user_session_path, :method => :delete, :class => 'navbar-link' %>
+      <% end %>
+    </p>
+  </div><!--/.nav-collapse -->
+</div>
 </div>
 
 
@@ -62,8 +62,8 @@
 
     <%= notice_message %>
 
-		<%= yield %>
-	</div>
+    <%= yield %>
+  </div>
 </div> <!-- /container -->
 
 </body>

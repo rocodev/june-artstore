@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_required
-  	current_user.admin?
+    current_user.admin?
   end
 
 end
