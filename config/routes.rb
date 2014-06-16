@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   resources :products
 
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
   #namespace
   #要把admin功能關起來，所以用namespace來設定。
 
