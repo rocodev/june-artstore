@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <li>
 	<%= link_to "#" do %> 
-		購物車 <span class="glyphicon glyphicon-shopping-cart"></span> <span class="label label-primary">0</span>
+		購物車 <span class="glyphicon glyphicon-shopping-cart"></span> <span class="label label-primary"><%= cart_items_count(current_cart) %></span>
 	<% end %>
 </li>
 <% if user_signed_in? %>
