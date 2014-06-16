@@ -4,7 +4,18 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+
+  process :convert => 'png'
+  # 按比例縮成指定大小並且補白
+  # 版本名稱為 thumb
+  version :thumb do
+    process :resize_and_pad => [20, 20]
+  end
+  # 版本名稱為 small
+  version :small do
+    process :resize_and_pad => [150, 150]
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :file

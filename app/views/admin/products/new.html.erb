@@ -9,7 +9,9 @@
     <div class="group">
       <%= f.input :quantity, label: "數量" %>
   </div>
-  <input type="file" name="avatar" />
+  <%= f.simple_fields_for :photos do |c| %>
+    <%= c.input :image , :as => :file %>
+  <% end %>
 
   <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end %>

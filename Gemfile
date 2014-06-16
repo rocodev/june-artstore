@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem "devise"
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "bootstrap_helper", ">= 4.2.2.1"
+
 gem "carrierwave"
+gem "mini_magick"
 gem "simple_form"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

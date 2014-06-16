@@ -1,9 +1,31 @@
-<ul>
-<li>標題：<%= @product.title %></li>
-<li>說明：<%= @product.description %></li>
-<li>數量：<%= @product.quantity %></li>
+
+<%= link_to "back", :back %>
+
+
+ <div class="row">
+   <div class="col-md-5">
 <%= @photos.each do |p| %>
 <%= image_tag(p.avatar) %>
 <% end %>
-</ul>
-<%= link_to "back", :back %>
+   </div>
+ 
+   <div class="col-md-7">
+     <h2>標題：<%= @product.title %> </h2>
+
+     <div style="height:100px;">
+       <p>
+
+         說明：<%= @product.description %>
+       </p>
+
+
+     </div>
+     <div> 數量：<%= @product.quantity %> </div>
+     <div class="product-price"> 價格： </div>
+
+     <div class="pull-right">
+      <%= link_to("加入購物車", "#", :class => "btn btn-primary btn-lg btn-danger") %>
+     </div>
+    </div>
+
+</div>
