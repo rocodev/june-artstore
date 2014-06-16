@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :products
-
+  resources :carts
   root :to => "products#index"
 
   resources :products do 
