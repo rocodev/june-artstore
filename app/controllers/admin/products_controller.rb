@@ -14,25 +14,7 @@ class Admin::ProductsController < AdminController
     @product = Product.new(product_params)
 
     if @product.save
-
-      # single upload
-      # if params[:product][:photo]
-      #   @product.photos.create(image: params[:product][:photo])
-      # end
-
-      if params[:product][:photos_attributes]
-
-        @photos_attrs = params[:product][:photos_attributes]
-        @photos_attrs.each do |photo_attr|
-          # check destroy status and photo is exist
-          if photo_attr[1][:_destroy] == 'false' && photo_attr[1][:photo] != nil
-            @product.photos.create(image: photo_attr[1][:photo])
-          end
-        end
-      end
-
       redirect_to admin_products_path
-
     else
       render :new
     end
