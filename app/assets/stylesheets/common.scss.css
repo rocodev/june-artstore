@@ -1,0 +1,77 @@
+@import "bootstrap";
+@import "bootstrap-setting";
+@import "bootstrap-override";
+
+body {
+  background-color: #f8f8f8;
+  background-image: url(/assets/bg.jpg);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+}
+
+.social{
+   float:left;
+   width: 78px;
+   padding-top: 15px;
+   padding-left: 15px;
+}
+
+.social > div {
+  height: 20px;
+}
+
+.social > div > * {
+  display: block;
+  float: left;
+}
+
+.display_table{
+  display:table;
+}
+.display_table_cell{
+  display:table-cell; 
+  vertical-align:middle;
+}
+
+
+.border_radius{
+  border: 2px solid #D6D6D6;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.border_no_radius{
+  border: 2px solid #D6D6D6;
+}
+
+*:before, *:after {
+    -moz-box-sizing: border-box;
+}
+*:before, *:after {
+    -moz-box-sizing: border-box;
+}
+
+h3, .h3 {
+    color: #555555;
+    font-family: "Helvetica Neue",Arial,"Heiti TC","LiHei Pro","微軟正黑體","Microsoft Jhenghei",sans-serif;
+    font-size: 23px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 0 5px;
+}
+
+h4, .h4 {
+    color: #555555;
+    font-family: "Helvetica Neue",Arial,"Heiti TC","LiHei Pro","微軟正黑體","Microsoft Jhenghei",sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 0 5px;
+}

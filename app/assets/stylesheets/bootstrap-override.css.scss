@@ -1,0 +1,24 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+
+body{
+  padding-top: 80px;
+}
+
+.container {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -5px;
+  /* Pad bottom by footer height */
+  padding: 0 0 5px;
+}
+
+#footer {
+  height: 30px;
+  background-color: #f5f5f5;
+}
