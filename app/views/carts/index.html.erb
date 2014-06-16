@@ -14,13 +14,15 @@
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+
+        <% @cart_infos.each do |product, cart_item| %>
         <tr>
           <td><%= render_product_photo(product.default_photo) %></td>
           <td><%= link_to(product.title, admin_product_path(product)) %></td>
-          <td><%= product.price %> </td>
+          <td><%= product.price %> <br> <p> <%= link_to("刪除此項目", clear_item_cart_path(cart_item), :method => :delete) %></p> </td>
         </tr>
           <% end %>
+
 
         </tbody>
       </table>

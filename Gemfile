@@ -42,7 +42,7 @@ group :development do
   gem "better_errors"
   gem "letter_opener"
   gem 'roadie'
-
+  gem 'meta_request' # 查看 log @ chrome 神器
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
