@@ -75,3 +75,6 @@
 	- [ ] 結帳訂單時需要登入
 		- [ ] 只有登入才可以建立 order
 		- [ ] order 的產品資訊及數量從 cart 來
+
+	- [ ] deploy 到 heroku 可以 demo
+	- [ ] 整理 inline css 出來
