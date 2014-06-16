@@ -38,3 +38,29 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use devise
+
+gem 'devise'
+
+# bootstrap
+
+gem 'bootstrap-sass'
+
+# simple_form replace by form
+
+gem 'simple_form', '3.1.0rc1'
+
+# photo upload
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+# upload image for form
+
+gem 'nested_form'
+
+# it will add schema for your test/fixtures/model.yml
+
+group :development do
+  gem 'annotate'
+end

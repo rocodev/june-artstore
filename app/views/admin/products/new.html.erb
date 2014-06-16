@@ -1,0 +1,39 @@
+<h2>新增產品</h2>
+
+<%= simple_form_for [:admin, @product], html: {multipart: true, class: 'form form-horizontal'}  do |f| %>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+        <%= f.input :title, label: '標題' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+        <%= f.input :description, label: '敘述', as: :text %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-1">
+        <%= f.input :quantity, label: '數量', collection: 1..10  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-1">
+        <%= f.input :price, label: '價格'%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.simple_fields_for :photos do |c| %>
+        <%= c.input :image, as: :file %>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit 'Submit', disable_with: 'Submiting ...', :class => 'btn btn-default'%>
+    </div>
+
+<% end %>
