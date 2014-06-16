@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem "devise"
 gem "bootstrap-sass"
 gem "carrierwave"
+gem "simple_form"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -42,3 +43,20 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem "powder"
+  gem "guard-livereload"
+  # gem 'capistrano-bundler', '~> 1.1.2'
+  # gem "capistrano"
+  # gem "capistrano-rails"
+  # gem "capistrano-rvm"
+  gem "binding_of_caller"
+  gem "better_errors", "~> 0.9.0"
+  gem "magic_encoding"
+  gem "annotate"
+  gem "pry-nav"
+  gem "pry-remote"
+
+  gem "letter_opener"
+  gem 'meta_request'
+end

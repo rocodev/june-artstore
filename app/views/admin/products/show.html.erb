@@ -2,5 +2,8 @@
 <li>標題：<%= @product.title %></li>
 <li>說明：<%= @product.description %></li>
 <li>數量：<%= @product.quantity %></li>
+<%= @photos.each do |p| %>
+<%= image_tag(p.avatar) %>
+<% end %>
 </ul>
 <%= link_to "back", :back %>
