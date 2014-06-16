@@ -25,6 +25,7 @@ Admin:
    ✔ SimpleForm with Bootstrap @done (14-06-13 02:39)
  ✔ 安裝 Carrierwave @done (14-06-13 03:21)
  ☐ Search function ( using Ransack )
+ ☐ 尋找 Ruby Arrat 的 inject method 的用法
 
 有空想做的:
  ☐ 重新整理登入 / 登出畫面

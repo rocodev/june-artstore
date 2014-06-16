@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateOrderInfos < ActiveRecord::Migration
   def change
     create_table :order_infos do |t|

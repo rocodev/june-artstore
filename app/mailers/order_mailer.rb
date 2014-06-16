@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class OrderMailer < ActionMailer::Base
   default from: "staff@artstore.com"
 

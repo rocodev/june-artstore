@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeQuantityDefault < ActiveRecord::Migration
   def change
     change_column :products, :quantity, :integer, :default => 0 

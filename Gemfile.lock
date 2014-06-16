@@ -76,6 +76,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.2.0)
       launchy (~> 2.2)
+    magic_encoding (0.0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -169,6 +170,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  magic_encoding
   mini_magick
   rails (= 4.1.0)
   roadie

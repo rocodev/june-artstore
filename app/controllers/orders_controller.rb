@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!
@@ -10,10 +11,10 @@ class OrdersController < ApplicationController
       @order.calculate_total!(current_cart)
 
       OrderMailer.notify_order_placed(@order).deliver
-
+      current_cart.items.destroy_all
       redirect_to order_path(@order.token)
     else
-      render "carts/checkout"
+      render "carts/index"
     end
   end
 

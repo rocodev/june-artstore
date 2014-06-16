@@ -38,6 +38,7 @@ gem "mini_magick"
 
 group :development do 
   gem "annotate"
+  gem "magic_encoding"
   gem "better_errors"
   gem "letter_opener"
   gem 'roadie'
