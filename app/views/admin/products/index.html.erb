@@ -1,0 +1,24 @@
+<br>
+<%= link_to("增加一個新商品", new_admin_product_path)  %> 
+<br>
+<ul> 
+	<div class="row">
+	<div class="col-md-9"> <h2> left block </h2> </div>
+	<div class="col-md-3"> <h2> right block </h2></div>
+</div>
+	<table>
+
+    <% @products.each do |product| %>
+        <tr><td><%= link_to(product.title, admin_product_path(product)) %> </td> 
+        <td><%= link_to edit_admin_product_path(product), class: 'btn btn-default' do %>
+    	     <span class="glyphicon glyphicon-pencil"></span>
+    		 編輯商品資訊 </td></tr>
+             <% end %>
+     
+	<% end %>
+</ul>
+
+<ul>
+
+	
+

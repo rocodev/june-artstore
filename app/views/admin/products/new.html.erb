@@ -1,0 +1,10 @@
+
+<%= simple_form_for [:admin , @product] do |f| %>
+		<%= f.input :title, label: "標題", input_html: { maxlength: 20} %>
+		<%= f.input :description, label: "敘述", as: :text %> 
+		<%= f.input :quantity, label: "數量", as: :text %> 
+		<%= f.input :product_img, label: "上傳圖片", as: :file %> 
+		<%= f.input :product_img_cache, as: :hidden %> 		
+		<%= f.button :submit %> 
+<% end %> 		
+

@@ -1,4 +1,15 @@
-== README
+透過這個workshop的練習，將實作一個有前後台的電子商務網站
+(Lesson 1 功課)
+• 實作圖⽚上傳 carrierwave 
+• ⽤ Bootstrap 做⼀個「有 Nav bar 」的 layout 
+• 使⽤ simple_form 換掉 form 
+• products/show, products,index 也請實作
+
+(Lesson 2 功課)
+....
+
+
+==ORIGINAL README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
