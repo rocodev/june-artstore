@@ -11,6 +11,7 @@
   <%= f.simple_fields_for :photos do |c| %>
       <%= c.input :image , :as => :file %>
   <% end %>
+  <%= f.input :price, label: '價格' %>
   <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end %>
 

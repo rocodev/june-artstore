@@ -1,9 +1,8 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <%= link_to(product.title, admin_products_path(product)) %>
+      <%= link_to(product.title, admin_products_path(product)) %> | <%= link_to "EDIT", edit_admin_product_path(product) %>
     </li>
     <!-- undefined method `image_url` ?-->
-    <%= image_tag product.photos.first.image_url(:thumb) %>
   <% end %>
 </ul>

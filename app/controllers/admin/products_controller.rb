@@ -23,6 +23,18 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to admin_products_path
+    else
+      render :edit
+    end
+  end
+
   def index
     @products = Product.all
   end
@@ -31,7 +43,7 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
                                                                   # :nested_attributes => [:關聯 Model 的欄位]
-    params.require(:product).permit(:title, :description, :quantity, :photos_attributes => [:image])
+    params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes => [:image])
   end
 
 end
