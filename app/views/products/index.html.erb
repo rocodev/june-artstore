@@ -13,7 +13,7 @@
 				</div>
 				<div class="col-md-6 text-right">
 					<p><small>剩餘數量</small> <span class="badge"><%= product.quantity %></span></p>
-					<p><%= link_to '加入購物車', '#', :class => 'btn btn-danger btn-xs' %></p>
+					<p><%= link_to '加入購物車', add_to_cart_product_path(product), :method => :post, :class => 'btn btn-danger btn-xs' %></p>
 				</div>
 			</div>
 		</div>
