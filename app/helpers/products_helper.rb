@@ -1,21 +1,21 @@
 module ProductsHelper
-	  def render_product_photo(photo, size = "thumb")
+  def render_product_photo(photo, size = "thumb")
 
-    if photo.present?
-      avatar_url = photo.avatar.send(size).url
-    else
-      
-     case size
-      when :medium
-         volume = "300x300"
-      else
-         volume = "200x200"
-      end
+	if photo.present?
+      image_url = photo.image.send(size).url
+	else
+	  
+	 case size
+	  when :medium
+		 volume = "300x300"
+	  else
+		 volume = "200x200"
+	  end
 
-      avatar_url = "http://placehold.it/#{volume}&text=No Pic"
-    end
+	  image_url = "http://placehold.it/#{volume}&text=No Pic"
+	end
 
-    image_tag(avatar_url, :class => "thumbnail")
+    image_tag(image_url, :class => "thumbnail")
 
   end
 
