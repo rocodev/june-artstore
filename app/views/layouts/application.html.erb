@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<!-- include navbar -->
+<%= render :partial => "common/navbar" %>
+
+<!-- main content -->
+<div class="container">
+  <%= yield %>
+</div>
+
+<!-- footer -->
+<%= render :partial => "common/footer" %>
 
 </body>
 </html>

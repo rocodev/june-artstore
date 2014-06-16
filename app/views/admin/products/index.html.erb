@@ -1,0 +1,11 @@
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to(product.title, admin_products_path(product)) %> | <%= link_to "EDIT", edit_admin_product_path(product) %> | <%= link_to "刪除", admin_product_path(product), :method => :delete, :confirm => "確定刪除產品？" %>
+      <BR />
+      <%= render_product_photo(product.default_photo) %>
+      <BR /><BR />
+    </li>
+    <!-- undefined method `image_url` ?-->
+  <% end %>
+</ul>
