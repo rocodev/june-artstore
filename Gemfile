@@ -30,7 +30,15 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
-gem 'simple_form'
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'simple_form', "3.1.0rc1"
+
+group :development do
+  gem "annotate"
+end
 
 gem 'country_select'
 # Use ActiveModel has_secure_password
