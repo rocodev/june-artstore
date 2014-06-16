@@ -33,13 +33,12 @@
 
 .show-title {
   font-family: Verdana, sans-serif;
-  font-size: 36px;
   font-weight: bold;
 }
 
 .show-description {
   font-family: Verdana, sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   margin-top: 20px;
 }
 
@@ -49,3 +48,17 @@
   margin-top: 20px;
 }
 
+.show-price {
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.admin-table {
+  margin-top: 20px;
+  width: 1000px;
+}
+
+.admin-button {
+  display: block;
+}

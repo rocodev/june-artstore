@@ -1,9 +1,9 @@
 <div class="container">
   <div class="show-photo img-thumbnail">
-  <%= image_tag @product.image_url(:thumb).to_s %>
+  <%= image_tag @product.image_url(:medium).to_s %>
   </div>
   <div class="show-div">
-    <p class="show-title"> <%= @product.title %> </p>
+    <p class="show-title"> <h1> <%= @product.title %> </h1> </p>
     <hr>
     <p class="show-description"> <%= @product.description %> </p>
     <hr>

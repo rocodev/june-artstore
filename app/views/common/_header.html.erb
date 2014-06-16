@@ -19,8 +19,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 -->
-
-                <li> <%= link_to("New Product", new_admin_product_path) %> </li>
               </ul>
               <ul class="navbar-right nav navbar-nav">
                 <li>
@@ -34,16 +32,16 @@
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu nav-dropdown-menu">
-
-                    <% if current_user %>
-                    <li> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %> </li>
-                    <% else %>
-                    <li> <%= link_to("Sign Up", new_user_registration_path) %> </li>
-                    <li> <%= link_to("Sign In", new_user_session_path) %> </li>
-                    <% end %>
                     <% if current_user.is_admin? %>
-                    <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
+                      <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
                     <% end %>
+                    <% if current_user %>
+                      <li> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %> </li>
+                    <% else %>
+                      <li> <%= link_to("Sign Up", new_user_registration_path) %> </li>
+                      <li> <%= link_to("Sign In", new_user_session_path) %> </li>
+                    <% end %>
+                    
                     <!--
                     <li class="divider"></li>
                     <li class="dropdown-header">Nav header</li>
