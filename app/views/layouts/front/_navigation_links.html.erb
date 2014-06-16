@@ -1,4 +1,9 @@
 <%# add navigation links to this file %>
+<li>
+	<%= link_to "#" do %> 
+		購物車 <span class="glyphicon glyphicon-shopping-cart"></span> (0)
+	<% end %>
+</li>
 <% if user_signed_in? %>
   <li><%= link_to '管理帳號', edit_user_registration_path %></li>
   <li><%= link_to '登出', destroy_user_session_path, :method=>'delete' %></li>

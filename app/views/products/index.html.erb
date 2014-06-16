@@ -1,3 +1,21 @@
 <h1>產品清單</h1>
 
-<%= render_product_grid @products %>
+<div class="container">
+	<% @products.each do |product| %>
+		<div class="col-md-3">
+			<hr/>
+			<div><%= link_to render_product_photo_medium(product.default_photo), product_path(product) %></div>
+			<hr/>
+			<div>
+				<div class="col-md-6">
+					<strong><%= product.name %></strong>
+					<p><span style="font-size:2em; color:#E53638;"><%= product.price %></span> 元</p>
+				</div>
+				<div class="col-md-6 text-right">
+					<p><small>剩餘數量</small> <span class="badge"><%= product.quantity %></span></p>
+					<p><%= link_to '加入購物車', '#', :class => 'btn btn-danger btn-xs' %></p>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

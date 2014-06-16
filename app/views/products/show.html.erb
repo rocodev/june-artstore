@@ -4,8 +4,13 @@
 	</div>
 	<div class="col-md-6">
 		<h2><%= @product.name %></h2>
+		<p><small>剩餘數量</small> <span class="badge"><%= @product.quantity %></span></p>
 		<p><%= @product.description %></p>
 		<hr/>
-		<span style="font-size:2em;weight:bold;color:#E53638;"><%= @product.price %> 元</span>
+		<p><span style="font-size:2em; color:#E53638;"><%= @product.price %></span> 元</p>
+		<hr/>
+		<div class="pull-right">
+			<%= link_to '加入購物車', '#', :class => "btn btn-danger" %>
+		</div>
 	</div>
 </div>
