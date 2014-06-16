@@ -15,13 +15,13 @@
     </div>
 
     <div class="form-group">
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <%= f.input :quantity, label: '數量', collection: 1..10  %>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <%= f.input :price, label: '價格'%>
       </div>
     </div>
@@ -32,37 +32,8 @@
       <% end %>
     </div>
 
-
-
     <div class="form-group">
       <%= f.submit 'Submit', disable_with: 'Submiting ...', :class => 'btn btn-default'%>
     </div>
 
 <% end %>
-
-<%= javascript_tag do %>
-    $(function() {
-        var fieldsCount,
-        maxFieldsCount = 2,
-        $addLink = $('a.add_nested_fields');
-
-        function toggleAddLink() {
-            $addLink.toggle(fieldsCount <= maxFieldsCount)
-        }
-
-        $(document).on('nested:fieldAdded', function() {
-            fieldsCount += 1;
-            toggleAddLink();
-        });
-
-        $(document).on('nested:fieldRemoved', function() {
-            fieldsCount -= 1;
-            toggleAddLink();
-        });
-
-        // count existing nested fields after page was loaded
-        fieldsCount = $('form .fields').length;
-        toggleAddLink();
-    })
-<% end %>
-
