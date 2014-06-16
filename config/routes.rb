@@ -7,7 +7,12 @@ Rails.application.routes.draw do
 
 
   resources :products
-  resources :carts
+  resources :orders do
+    member do
+      get :pay_with_credit_card
+    end
+  end
+
   root :to => "products#index"
 
   resources :products do 
@@ -15,4 +20,10 @@ Rails.application.routes.draw do
       post :add_to_cart
     end
   end
+
+  resources :carts do  
+    collection do  
+      post :checkout
+    end 
+  end 
 end
