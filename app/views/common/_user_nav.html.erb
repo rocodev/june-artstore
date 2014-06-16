@@ -1,0 +1,45 @@
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+  <% if current_user %>    
+
+      <%= link_to user_path(current_user) , :class => "dropdown-toggle", :data => { :toggle => "dropdown" } do %>
+        <%= current_user.name %>
+      <% end %>
+
+      <%= render_list :class => "dropdown-menu" do |li|
+          li << link_to("個人頁",user_path(current_user) )
+          li << link_to("設定","/users/edit" )
+          li << link_to("登出",destroy_user_session_path, :method => :delete )
+      end %>
+
+  <% else %>
+    <li> <%= link_to( "註冊" ,new_user_registration_path) %> </li>
+    <li> <%= link_to( "登入", new_user_session_path )  %> </li>   
+    <li> <%= link_to( "FACEBOOK登入", "/users/auth/facebook" )  %> </li>   
+  <% end %>
+</li>
+
+</ul>
+
+<% content_for :javascripts do %>
+
+<% if current_user %> 
+  <%# 登入時通知 %> 
+  <script src="http://js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('<%= Setting.pusher_key %>');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
+  </script>
+<% end %>
+
+<% end %>

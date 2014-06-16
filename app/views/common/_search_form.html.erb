@@ -1,0 +1,13 @@
+<form class="navbar-form navbar-left" role="form">
+  <% if request.original_fullpath[0..5] == "/users" && current_user %>
+  <%= form_tag user_path(current_user), :class => "form-group", :method => :get do %>
+   <input type="text" name="q" class="form-control" value="<%= @query_string %>" placeholder="<%= @query_string ||   "Search" %>" />      
+  <% end %>
+
+  <% else %>
+  <%= form_tag "/links", :class => "form-group", :method => :get do %>
+   <input type="text" name="q" class="form-control" value="<%= @query_string %>" placeholder="<%= @query_string ||   "Search" %>" />     
+  <% end %>
+
+  <% end %>
+</form>
