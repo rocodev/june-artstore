@@ -2,6 +2,11 @@
   <% @products.each do |product| %>
     <li>
       <%= link_to(product.title, product_path(product)) %>
+      <BR />
+      <%= link_to product_path(product) do %>
+        <%= render_product_photo(product.default_photo) %>
+      <% end %>
+      <BR /><BR />
     </li>
     <!-- undefined method `image_url` ?-->
   <% end %>
