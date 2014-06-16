@@ -14,11 +14,6 @@ class Admin::ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
-		#render plain: @product.inspect
-		#@product.save
-
-		#@image = @product.photos.build(image_params)
-		#@image.image = File.open('public/imageupload')
 		
 		if @product.save
 			redirect_to(admin_products_path)

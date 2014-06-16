@@ -4,11 +4,8 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :photos
 	
 	#before_save :update_banner_attributes
-
-	def update_banner_attributes
-    if image.present? && image_changed?
-      self.image = image.file.filename
-    end
+	def default_photo
+    photos.first.image.url
   end
 
 end
