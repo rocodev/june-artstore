@@ -1,0 +1,4 @@
+- 管理者必須要有一個後台
+ 
+ rails g controller admin::products 
+ 設定routes

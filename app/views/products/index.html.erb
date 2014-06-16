@@ -1,0 +1,14 @@
+<div class="span12">    
+    <div class="container">
+      <% @products.each do |product| %>
+      <div class="index-div">
+        <p class="img-thumbnail">
+          <%= image_tag product.image_url(:scale).to_s %>
+        </p>   
+        <p>
+          <%= link_to(product.title, product_path(product)) %>
+        </p>
+      </div>
+      <% end %>
+    </div>
+</div>
