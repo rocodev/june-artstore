@@ -51,3 +51,6 @@ gem 'subexec', :git => "https://github.com/nulayer/subexec.git"
 gem 'mini_magick'
 
 gem 'simple_form'
+
+#for state machines
+gem "aasm"
