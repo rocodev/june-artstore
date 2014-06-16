@@ -4,7 +4,16 @@ class CartsController < ApplicationController
 
   def index
   end
-  
+
+  def destroy
+  end
+
+  def clear_cart
+    current_cart.items.destroy_all
+
+    render :index
+  end
+ 
   def checkout
     @order = current_user.orders.build
     @info = @order.build_info
