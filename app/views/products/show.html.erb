@@ -11,4 +11,4 @@
 <p>
   尚有 <span><%= @product.quantity %></span> 件商品
 </p>
-<%= image_tag @product.photos.first.image_url(:thumb) %>
+<%= render_product_photo(@product.default_photo) %>

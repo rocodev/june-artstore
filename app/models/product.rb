@@ -9,4 +9,9 @@ class Product < ActiveRecord::Base
   # 驗證表單是否填妥
   validates_presence_of :title, :quantity
 
+  # 定義最新的照片為
+  def default_photo
+    photos.first
+  end
+
 end
