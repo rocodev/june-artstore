@@ -12,8 +12,14 @@
 					<p><span style="font-size:2em; color:#E53638;"><%= product.price %></span> 元</p>
 				</div>
 				<div class="col-md-6 text-right">
-					<p><small>剩餘數量</small> <span class="badge"><%= product.quantity %></span></p>
-					<p><%= link_to '加入購物車', add_to_cart_product_path(product), :method => :post, :class => 'btn btn-danger btn-xs' %></p>
+					<% if product.quantity > 0 %>
+						<p>
+							<small>剩餘數量</small> <span class="badge"><%= product.quantity %></span>
+						</p>
+						<p><%= link_to '加入購物車', add_to_cart_product_path(product), :method => :post, :class => 'btn btn-danger btn-xs' %></p>
+					<% else %>
+						<p class="text-danger"> 完售<br/><small>我們將盡快進貨</small> </p>
+					<% end %>
 				</div>
 			</div>
 		</div>

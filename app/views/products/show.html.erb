@@ -10,7 +10,11 @@
 		<p><span style="font-size:2em; color:#E53638;"><%= @product.price %></span> 元</p>
 		<hr/>
 		<div class="pull-right">
-			<%= link_to '加入購物車', add_to_cart_product_path(@product), :method => :post, :class => "btn btn-danger" %>
+			<% if @product.quantity > 0 %>
+				<%= link_to '加入購物車', add_to_cart_product_path(@product), :method => :post, :class => "btn btn-danger" %>
+			<% else %>
+				<p class="text-danger text-right"> 完售<br/><small>我們將盡快進貨</small> </p>
+			<% end %>
 		</div>
 	</div>
 </div>
