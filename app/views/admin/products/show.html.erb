@@ -1,0 +1,29 @@
+<div class="pull-right">
+	<%= link_to("編輯產品", edit_admin_product_path(@product), :class => "btn btn-primary") %>
+</div>
+<h1>產品細節：<%= @product.name %> </h1>	
+
+<div class="container">
+	<table class="table table-striped table-bordered">
+		<tr>
+			<th class="col-xs-6 col-md-4">產品名稱</th>
+			<td class="col-xs-12 col-sm-6 col-md-8"><%= @product.name %></td>
+		</tr>
+		<tr>
+			<th>產品敘述</th>
+			<td><%= @product.description %></td>
+		</tr>
+		<tr>
+			<th>產品剩餘數量</th>
+			<td><%= @product.quantity %></td>
+		</tr>
+		<tr>
+			<th>產品價格</th>
+			<td><%= @product.price %></td>
+		</tr>
+		<tr>
+			<th>產品照片</th>
+			<td><%= render_product_photo_grid(@photos) %></td>
+		</tr>
+	</table>
+</div>
