@@ -1,3 +1,24 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$text-color: #888;
+$title-color: #555;
+
+.products{
+  padding: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  h3 a, h4{
+    color: $title-color;
+  }
+  h4{
+    margin-top: 55px;
+  }
+  p{
+    color: $text-color;
+  }
+  .addToCart {
+    margin: 15px 0;
+  }
+}
