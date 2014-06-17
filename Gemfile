@@ -40,6 +40,8 @@ group :development do
   gem "annotate"
 end
 
+gem 'aasm'
+
 gem 'country_select'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
