@@ -1,23 +1,35 @@
-<h2>
-  <%= @product.title %>
-</h2>
-
-<h3>產品描述</h3>
-<p>
-  <%= @product.description %>
-</p>
-
-<h3>剩餘數量</h3>
-<p>
-  尚有 <span><%= @product.quantity %></span> 件商品
-</p>
-<%= render_product_photo(@product.default_photo) %>
-
-<p>
-  <%= link_to("加入購物車", "#", :class => "btn btn-danger") %>
-  <!-- add_to_cart_product_path(@product) , :method => :post , -->
-</p>
-
-<p>
-  <%= link_to "回到商品列表", products_path %>
-</p>
+<div class="products row">
+  <div class="col-md-12">
+    <!-- title and pics -->
+    <div class="col-md-4">
+      <div class="col-md-12 title">
+        <h3><%= render_product_name(@product) %></h3>
+      </div>
+      <div class="col-md-12">
+        <%= render_product_photo(@product.default_photo) %>
+      </div>
+    </div>
+    <!-- info -->
+    <div class="col-md-8">
+      <div class="col-md-12">
+        <h4>產品資訊</h4>
+      </div>
+      <div class="col-md-12">
+        <p><%= @product.description %></p>
+        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, tenetur, provident, consequuntur, obcaecati non assumenda sunt voluptatibus accusamus expedita praesentium corrupti saepe quo neque dignissimos quia quidem voluptatem possimus officiis.</span>
+        <span>Illum, animi, alias odit hic eum doloribus aliquam rerum iusto libero temporibus autem officiis sint ea saepe molestiae nemo illo recusandae labore similique blanditiis unde mollitia quibusdam. Enim, doloribus, quod!</span></p>
+      </div>
+      <div class="col-md-12">
+        <h5>剩餘數量</h5>
+        <p>還有 <span><%= @product.quantity %></span> 件商品</p>
+      </div>
+      <div class="col-md-12">
+        <h5>售價</h5>
+        <p>$ <span><%= @product.price %></span> 元</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= link_to("加入購物車", "#", :class => "addToCart btn btn-danger pull-right") %>
+  </div>
+</div>

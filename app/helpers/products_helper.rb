@@ -13,10 +13,10 @@ module ProductsHelper
          volume = "200x200"
       end
 
-      image_url = "http://placehold.it/#{volume}&text=No Pic"
+      image_url = "http://placehold.it/300x300&text=No Pic"
     end
 
-    image_tag(image_url, :class => "thumbnail")
+    image_tag(image_url, :class => "thumbnail img-responsive")
 
   end
 
