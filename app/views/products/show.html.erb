@@ -9,7 +9,7 @@
     <hr>
     <p class="show-quantity"> <%= "數量:" + @product.quantity.to_s %> </p>
     <hr>
-    <p class="show-price"> <%= "價錢:" %> </p>
+    <p class="show-price"> <%= "價錢:" + @product.price.to_s %> </p>
     <div class="pull-right">
       <%= link_to("加入購物車", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
      </div>
