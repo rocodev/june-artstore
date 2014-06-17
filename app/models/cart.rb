@@ -13,4 +13,11 @@ class Cart < ActiveRecord::Base
     items.inject(0) {|sum, item| sum + item.price }
   end
 
+  # 清空購物車
+  def clear!
+    # delete_all 是內建的 method
+    # 查一下和 destroy_all 的差別
+    cart_items.delete_all
+  end
+
 end
