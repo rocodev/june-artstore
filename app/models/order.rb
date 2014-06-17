@@ -7,10 +7,7 @@ class Order < ActiveRecord::Base
   has_one :info, :class_name => "OrderInfo", :dependent => :destroy
  
   accepts_nested_attributes_for :info
- 
-  def generate_token
-    self.token = SecureRandom.uuid
-  end
+  
 
   def build_item_cache_from_cart(cart)
     cart.items.each do |cart_item|
@@ -27,6 +24,13 @@ class Order < ActiveRecord::Base
     self.save
   end
 
+  before_create :generate_token
+  
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
+  
   def set_payment_with!(method)
     self.update_column(:payment_method, method)    
   end
