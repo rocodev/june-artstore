@@ -6,7 +6,7 @@ class Cart < ActiveRecord::Base
     items.delete(product)
   end
 
-  def add_product_to_cart(product)
+  def add_product_to_cart(product, item_quantity)
     items << product
   end
 
