@@ -9,4 +9,27 @@ class ApplicationController < ActionController::Base
     current_user.admin?
   end
 
+  # 宣告 current_cart 是一個 controller 級的 helper
+  helper_method :current_cart
+
+  def current_cart
+    # @current_cart = cuttent_cart or find_cart
+    # ?
+    @current_cart ||= find_cart
+  end
+
+  def find_cart
+
+    cart = Cart.find_by(id: session[:cart_id])
+
+    unless  cart.present?
+      # 如果 session 內沒有 cart 就生一個
+      cart = Cart.create
+    end
+
+    session[:cart_id] = cart.id
+    # return cart to current_cart
+    cart
+  end
+
 end
