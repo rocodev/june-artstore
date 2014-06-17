@@ -1,0 +1,28 @@
+<h1>購物車</h1>
+<hr>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="col-md-1"></th>
+				<th class="col-md-1">預覽</th>
+				<th class="col-md-6">名稱</th>
+				<th class="col-md-2">金額</th>
+				<th class="col-md-2">數量</th>
+				<th class="col-md-2">功能</th>
+			</tr>
+		</thead>
+		<% current_cart.items.each do |item| %>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><%= item.name %></td>
+				<td><%= item.price %></td>
+				<td><%= item.quantity %></td>
+				<td>
+					<%= link_to "刪除", root_path, :class => "btn btn-default" %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>
