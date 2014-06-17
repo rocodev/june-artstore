@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts
+  resources :carts do
+    collection do
+      post 'checkout'
+    end
+  end
 
   # 暫時先把 root 放到這邊
   root :to => "products#index"
