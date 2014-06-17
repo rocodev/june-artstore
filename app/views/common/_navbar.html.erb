@@ -60,6 +60,11 @@
                   <span class="glyphicon glyphicon-cog"></span> 管理界面
                 <% end %>
               </li>
+              <li>
+                <%= link_to new_admin_product_path do %>
+                  <span class="glyphicon glyphicon-plus"></span> 新增產品
+                <% end %>
+              </li>
               <% end %>
               <li>
                 <%= link_to( destroy_user_session_path, :method => :delete ) do %>
