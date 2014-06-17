@@ -30,6 +30,7 @@
     </div>
   </div>
   <div class="col-md-12">
-    <%= link_to("加入購物車", add_to_cart_product_path(@product), :class => "addToCart btn btn-danger pull-right") %>
+    <!-- 注意要加上 :method => :post 否則預設是 GET -->
+    <%= link_to("加入購物車", add_to_cart_product_path(@product), :method => :post, :class => "addToCart btn btn-danger pull-right") %>
   </div>
 </div>
