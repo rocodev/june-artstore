@@ -1,27 +1,28 @@
 <%= simple_form_for [:admin, @product], :html => { :multipart => true, :class => "form form-horizontal" } do |f| %>
 
 	<div class="group">
-		<%= f.input :title, :label => "標題", :required => true, :autofocus => true %>
+		<%= f.input :title, :label => "標題", :required => true, :autofocus => true, input_html: { class: 'form-control'} %>
 	</div>
 <!-- ffta -->
 	<div class="group">
-		<%= f.input :description, :required => true,:required => true, :label => "敘述" %>
+		<%= f.input :description, :required => true,:required => true, :label => "敘述", input_html: { class: 'form-control'} %>
 	</div>
 	<div class="group">
-		<%= f.input :price, :required => true, :label => "金額" %>
+		<%= f.input :price, :required => true, :label => "金額", input_html: { class: 'form-control'} %>
 	</div>
 <!-- fftf -->
 	<div class="group">
-		<%= f.input :quantity, :required => true, :label => "數量" %>
+		<%= f.input :quantity, :required => true, :label => "數量", input_html: { class: 'form-control'} %>
 	</div>
 
 
 	
 	<div class="group">
 		<%= f.simple_fields_for :photos do |c| %>
-			<%= c.input :image, :as => :file %>
+			<%= c.input :image, :as => :file, :label => "上傳圖片" %>
 		<% end %>
 	</div>
+	<br />
 <!-- ffs -->
 	<%= f.button :submit, "送出", :disable_with => "Submiting ...", class: "btn-success" %>
 

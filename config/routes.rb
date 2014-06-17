@@ -16,6 +16,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :carts do
+    collection do
+      get 'checkout'
+    end
+  end
+  #get 'carts/checkout' => 'carts#checkout'
+
+  resources :orders do
+    member do
+      get :pay_with_credit_card
+    end
+  end
+
   #namespace
   #要把admin功能關起來，所以用namespace來設定。
 
