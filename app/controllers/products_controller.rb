@@ -19,4 +19,14 @@ class ProductsController < ApplicationController
 
     redirect_to :back
   end
+
+  def delete_from_cart
+    @product = Product.find(params[:id])
+    if (current_cart.items.include?(@product))
+      current_cart.delete_product_from_cart(@product.id)
+      redirect_to :back, :notice => "已清空商品"
+    else
+      redirect_to :back, :notice => "無此商品"
+    end
+  end
 end

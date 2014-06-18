@@ -6,25 +6,21 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>商品資訊</th>
-          <th></th>
-          <th>單價</th>
+          <th>商品圖片</th>
+          <th>商品名稱</th>
+          <th>商品單價</th>
+          <th>取消購買</th>
         </tr>
       </thead>
       <tbody>
         <% current_cart.items.each do |product| %>
         <tr>
           <td><%= render_product_photo(product.default_photo) %></td>
- 
-            <td> 
-              
- 
-              <%= link_to(product.title, admin_product_path(product)) %>
-            </td>
-            <td> <%= product.price %> </td>
-          </tr>
-          <% end %>
- 
+          <td><%= link_to(product.title, admin_product_path(product)) %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to("刪除", delete_from_cart_product_path(product), :method => :post, :confirm => "刪除?", :remove => true, :class =>"btn btn-warning btn-lg" ) %></td>
+        </tr>
+        <% end %>
         </tbody>
       </table>
  
@@ -35,8 +31,12 @@
       </div>
   
       <hr>
+
       <div class="checkout">
-          <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg btn-danger pull-right") %>
+          <% if cart_items_count(current_cart) > 0 %>
+          <%= link_to("清空購物車", empty_carts_path, :method => :post, :class => "btn btn-primary btn-lg btn-danger pull-left") %>
+          <% end %>
+          <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg pull-right") %>
       </div>
  
  
