@@ -1,6 +1,12 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @order = current_user.orders.find_by_token(params[:id])
+    @order_info = @order.info
+    @order_items = @order.items
+  end
+
   def create
     @order = current_user.orders.build(order_params)
 
@@ -11,6 +17,15 @@ class OrdersController < ApplicationController
     else
       render "carts/index"
     end
+  end
+
+  def pay_with_credit_card
+    @order = current_user.orders.find_by_token(params[:id])
+    @order.set_payment_with!("credite_card")
+
+    @order.pay!
+
+    redirect_to root_path :notice => "成功完成付款"
   end
 
   private
