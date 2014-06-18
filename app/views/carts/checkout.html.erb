@@ -60,7 +60,7 @@
     <% end %>
 
     <div class="checkout">
-      <%= f.submit "生成訂單", :class => "btn btn-primary btn-lg btn-danger pull-right", :disable_with => 'Submiting...' %>
+      <%= f.submit "生成訂單", :method => :post , :class => "btn btn-primary btn-lg btn-danger pull-right", :disable_with => 'Submiting...' %>
     </div>
 
     <% end %>
