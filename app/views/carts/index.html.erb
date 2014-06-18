@@ -9,6 +9,7 @@
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
+          <th>調整</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,7 @@
               <%= link_to(product.title, admin_product_path(product)) %>
             </td>
             <td> <%= product.price %> </td>
+            <td> <%= link_to("移除這項商品", remove_item_product_path(product), :method => :post, :class => "btn btn-primary") %> </td> 
           </tr>
           <% end %>
 

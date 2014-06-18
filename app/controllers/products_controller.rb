@@ -22,13 +22,17 @@ class ProductsController < ApplicationController
   end
 
 
-  def remove_all_product_from_cart
-    if current_cart.items.destroy
-      flash[:notice] = "成功移除購物車所有商品"
+  def remove_item
+
+  @item = CartItem.find_by(product_id: params[:id]) 
+  if @item.destroy 
+    flash[:notice] = "你已成功移除這項商品"
     else
-      flash[:warning] =" Something Wrong"
+      flash[:warning] = "Something Wrong when remove item!"
     end
-    redirect_to :back
+    redirect_to carts_path
+
+
   end
 
 
