@@ -4,8 +4,8 @@
     <%= link_to("我的商品清單", admin_products_path,:class => "navbar-text navbar-left") %>
 
     <ul class="nav navbar-nav navbar-right">
-      <%= link_to "#" do %>
-      購物車 <i class="glyphicon glyphicon-shopping-cart" > </i>(0)
+      <%= link_to carts_path do  %>
+      購物車 <i class="glyphicon glyphicon-shopping-cart" > </i>(<%= cart_items_count(current_cart) %>)
       <% end %>
     
       <% if !current_user %>
