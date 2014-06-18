@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
       flash[:warning] = "你的購物車內已有此物品"
     end
  
+    # Back to the page that issued the request.
+    # 回到目前所在頁面
     redirect_to :back
  
   end  

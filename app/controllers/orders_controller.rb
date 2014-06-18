@@ -9,6 +9,10 @@ class OrdersController < ApplicationController
       @order.build_item_cache_from_cart(current_cart)
       @order.calculate_total!(current_cart)
       
+      # @cart_items = CartItem.find_by_cart_id(current_cart.id)
+      current_cart.cart_items.each do |cart_item|
+        cart_item.destroy
+      end
       #redirect_to root_path
       redirect_to order_path(@order.token)
     else

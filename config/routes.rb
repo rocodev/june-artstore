@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :products
+  # resources :products
+  resources :cart_items
+
   resources :orders do
     member do
       get :pay_with_credit_card

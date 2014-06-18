@@ -1,16 +1,31 @@
 
-20140617:
-  ✔ 清空購物車 @current_cart.destroy @done (14-06-18 19:55)
-  ☐ 從購物車內刪掉某些物品
+Hw2-1:
+  ✔ 清空購物車 @done (14-06-18 19:55)
+     @orders_controller
+     def create
+       ...
+       current_cart.cart_items.each do |cart_item|
+         cart_item.destroy
+       end
+       ...
+     end
+  ✔ 從購物車內刪掉某些物品 @done (14-06-18 21:23)
+     @CartItemsController < ApplicationController
+       def destroy
+         @cart_item = CartItem.find_by_product_id(params[:id])
+         @cart_item.destroy    
+         redirect_to :back
+       end
+     end
   ☐ 購物車加入 "數量" 設計
   ☐ 購物車的總價 => 小計 x 數量
   ☐ 數量為0的貨物不能"購買"
 
-  --- ✄ -----------------------
-  Question
-  Why checkout.html 生成訂單後，會導到order token的頁面
-  logger.(debug|info|warn|error|fatal) 不同method的差別
-  Different should have different cart?
+Question:
+  ☐ Why checkout.html 生成訂單後，會導到order token的頁面
+  ☐ logger.(debug|info|warn|error|fatal) 不同method的差別
+  ☐ Differen user should have different cart?
+  ☐ Product被刪除後，id並不會重新更新
 
 
 購物: 
