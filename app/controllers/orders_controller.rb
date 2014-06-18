@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
       OrderMailer.notify_order_placed(@order).deliver
 
-      current_cart.items.destroy_all
+      current_cart.clear!
       
       redirect_to order_path(@order.token)
     else

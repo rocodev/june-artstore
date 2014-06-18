@@ -1,0 +1,4 @@
+<% simple_form_for(@cart_item) do |f| %>
+<%= f.input :quantity %>
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>請填寫修改數量</h1>
+
+<div class="col-sm-3">
+<%= simple_form_for(@cart_item) do |f| %>
+<%= f.input :cart_quantity %>
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>
+</div>

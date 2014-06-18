@@ -18,6 +18,10 @@ class Cart < ActiveRecord::Base
     items << product
   end
 
+  def clear!
+    cart_items.delete_all
+  end
+
   def total_price
     items.inject(0) {|sum, item| sum + item.price}
   end
