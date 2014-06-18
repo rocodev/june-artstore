@@ -9,6 +9,7 @@
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
+          <th>編輯</th>
         </tr>
       </thead>
       <tbody>
@@ -17,11 +18,12 @@
           <td><%= render_product_photo(product.default_photo) %></td>
  
             <td> 
-              
- 
               <%= link_to(product.title, product_path(product)) %>
             </td>
             <td> <%= product.price %> </td>
+            <td>
+              <%= link_to("刪除", product_path(product), :method => :delete,:class => "btn btn-danger") %>
+            </td>
           </tr>
           <% end %>
  

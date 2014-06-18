@@ -1,6 +1,6 @@
 
 20140617:
-  ☐ 清空購物車
+  ✔ 清空購物車 @current_cart.destroy @done (14-06-18 19:55)
   ☐ 從購物車內刪掉某些物品
   ☐ 購物車加入 "數量" 設計
   ☐ 購物車的總價 => 小計 x 數量
@@ -8,7 +8,9 @@
 
   --- ✄ -----------------------
   Question
-  why checkout.html 生成訂單後，會導到order token的頁面
+  Why checkout.html 生成訂單後，會導到order token的頁面
+  logger.(debug|info|warn|error|fatal) 不同method的差別
+  Different should have different cart?
 
 
 購物: 
