@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
       @order.calculate_total!(current_cart)
       redirect_to root_path
     else
-      render "carts/checkout"
+      render "carts/index"
     end
   end
 

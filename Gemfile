@@ -28,6 +28,7 @@ group :development do
   gem 'spring'
   gem "better_errors", "~> 0.9.0"
   gem "guard-livereload"
+  gem "binding_of_caller"
 end
 
 
