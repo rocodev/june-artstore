@@ -18,7 +18,16 @@
 					<td><%= render_product_photo_medium(item.product.default_photo) %></td>
 					<td><%= link_to item.product.name, product_path(item.product) %></td>
 					<td><%= item.product.price %></td>
-					<td><%= item.quantity %></td>
+					<td>
+						<%= simple_form_for item do |f| %>
+							<div class="form-group">
+								<%= f.input :quantity, :label => false, :collection => quntity_available_array(item.product), :selected => item.quantity, :input_html => { :class => "form-control" } %>
+							</div>
+							<div class="form-group">
+								<%= f.submit "更新", :class => "btn btn-success btn-xs pull-right" %>
+							</div>
+						<% end %>
+					</td>
 					<td>
 						<%= link_to "刪除", cart_item_path(item), :method => :delete, :class => "btn btn-default" %>
 					</td>
