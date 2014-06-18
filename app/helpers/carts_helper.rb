@@ -8,4 +8,21 @@ module CartsHelper
     current_cart.total_price
   end
 
+  def render_cart_product_image(cart_product_item)
+    if
+      image = cart_product_item.product.photos.first.image.url
+    else
+    end
+
+    image_tag(image)
+  end
+
+  def render_cart_product_name(cart_product_item)
+    cart_product_item.product.title
+  end
+
+  def render_cart_product_price(cart_product_item)
+   cart_product_item.product.price
+  end
+
 end

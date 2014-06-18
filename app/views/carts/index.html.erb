@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h1>購物車</h1>
+    <table class="table table-hover">
+      <thead>
+        <th>產品照片</th>
+        <th>產品名稱</th>
+        <th>產品單價</th>
+      </thead>
+      <tbody>
+        <tr>
+          <%= render :partial => "cart_product_index", :collection => @cart_items, :as => :cart_item %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="total group">
+    <span class="pull-right">
+    <span> 總計 <%= render_cart_total_price(current_cart) %> NTD </span>
+  </div>
+  <hr />
+  <div class="total group">
+    <span class="pull-right">
+    <span> <%= link_to("立即結賬", checkout_carts_path, :class => "btn btn-danger") %> </span>
+  </div>  
+</div>
