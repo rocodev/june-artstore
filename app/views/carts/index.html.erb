@@ -8,17 +8,24 @@
         <tr>
           <th>商品圖片</th>
           <th>商品名稱</th>
+          <th>商品數量</th>
           <th>商品單價</th>
+          <th>商品總價</th>
           <th>取消購買</th>
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+        <% current_cart.cart_items.each do |item| %>
         <tr>
-          <td><%= render_product_photo(product.default_photo) %></td>
-          <td><%= link_to(product.title, admin_product_path(product)) %></td>
-          <td><%= product.price %></td>
-          <td><%= link_to("刪除", delete_from_cart_product_path(product), :method => :post, :confirm => "刪除?", :remove => true, :class =>"btn btn-warning btn-lg" ) %></td>
+          <td><%= render_product_photo(item.product.default_photo) %></td>
+          <td><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
+          <td><%= item.quantity %> </td>
+          <td><%= item.product.price %></td>
+          <td><%= item.product.price * item.quantity %></td>
+          <td><%= link_to cart_item_path(current_cart, item), :method => :delete do %>
+            <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+          </td>
         </tr>
         <% end %>
         </tbody>
@@ -33,9 +40,7 @@
       <hr>
 
       <div class="checkout">
-          <% if cart_items_count(current_cart) > 0 %>
-          <%= link_to("清空購物車", empty_carts_path, :method => :post, :class => "btn btn-primary btn-lg btn-danger pull-left") %>
-          <% end %>
+          <%= render_empty_cart_button(current_cart) %>
           <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg pull-right") %>
       </div>
  

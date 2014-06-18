@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post :add_to_cart
-      post :delete_from_cart
     end
   end
 
@@ -19,9 +18,9 @@ Rails.application.routes.draw do
       post :checkout
       post :empty
     end
-    member do
-      post :delete_product_from
-    end
+
+    resources :items, :controller => "cart_items"
+
   end
   
   resources :orders do

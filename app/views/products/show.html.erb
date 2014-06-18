@@ -14,7 +14,11 @@
     <div> 數量 : <%= render_product_quantity(@product) %> </div>
     <div class="product-price"> <%= number_to_currency(render_product_price(@product)) %> </div>
     <div class="pull-right">
+      <% if @product.quantity > 0 %>
       <%= link_to("加入購物車", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-primary btn-lg btn-danger") %>
+      <% else %>
+         此商品目前缸貨，無法購買
+      <% end %>
     </div>
   </div>
 </div>

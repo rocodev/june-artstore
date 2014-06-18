@@ -3,11 +3,16 @@ class Cart < ActiveRecord::Base
   has_many :items, :through => :cart_items, :source => :product
 
   def add_product_to_cart(product)
-    items << product
+    current_item = cart_items.find {|item| item.product == product}
+    if current_item
+      current_item.increment_quantity
+    else
+      items << product
+    end
   end
 
   def total_price
-    items.inject(0) {|sum, item| sum+item.price}
+    cart_items.inject(0) {|sum, item| sum+item.product.price*item.quantity}
   end
 
   def empty_cart(cart)
