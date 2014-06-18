@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :carts do
     collection do
       get 'checkout'
-      get 'clear_cart'
+      get 'item_clear'
     end
   end
   #get 'carts/checkout' => 'carts#checkout'
