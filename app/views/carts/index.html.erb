@@ -6,15 +6,15 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>商品資訊</th>
-          <th></th>
+          <th class="col-md-1">商品資訊</th>
+          <th class="col-md-2"> 商品名稱 </th>
           <th>單價</th>
         </tr>
       </thead>
       <tbody>
         <% current_cart.items.each do |product| %>
         <tr>
-          <td><%= render_product_photo(@product, :medium) %></td>
+          <td><%= image_tag product.image_url(:mini).to_s %></td>
  
             <td> 
               
