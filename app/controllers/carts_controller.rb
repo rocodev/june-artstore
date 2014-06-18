@@ -13,6 +13,10 @@ class CartsController < ApplicationController
     @info = @order.build_info
   end
 
+  def clear_cart
+    
+  end
+
   #def show
   #end
 
