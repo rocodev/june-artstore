@@ -10,18 +10,20 @@
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
-          <th>動作</th>
+          <th>數量</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+        <% current_cart.cart_items.each do |cart_item| %>
           <tr>
-            <td><%= product_render_photo(product) %></td>
+            <td><%= product_render_photo(cart_item.product) %></td>
             <td>
-                <%= link_to(product.title, product_path(product)) %>
+                <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
             </td>
-            <td> <%= product.price %> </td>
-            <td> <%= link_to("刪除", del_from_cart_product_path(product), :method => :post, :class => "btn btn-primary") %> </td>
+            <td> <%= cart_item.product.price %> </td>
+            <td> <%= cart_item.quantity %> </td>
+            <td> <%= link_to("刪除", del_from_cart_product_path(cart_item.product), :method => :post, :class => "btn btn-primary") %> </td>
           </tr>
         <% end %>
 

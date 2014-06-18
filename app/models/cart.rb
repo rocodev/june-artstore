@@ -7,7 +7,8 @@ class Cart < ActiveRecord::Base
   end
 
   def add_product_to_cart(product, item_quantity)
-    items << product
+    cart_item = cart_items.build(product_id: product.id, quantity: item_quantity)
+    cart_item.save
   end
 
   def total_price
