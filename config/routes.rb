@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 	root :to => "products#index"
 
+	resources :cart_items
+
 	resources :carts do
 		collection do 
 			post :checkout
