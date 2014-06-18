@@ -4,13 +4,17 @@
     <%= link_to("我的商品清單", admin_products_path,:class => "navbar-text navbar-left") %>
 
     <ul class="nav navbar-nav navbar-right">
-    <% if !current_user %>
-      <%= link_to "申請帳號", new_user_registration_path, :class => "btn btn-default navbar-btn"  %>
-      <%= link_to("登入", new_user_session_path,:class => "btn btn-default navbar-btn") %>
-    <% else %>
-      <%= link_to("修改我的資料", edit_user_registration_path, :class => 'btn btn-default navbar-btn' )%>
-      <%= link_to("登出", destroy_user_session_path, :method => :delete,:class => "btn btn-default navbar-btn")%>
-    <% end %>
+      <%= link_to "#" do %>
+      購物車 <i class="glyphicon glyphicon-shopping-cart" > </i>(0)
+      <% end %>
+    
+      <% if !current_user %>
+        <%= link_to "申請帳號", new_user_registration_path, :class => "btn btn-default navbar-btn"  %>
+        <%= link_to("登入", new_user_session_path,:class => "btn btn-default navbar-btn") %>
+      <% else %>
+        <%= link_to("修改我的資料", edit_user_registration_path, :class => 'btn btn-default navbar-btn' )%>
+        <%= link_to("登出", destroy_user_session_path, :method => :delete,:class => "btn btn-default navbar-btn")%>
+      <% end %>
     </ul>
 
   </div>
