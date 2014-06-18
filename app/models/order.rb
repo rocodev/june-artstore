@@ -20,4 +20,10 @@ class Order < ActiveRecord::Base
     self.save
   end
 
+  before_create :generate_token
+
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
 end
