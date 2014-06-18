@@ -39,6 +39,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cart_items, :controller => "cart_items"
+
   # Example resource route with options:
   #   resources :products do
   #     member do

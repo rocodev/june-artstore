@@ -5,7 +5,9 @@
 - Week2 homework
   - #1
     清空購物車
+      current_cart.clear!
     從購物車內刪掉某些物品
+      rails g controller cart_items
     購物車加入「數量」設計
     購物車的總價 => 小計 x 數量
     數量為0的貨物不能「購買」
