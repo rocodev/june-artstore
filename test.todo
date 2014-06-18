@@ -9,8 +9,12 @@
     從購物車內刪掉某些物品
       rails g controller cart_items
     購物車加入「數量」設計
+     cart_items => quantity
     購物車的總價 => 小計 x 數量
+      total price => product price * item quantity
     數量為0的貨物不能「購買」
+      if product.quantity > 0
+
   - #2
     配合作業#1支援「多重購買數量」
     修改訂單畫面
