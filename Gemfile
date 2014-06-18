@@ -57,3 +57,5 @@ gem 'bootstrap-sass'
 
 #圖片上傳
 gem 'carrierwave'
+
+gem "mini_magick"
