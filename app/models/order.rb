@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  total          :integer
+#  paid           :boolean          default(FALSE)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  payment_method :string(255)
+#  token          :string(255)
+#  aasm_state     :string(255)      default("order_placed")
+#
+
 class Order < ActiveRecord::Base
   
   belongs_to :user

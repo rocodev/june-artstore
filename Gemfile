@@ -51,4 +51,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use state machine
 gem 'aasm'
+
