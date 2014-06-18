@@ -12,7 +12,7 @@ class Cart < ActiveRecord::Base
   end
 
   def clear_cart_item
-    items.destroy_all
+    items.delete_all
   end
 
 end
