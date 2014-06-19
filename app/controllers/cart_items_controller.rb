@@ -13,7 +13,7 @@ class CartItemsController < ApplicationController
     @cart = Cart.find(params[:cart_id])
     @cart_item = @cart.cart_items.find(params[:id])
 
-    if params[:cart_item]['quantity'].to_i <= 1
+    if params[:cart_item]['quantity'].to_i < 1
       flash[:warning] = "數量無法小於0，請確認數量。"
       redirect_to(carts_path)
     else

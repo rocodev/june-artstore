@@ -6,17 +6,20 @@
         <tr>
           <th class="text-center" width="80%">商品明細</th>
           <th class="text-center">單價</th>
-          <th class="text-center">操作</th>
+          <th class="text-center">數量</th>
+          <th class="text-center">價格</th>
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+        <% current_cart.cart_items.each do |cart| %>
         <tr>
-          <td>           
-            <%= link_to(product.title, admin_product_path(product)) %>
+          <td>
+            <%= link_to(render_cart_item_title_for_checkout(cart), find_cart_item_product_id_for_checkout(cart)) %>
+            <%# link_to(cart.title, product_path(cart)) %>
           </td>
-          <td class="text-center"> <%= product.price %> </td>
-          <td class="text-center"><%= link_to("刪除此物品", "#", :class => "btn btn-warning") %></td>
+          <td class="text-center"> <%= render_cart_item_price_for_checkout(cart) %> </td>
+          <td class="text-center"> <%= render_cart_item_quantity_for_checkout(cart) %><%# cart.quantity %> </td>
+          <td class="text-center"> <%= render_cart_item_total_price_for_checkout(cart) %><%# (cart.price.to_i * cart.quantity.to_i) %> </td>
         </tr>
         <% end %>
       </tbody>

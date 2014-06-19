@@ -35,4 +35,26 @@ module CartsHelper
    cart_product_item.product.price.to_i * cart_product_item.quantity.to_i
   end
 
+  ##
+
+  def render_cart_item_title_for_checkout(cart_product_item_for_checkout)
+    cart_product_item_for_checkout.product.title
+  end
+
+  def find_cart_item_product_id_for_checkout(cart_product_item_for_checkout)
+    cart_product_item_for_checkout.product
+  end
+
+  def render_cart_item_price_for_checkout(cart_product_item_for_checkout)
+    cart_product_item_for_checkout.product.price
+  end
+
+  def render_cart_item_quantity_for_checkout(cart_product_item_for_checkout)
+    cart_product_item_for_checkout.quantity.to_i
+  end
+
+  def render_cart_item_total_price_for_checkout(cart_product_item_for_checkout)
+    cart_product_item_for_checkout.product.price.to_i * cart_product_item_for_checkout.quantity.to_i
+  end
+
 end
