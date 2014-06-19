@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
   def pay_with_credit_card
     @order = current_user.orders.find_by_token(params[:id])
     @order.set_payment_with!("credit_card")
-    @order.pay!
+    # @order.pay!
+    # 在 aasm 設定中 make payment 提交後會執行 pay! 的內容所以這邊不用寫了
+    @order.make_payment!
 
     redirect_to root_path, :notice => "成功完成付款"
   end

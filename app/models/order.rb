@@ -45,6 +45,7 @@ class Order < ActiveRecord::Base
     # 結賬後狀態轉為 paid
     state :order_placed, :initial => true
     # If you want to make sure a depending action happens only after the transaction is committed, use the after_commit callback
+    # 確認狀態變更後 => pay! (update column paid to t)
     state :paid, :after_commit => :pay!
     event :make_payment do
       transitions :from => :order_placed, :to => :paid
