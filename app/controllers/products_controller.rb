@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
+    @product.quantity = params[:product => :quantity]
 
     if !current_cart.items.include?(@product)
       current_cart.add_product_to_cart(@product)
@@ -36,5 +37,10 @@ class ProductsController < ApplicationController
   end
 
 
-  
+  private
+
+  def product_params
+    params.require(:product).permit(:title, :description,:quantity, :price, :photos_attributes => [:image] )
+  end
 end
+  
