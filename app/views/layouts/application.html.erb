@@ -7,9 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body style="padding-top: 70px;">
-
-<%= render :partial => "partial/nav" %>
-<%= notice_message %>
+  <div class="container">
+    <%= render :partial => "partial/nav" %>
+    <%= notice_message %>
+  </div>
 
 <%= yield %>
 
