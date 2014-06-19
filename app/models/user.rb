@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 	
 	has_many :products
+	has_many :orders
 
-  devise :database_authenticatable, :registerable,
+	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
 	def admin?

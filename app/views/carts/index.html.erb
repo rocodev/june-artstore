@@ -21,7 +21,7 @@
 					<td>
 						<%= simple_form_for item do |f| %>
 							<div class="form-group">
-								<%= f.input :quantity, :label => false, :collection => quntity_available_array(item.product), :selected => item.quantity, :input_html => { :class => "form-control" } %>
+								<%= f.input :quantity, :label => false, :collection => quantity_available_array(item.product), :selected => item.quantity, :input_html => { :class => "form-control" } %>
 							</div>
 							<div class="form-group">
 								<%= f.submit "更新", :class => "btn btn-success btn-xs pull-right" %>

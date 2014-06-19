@@ -1,11 +1,10 @@
 class CartItemsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :find_item
 
 	def update
-		@cart = current_cart
-		@item = @cart.cart_items.find(params[:id])
-
+		
 		if @item.update(cart_item_params)
 			flash[:success] = "更新成功！"
 		else
@@ -16,14 +15,18 @@ class CartItemsController < ApplicationController
 	end
 
 	def destroy
-		@cart = current_cart
-		@item = @cart.cart_items.find(params[:id])
 
 		@item.destroy
 
 		flash[:warning] = "刪除成功！"
 		redirect_to :back
 		
+	end
+
+	private
+
+	def find_item
+		@item = current_cart.cart_items.find(params[:id])
 	end
 
 	private
