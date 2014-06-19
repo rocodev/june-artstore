@@ -69,3 +69,10 @@
       ☐ 訂單畫面美化
       ✔ 建立 account/orders 可以看到該使用者過去所有訂單 @done (14-06-20 04:34)
       ✔ 結賬後跳轉到 account/orders#index @done (14-06-20 04:34)
+      ☐ 建立 admin/orders 可以看到系統內所有訂單
+         ✔ 新增 resources @done (14-06-20 04:45)
+         ✔ 新增 admin::orders controller @done (14-06-20 04:45)
+         ☐ def index action
+         ☐ create index view
+      ☐ admin 的 order 列表要能顯示訂單狀態
+      ☐ 單張 order 應該要可以依照狀態圖改變狀態
