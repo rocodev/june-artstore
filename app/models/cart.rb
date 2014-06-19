@@ -4,9 +4,16 @@ class Cart < ActiveRecord::Base
   # 透過 cart_items 和 items 作關聯，根據 cart_items 中的 product
   has_many :items, :through => :cart_items, :source => :product
 
-  def add_product_to_cart(product)
-    # ？
-    items << product
+  def add_product_to_cart(product, qt)
+    item = cart_items.new
+    item.product = product
+    item.quantity = qt
+    item.save
+  end
+
+  def add_onemore_product_to_cart(product, qt)
+    # 再加一個商品到購物車
+    # cart_items.product.quantity += qt
   end
 
   def total_price

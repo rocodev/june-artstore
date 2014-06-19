@@ -22,9 +22,13 @@ class ProductsController < ApplicationController
       # def add_product_to_cart(product)
       #   items << product
       # end
-      current_cart.add_product_to_cart(@product)
+
+      # 更新 add_product_to_cart method 新增數量，所以這邊預設將 1 個商品加入購物車
+      current_cart.add_product_to_cart(@product, 1)
       flash[:notice] = "已成功將 #{@product.title} 加入購物車"
     else
+      # 再加一個商品到購物車
+      current_cart.add_onemore_product_to_cart(@product)
       flash[:warning] = "購物車內已有此物品"
     end
 
