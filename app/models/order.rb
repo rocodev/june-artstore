@@ -34,6 +34,10 @@ class Order < ActiveRecord::Base
     self.update_column(:paid, true)
   end
 
+  def clean!(current_cart)
+    current_cart.cart_items.destroy_all
+  end
+
   include AASM
 
   aasm do

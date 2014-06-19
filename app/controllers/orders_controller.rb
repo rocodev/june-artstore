@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
 
     @order.make_payment!
 
+    @order.clean!(current_cart)
+
     redirect_to root_path :notice => "成功完成付款"
   end
 
