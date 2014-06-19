@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
 
   belongs_to :user
+
   has_one :info, :class_name => "OrderInfo", :dependent => :destroy
   has_many :items, :class_name => "OrderItem", :dependent => :destroy
   accepts_nested_attributes_for :info
@@ -9,7 +10,7 @@ class Order < ActiveRecord::Base
     cart.items.each do |cart_item|
       item = items.build
       item.product_name = cart_item.title
-      item.quantity = 1
+      item.quantity = cart.cart_items.find_by(:product_id => cart_item.id).quantity
       item.price = cart_item.price
       item.save
     end
