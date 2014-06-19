@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cart_items, :only => [:destroy]
+
   # 暫時先把 root 放到這邊
   root :to => "products#index"
   # The priority is based upon order of creation: first created -> highest priority.
