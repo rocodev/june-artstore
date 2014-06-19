@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cart_items, :only => [:destroy]
+  resources :cart_items, :only => [:destroy, :update]
 
   # 暫時先把 root 放到這邊
   root :to => "products#index"

@@ -18,7 +18,12 @@
           <td class="col-md-1"><%= render_product_photo(item.product.default_photo) %></td>
           <td class="col-md-8"><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
           <td class="col-md-1 price"> <%= item.product.price %> </td>
-          <td class="col-md-1 qt"> <%= item.quantity %> </td>
+          <td class="col-md-1 qt">
+            <%= simple_form_for item, :url => cart_item_path(item), defaults: {label: false} do |f| %>
+              <%= f.input :quantity, :value => item.quantity, :class => "col-md-10" %>
+              <%= f.submit "變更數量", :disable_with => 'Submiting...' %>
+            <% end -%>
+          </td>
           <td class="col-md-1 delete"> <%= link_to("x", cart_item_path(item), :method => :delete, :class => "btn btn-xs btn-default") %> </td>
         </tr>
       <% end %>
