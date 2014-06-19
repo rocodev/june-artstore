@@ -1,0 +1,4 @@
+<h1 class="text-center">過去訂單</h1>
+<table class="table table-hover">
+  <%= render :partial => "user_orders_table", :collection => @orders, :as => :order %>
+</table>

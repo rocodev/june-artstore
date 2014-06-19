@@ -32,6 +32,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :account do
+    collection do
+      get 'orders'
+    end
+  end
+
   #namespace
   #要把admin功能關起來，所以用namespace來設定。
 
