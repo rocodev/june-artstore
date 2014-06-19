@@ -1,45 +1,38 @@
-<div class="row">
+<div class="cart row">
   <div class="col-md-12">
-
+  <%= link_to("清空購物車", "#", :class => "pull-right btn btn-primary btn-sm") %>
   <h2> 購物車 </h2>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
-        <th>商品資訊</th>
-        <th></th>
+        <th colspan="2">商品資訊</th>
         <th>單價</th>
+        <th>刪除商品</th>
       </tr>
     </thead>
     <tbody>
       <% current_cart.items.each do |product| %>
-      <tr>
-        <td><%= render_product_photo(product.default_photo) %></td>
-
-          <td>
-
-
-            <%= link_to(product.title, admin_product_path(product)) %>
-          </td>
-          <td> <%= product.price %> </td>
+        <tr>
+          <td class="col-md-1"><%= render_product_photo(product.default_photo) %></td>
+          <td class="col-md-9"><%= link_to(product.title, admin_product_path(product)) %></td>
+          <td class="col-md-1 price"> <%= product.price %> </td>
+          <td class="col-md-1 delete"> <%= link_to("x", "#", :class => "btn btn-xs btn-default") %> </td>
         </tr>
-        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
-      </tbody>
-    </table>
+  <div class="clearfix">
+    <span class="pull-right">
+       <span> 總計 <span class="total"><%= render_cart_total_price(current_cart) %></span> NTD
+    </span>
+  </div>
 
-    <div class="total group">
-      <span class="pull-right">
-         <span> 總計 <%= render_cart_total_price(current_cart) %> NTD
-      </span>
-    </div>
-
-    <hr>
-    <div class="checkout">
-        <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg btn-danger pull-right") %>
-    </div>
-
-
+  <hr>
+  <div class="checkout">
+      <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-lg btn-danger pull-right") %>
+  </div>
   </div>
 
 
