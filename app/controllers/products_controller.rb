@@ -23,4 +23,21 @@ class ProductsController < ApplicationController
     redirect_to :back
 
   end
+
+  def delete_from_cart
+
+    @product = Product.find(params[:id])
+
+    if current_cart.items.include?(@product)
+      current_cart.delete_item_from_cart(@product)
+      flash[:notice] = "你已成功將 #{@product.title} 從購物車中移除"
+    else
+      flash[:warning] = "你的購物車內已無此物品"
+    end
+
+    redirect_to :back
+
+  end
+
+
 end
