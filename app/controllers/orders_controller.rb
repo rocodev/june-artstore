@@ -28,7 +28,8 @@ class OrdersController < ApplicationController
     @order.set_payment_with!("credit_card")
 
     @order.make_payment! # TODO: should move to stripe callbacks
-
+  #   render "carts/destroy", :notice => "成功完成付款,清空購物車"
+  # 這邊不是應該先清空購物車之後才導回 root 嗎? 
     redirect_to root_path, :notice => "成功完成付款"
   end
 

@@ -35,4 +35,6 @@ module ProductsHelper
   def render_product_price(product)
     product.price
   end
+
+ 
 end
