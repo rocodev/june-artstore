@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    member do
+      get :pay_with_credit_card
+    end
+  end
 
   # 暫時先把 root 放到這邊
   root :to => "products#index"

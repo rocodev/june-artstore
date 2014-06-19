@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def calculate_total!(current_cart)
+  def caculate_total!(current_cart)
     self.total = current_cart.total_price
     self.save
   end
@@ -30,6 +30,12 @@ class Order < ActiveRecord::Base
     self.token = SecureRandom.uuid
   end
 
+  def set_payment_with!(method)
+    self.update_column(:payment_method, method)
+  end
 
+  def pay!
+    self.update_column(:paid, true)
+  end
 
 end
