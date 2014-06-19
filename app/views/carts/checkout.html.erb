@@ -1,4 +1,4 @@
-<div class="row">
+<div class="checkout row">
    <div class="col-md-12">
 
     <h2> 購物明細 </h2>
@@ -6,27 +6,29 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th width="80%">商品明細</th>
+          <th width="80%">商品名稱</th>
           <th>單價</th>
+          <th>數量</th>
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+        <% current_cart.cart_items.each do |item| %>
         <tr>
           <td>
             <!-- admin_product_path 改成 product_path -->
-            <%= link_to(product.title, product_path(product)) %>
+            <%= link_to(item.product.title, product_path(item.product)) %>
           </td>
-          <td> <%= product.price %> </td>
+          <td class="price"> <%= item.product.price %> </td>
+          <td class="qt"> <%= item.quantity %> </td>
         </tr>
         <% end %>
 
       </tbody>
     </table>
 
-    <div class="total group">
+    <div class="clearfix">
       <span class="pull-right">
-       <span> 總計 <%= render_cart_total_price(current_cart) %> NTD
+       <span> 總計 <span class="total"><%= render_cart_total_price(current_cart) %></span> NTD
        </span>
      </div>
 
