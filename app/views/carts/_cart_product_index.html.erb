@@ -1,11 +1,17 @@
+<%= simple_form_for cart_item, url: cart_cart_item_path(current_cart.id ,cart_item.id), :method => "PATCH" do |f| %>
+<table class="table">
 <tr>
+  <tbody>
   <td><%= render_cart_product_image(cart_item) %></td>
   <td><%= render_cart_product_name(cart_item) %></td>
   <td><%= render_cart_product_price(cart_item) %></td>
-  <td><%= render_cart_product_quantity(cart_item) %></td>
+  <td><%= f.input :quantity, :label => "更改數量：" %></td>
   <td><%= render_cart_product_total_price(cart_item) %></td>
   <td>
-    <%= link_to("更改數量", "#", :class => "btn btn-success") %> 
+    <%= f.button :submit, "修改數量", class: "btn-success" %>
     <%= link_to("刪除商品", cart_cart_item_path(current_cart.id, cart_item.id),:method => "DELETE", :class => "btn btn-danger") %>
   </td>
+  </tbody>
 </tr>
+</table>
+<% end %>

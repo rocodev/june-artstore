@@ -11,12 +11,8 @@
         <th>商品總價格</th>
         <th></th>
       </thead>
-      <tbody>
-        <tr>
-          <%= render :partial => "cart_product_index", :collection => @cart_items, :as => :cart_item %>
-        </tr>
-      </tbody>
     </table>
+    <%= render :partial => "cart_product_index", :collection => @cart_items, :as => :cart_item %>
   </div>
   <div class="total group">
     <span class="pull-right">
