@@ -10,9 +10,8 @@
   <div class="container">
     <%= render :partial => "partial/nav" %>
     <%= notice_message %>
+  
+    <%= yield %>
   </div>
-
-<%= yield %>
-
 </body>
 </html>
