@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     if @order.save
       @order.build_item_cache_from_cart(current_cart)
       @order.caculate_total!(current_cart)
+      # 確認結賬、訂單產生後後清空購物車
+      current_cart.clear
       # 產生 token 保密訂單網址
       redirect_to order_path(@order.token)
     else
