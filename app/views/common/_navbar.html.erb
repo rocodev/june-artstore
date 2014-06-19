@@ -32,13 +32,15 @@
 
 
           <ul class="dropdown-menu">
-
+            
             <% if current_user.admin? %>
-
-            <li> <%= link_to("Admin Panel", admin_products_path ) %> </li>
-
-            <li class="divider"></li>
+              <li> <%= link_to("Admin Panel", admin_products_path ) %> </li>
+              <li class="divider"></li>
             <% end %>
+
+            <li> <%= link_to("過去訂單", account_orders_path) %> </li>
+
+
 
 
             <li> 

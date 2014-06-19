@@ -31,5 +31,10 @@ Rails.application.routes.draw do
 
   resources :items, :controller => "cart_items"
 
+  namespace :account do 
+    resources :orders
+  end
+
+
   root :to => "products#index"
 end
