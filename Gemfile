@@ -49,3 +49,5 @@ gem 'simple_form'
 gem 'carrierwave'
 # 圖片壓縮 resize
 gem 'mini_magick'
+# 有線狀態機
+gem 'aasm'

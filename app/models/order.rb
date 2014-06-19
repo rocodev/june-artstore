@@ -38,4 +38,39 @@ class Order < ActiveRecord::Base
     self.update_column(:paid, true)
   end
 
+  include AASM
+
+  aasm do
+    # 預設為 order placed
+    # 結賬後狀態轉為 paid
+    state :order_placed, :initial => true
+    # If you want to make sure a depending action happens only after the transaction is committed, use the after_commit callback
+    state :paid, :after_commit => :pay!
+    event :make_payment do
+      transitions :from => :order_placed, :to => :paid
+    end
+
+    # 出貨後狀態轉為 shipping
+    state :shipping
+    event :ship do
+      transitions :from => :paid, :to => :shipping
+    end
+
+    # 到貨後狀態轉為 shipped
+    state :shipped
+    event :deliver do
+      transitions :from => :shipping, :to => :shipped
+    end
+
+    state :order_cancelled
+    event :cancel_order do
+      transitions :from => [:order_placed, :paid], :to => :order_cancelled
+    end
+
+    state :good_returned
+    event :return_good do
+      transitions :from => :shipped, :to => :good_returned
+    end
+  end
+
 end
