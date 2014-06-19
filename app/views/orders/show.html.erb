@@ -1,4 +1,4 @@
-<div class="row">
+<div class="order row">
    <div class="col-md-12">
 
     <h2> 訂單明細 </h2>
@@ -8,24 +8,24 @@
         <tr>
           <th width="80%">商品明細</th>
           <th>單價</th>
+          <th>數量</th>
         </tr>
       </thead>
       <tbody>
         <% @order_items.each do |order_item| %>
         <tr>
-          <td>
-            <%= order_item.product_name %>
-          </td>
-          <td> <%= order_item.price %> </td>
+          <td> <%= order_item.product_name %> </td>
+          <td class="price"> <%= order_item.price %> </td>
+          <td class="qt"> <%= order_item.quantity %> </td>
         </tr>
         <% end %>
 
       </tbody>
     </table>
 
-    <div class="total group">
+    <div class="clearfix">
       <span class="pull-right">
-       <span> 總計 <%= @order.total %> NTD
+       <span> 總計 <span class="total"><%= @order.total %></span> NTD
        </span>
      </div>
 
