@@ -28,8 +28,8 @@ class ProductsController < ApplicationController
       flash[:notice] = "已成功將 #{@product.title} 加入購物車"
     else
       # 再加一個商品到購物車
-      current_cart.add_onemore_product_to_cart(@product)
-      flash[:warning] = "購物車內已有此物品"
+      current_cart.add_onemore_product_to_cart(@product, 1)
+      flash[:notice] = "已增加一件 #{@product.title} 進您的購物車"
     end
 
     redirect_to :back

@@ -13,11 +13,13 @@ class Cart < ActiveRecord::Base
 
   def add_onemore_product_to_cart(product, qt)
     # 再加一個商品到購物車
-    # cart_items.product.quantity += qt
+    current_item = cart_items.find_by_product_id(product)
+    current_item.quantity += qt
+    current_item.save
   end
 
   def total_price
-    items.inject(0) {|sum, item| sum + item.price }
+    cart_items.inject(0) {|sum, item| sum + item.product.price * item.quantity }
   end
 
   # 清空購物車
