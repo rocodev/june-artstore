@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
     # 在 aasm 設定中 make payment 提交後會執行 pay! 的內容所以這邊不用寫了
     @order.make_payment!
 
-    redirect_to root_path, :notice => "成功完成付款"
+    redirect_to account_orders_path, :notice => "成功完成付款"
   end
 
   private

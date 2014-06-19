@@ -67,6 +67,11 @@
               </li>
               <% end %>
               <li>
+                <%= link_to account_orders_path do %>
+                  <span class="glyphicon glyphicon-list-alt"></span> 查訂單
+                <% end %>
+              </li>
+              <li>
                 <%= link_to( destroy_user_session_path, :method => :delete ) do %>
                   <span class="glyphicon glyphicon-user"></span> 會員登出
                 <% end %>

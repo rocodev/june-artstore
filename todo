@@ -67,5 +67,5 @@
       ✔ 支援多重購買數量 @done (14-06-20 02:04)
       ✔ 修改訂單畫面 @done (14-06-20 03:51)
       ☐ 訂單畫面美化
-      ☐ 建立 account/orders 可以看到該使用者過去所有訂單
-      ☐ 結賬後跳轉到 account/orders#index
+      ✔ 建立 account/orders 可以看到該使用者過去所有訂單 @done (14-06-20 04:34)
+      ✔ 結賬後跳轉到 account/orders#index @done (14-06-20 04:34)

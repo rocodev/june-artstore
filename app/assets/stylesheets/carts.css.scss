@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $money-red: #c00;
 
-.cart, .checkout, .order {
-  th, .price, .delete, .qt {
+.cart, .checkout, .order, .orderlist {
+  th, .price, .delete, .qt, .timeAgo {
     text-align: center;
   }
   .price, .total {
