@@ -1,0 +1,27 @@
+
+<h2>訂單列表 </h2>
+
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增產品", new_admin_product_path, :class => "btn btn-primary btn-sm") %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>生成時間</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td> <%= render_order_link(order) %> </td>
+      <td> <%= render_order_created_time(order) %> </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
