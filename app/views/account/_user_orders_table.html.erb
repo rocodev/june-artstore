@@ -1,1 +1,11 @@
-<%= order %>
+<tr>
+  <td class="text-center">
+    【<%= render_order_id(order) %>】<%= link_to(render_order_token(order), "#") %>
+  </td>
+    <td class="text-center">
+      <%= render_order_total(order) %>
+    </td>
+    <td class="text-center">
+      <%= render_order_created_at(order) %>
+    </td>
+</tr>
