@@ -16,12 +16,14 @@
       </thead>
       <tbody>
 
-        <% @cart_infos.each do |product, cart_item| %>
+        <% current_cart.cart_items.each do |item| %>
         <tr>
-          <td><%= render_product_photo(product.default_photo) %></td>
-          <td><%= link_to(product.title, admin_product_path(product)) %></td>
-          <td><%= product.price %> </td>
-          <td><%= link_to("數量調整", "#")%><br> <p> <%= link_to("移除購物車", clear_item_cart_path(cart_item), :method => :delete) %></p> </td>
+          <td><%= render_product_photo(item.product.default_photo) %></td>
+          <td><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
+          <td><%= item.product.price %> </td>
+          <td><%= link_to("數量調整", "#")%><br> 
+            <p><%= link_to("移除購物車", item_path(item), :method => :delete) %></p> 
+          </td>
         </tr>
           <% end %>
 
