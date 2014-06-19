@@ -43,7 +43,7 @@
             <%= link_to("清空購物車", cart_path(current_cart) , :method => :delete , :class => "btn btn-primary btn-lg btn-success") %>
         </div>
         <div class="checkout">
-            <%= link_to(" 確認結賬 ", "#" , :method => :post , :class => "btn btn-primary btn-lg btn-danger ") %>
+            <%= link_to(" 確認結賬 ", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg btn-danger ") %>
         </div>
       </div>
  

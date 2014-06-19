@@ -14,4 +14,9 @@ class CartsController < ApplicationController
     redirect_to products_path
   end
 
+  def checkout
+    @order = current_user.orders.build
+    @info = @order.build_info
+  end
+  
 end
