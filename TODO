@@ -62,5 +62,5 @@
 
 重構:
   ✔ 將application.html中的nav bar和error message 用partial抽出 @done(2014-06-14 12:29) @project(Refactoring)
-  ☐ 簡化admin/order#show狀態轉換的code, 包含viwe, controller
+  ✔ 簡化admin/order#show狀態轉換的code, 包含viwe, controller @done(2014-06-20 02:44) @project(重構)
   ☐ 將加入/移除購物車功能, 轉移到cart_items controller相對應的create/destroy action

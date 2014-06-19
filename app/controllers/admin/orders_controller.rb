@@ -13,23 +13,8 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  def ship
-    @order.ship
-    save_and_redirect_to_show
-  end
-
-  def deliver
-    @order.deliver
-    save_and_redirect_to_show
-  end
-
-  def cancel_order
-    @order.cancel_order
-    save_and_redirect_to_show
-  end
-
-  def return_good
-    @order.return_good
+  def state_transition
+    @order.send(params[:event])
     save_and_redirect_to_show
   end
 

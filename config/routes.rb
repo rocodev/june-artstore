@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         post :deliver
         post :cancel_order
         post :return_good
+        post :state_transition
       end
     end
   end

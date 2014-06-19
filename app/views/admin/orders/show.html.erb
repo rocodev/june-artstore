@@ -51,16 +51,16 @@
       </table>
       <p>狀態：<%= @order.aasm_state %></p>
       <% if @order.may_ship? %>
-          <%= link_to("出貨", ship_admin_order_path(@order), method: :post, :class => "btn btn-primary") %>
+        <%= render_state_transition_btn("出貨", @order, :ship) %>
       <% end %>
       <% if @order.may_deliver? %>
-          <%= link_to("到貨", deliver_admin_order_path(@order), method: :post, :class => "btn btn-primary") %>
+        <%= render_state_transition_btn("到貨", @order, :deliver) %>
       <% end %>
       <% if @order.may_cancel_order? %>
-          <%= link_to("取消訂單", cancel_order_admin_order_path(@order), method: :post, :class => "btn btn-primary") %>
+        <%= render_state_transition_btn("取消訂單", @order, :cancel_order) %>
       <% end %>
       <% if @order.may_return_good? %>
-          <%= link_to("退貨", return_good_admin_order_path(@order), method: :post, :class => "btn btn-primary") %>
+        <%= render_state_transition_btn("退貨", @order, :return_good) %>
       <% end %>
     </div>
   </div>
