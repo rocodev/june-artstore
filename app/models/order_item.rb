@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # == Schema Information
 #
 # Table name: order_items
@@ -13,6 +12,5 @@
 #
 
 class OrderItem < ActiveRecord::Base
-    belongs_to :order
+  belongs_to :order
 end
-
