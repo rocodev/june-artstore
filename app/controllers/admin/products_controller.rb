@@ -1,15 +1,8 @@
-class Admin::ProductsController < ApplicationController
-
-  before_action :authenticate_user!
-  before_action :admin_required
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @products = Product.all
-  end
+class Admin::ProductsController < AdminController
 
   def new
     @product = Product.new
+    @photo = @product.photos.new
   end
 
   def create
@@ -22,30 +15,27 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
-  end
-
-  def update
-    @product.update_attributes(product_params)
-    redirect_to admin_products_path
-  end
-
-  def destroy
-    @product.destroy
-    redirect_to admin_products_path
-  end
-
-  private  #private behind this line
-
-  def set_product
     @product = Product.find(params[:id])
   end
 
-  def product_params
-    params.require(:product).permit(:title, :description, :quanttity, :picture)
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update(product_params)
+      redirect_to admin_products_path
+    else
+      render :edit
+    end
   end
 
+  def index
+    @products = Product.all
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:title, :description,:quantity, :price, :photos_attributes => [:image] )
+  end
 end
