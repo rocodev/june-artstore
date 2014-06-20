@@ -5,7 +5,7 @@
   <td><%= render_cart_product_image(cart_item) %></td>
   <td><%= render_cart_product_name(cart_item) %></td>
   <td><%= render_cart_product_price(cart_item) %></td>
-  <td><%= f.input :quantity, :label => "更改數量：" %></td>
+  <td><%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %></td>
   <td><%= render_cart_product_total_price(cart_item) %></td>
   <td>
     <%= f.button :submit, "修改數量", class: "btn-success" %>
