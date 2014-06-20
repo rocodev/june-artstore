@@ -8,11 +8,13 @@
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
+          <th>數量</th>
         </tr>
       </thead>
       <tbody>
         <% current_cart.cart_items.each do |item| %>
         <tr>
+          
           <td>
             <%= link_to  cart_item_path(current_cart, item), :method => :delete do %>
               <i class="glyphicon glyphicon-trash"></i>
@@ -21,6 +23,13 @@
           <td><%= render_product_photo(item.product.default_photo) %></td>
           <td><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
           <td><%= item.product.price %></td>
+          <td>
+            目前購買數量:<%= item.quantity %>
+            <%= form_for item, :url => cart_item_path(current_cart, item) do |f| %>
+              <%= f.select :quantity, (1..item.product.quantity).to_a %>
+              <%= f.submit "update", :disable_with => "Submitting..." %>
+            <% end %>
+          </td> 
         </tr>
         <% end %>
 

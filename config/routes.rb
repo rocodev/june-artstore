@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       post :checkout
     end
 
-    # Set resources :cart_items may be misleading when rake routes(?)
     resources :items, :controller => "cart_items" 
   end
 
