@@ -29,7 +29,7 @@
 
            <%= form_for item, :url => cart_item_path(current_cart, item) do |f| %>
 
-           <%= f.select :quantity, 1..10 %>
+           <%= f.select :quantity, 1..item.product.quantity %>
 
            <%= button_tag(type: 'submit', class: "btn btn-default btn-xs") do %>
 
