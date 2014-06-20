@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 
 gem "devise"
+gem "aasm"
 
 
 gem "bootstrap-sass"
