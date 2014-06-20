@@ -18,11 +18,7 @@
         <tr>
           <td><%= render_product_photo(item.product.default_photo) %></td>
  
-            <td> 
-              
- 
-              <%= link_to(item.product.title, admin_product_path(item.product)) %>
-            </td>
+            <td><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
             <td> <%= item.product.price %> </td>
             <td> <%= form_for item, :url => cart_item_path(current_cart, item) do |f| %>
                  <%= f.select :quantity, [1,2,3,4,5] %>

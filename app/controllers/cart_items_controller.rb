@@ -11,6 +11,16 @@ class CartItemsController < ApplicationController
     redirect_to carts_path
   end
 
+  def destroy
+    @cart = current_cart
+    @item = @cart.cart_items.find(params[:id])
+
+    @item.destroy
+
+    flash[:warning] = "已清空物品"
+    redirect_to :back
+  end
+
   private
 
   def item_params
