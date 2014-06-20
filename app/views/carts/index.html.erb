@@ -23,14 +23,10 @@
             </td>
             <td> <%= product.price %> </td>
             <td>
-              <select class="quantity form-control">
-                <% product.quantity.to_i.times do |i| %>
-                <option value=""> <%= i+1 %> </option>
-                <% end %>
-              </select>
+              
             </td>
             <td>
-              
+              1111
             </td>
             <td>
               <%= link_to("刪除", cart_item_path(product), :method => :delete,:class => "btn btn-danger") %>
