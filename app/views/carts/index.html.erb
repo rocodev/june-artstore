@@ -24,7 +24,10 @@
               <%= link_to(item.product.title, admin_product_path(item.product)) %>
             </td>
             <td> <%= item.product.price %> </td>
-            <td> <%= item.product.quantity %> </td>
+            <td> <%= form_for item, :url => cart_item_path(current_cart, item) do |f| %>
+                 <%= f.select :quantity, [1,2,3,4,5] %>
+                 <%= f.submit "確定", :disable_with => 'Submiting...' %>
+                 <% end %></td>
             <td> <%= link_to("移除此商品",delete_from_cart_product_path(item.product) , :class=> "btn btn-mini btn btn-danger", :method => :post, :comfirm => "Are u sure?") %></td>
           </tr>
           <% end %>
@@ -35,10 +38,12 @@
         <span class="pull-right">
            <span> 總計 <%= render_cart_total_price(current_cart) %> NTD  
         </span>
-        
+
       </div>
   
-      <hr>
+      <hr style="clear: both; margin-top: 10px;">
+
+      <div class="buttoms">
         <div class="checkout pull-right">
             <%= link_to(" 確認結賬 ", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg btn-danger ") %>
         </div>
@@ -46,7 +51,7 @@
         <div class="clean-cartitems pull-right" style="margin-right: 10px;">
             <%= link_to("清空購物車", cart_path(current_cart) , :method => :delete , :class => "btn btn-primary btn-lg btn-success") %>
         </div>
- 
+      </div>
     </div>
  
  

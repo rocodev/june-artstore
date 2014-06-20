@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 	   resources :products
   end
 
-  resources :products
-
   resources :products do
     member do
       post :add_to_cart
@@ -15,12 +13,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts
-
-  resources :carts do
-    collection do
+  resources :carts do 
+    collection do 
       post :checkout
     end
+
+    resources :items, :controller => "cart_items"
+
   end
 
   resources :orders
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'products#index'
 
-  # Example of regular route:
+  # Example of regular route:key => "value", 
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
