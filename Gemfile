@@ -1,14 +1,6 @@
 source 'https://rubygems.org'
 
 
-gem "devise"
-gem 'bootstrap-sass', '~> 3.1.1'
-gem "bootstrap_helper", ">= 4.2.2.1"
-
-gem "carrierwave"
-gem "mini_magick"
-gem "simple_form"
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
@@ -32,8 +24,27 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do 
+  gem 'spring'
+  gem "better_errors", "~> 0.9.0"
+  gem "guard-livereload"
+  gem "binding_of_caller"
+end
 
+
+gem "devise"
+
+
+gem "bootstrap-sass"
+gem "simple_form", "3.1.0rc1"
+gem 'carrierwave'
+gem "mini_magick"
+gem 'aasm'
+
+
+group :development do 
+  gem "annotate"
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -46,20 +57,3 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development do
-  gem "powder"
-  gem "guard-livereload"
-  # gem 'capistrano-bundler', '~> 1.1.2'
-  # gem "capistrano"
-  # gem "capistrano-rails"
-  # gem "capistrano-rvm"
-  gem "binding_of_caller"
-  gem "better_errors", "~> 0.9.0"
-  gem "magic_encoding"
-  gem "annotate"
-  gem "pry-nav"
-  gem "pry-remote"
-
-  gem "letter_opener"
-  gem 'meta_request'
-end

@@ -11,21 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615155116) do
+ActiveRecord::Schema.define(version: 20140619164854) do
 
-  create_table "photos", force: true do |t|
+  create_table "cart_items", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar"
+    t.integer  "quantity"
+  end
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_infos", force: true do |t|
+    t.integer  "order_id"
+    t.string   "billing_name"
+    t.string   "billing_address"
+    t.string   "shipping_name"
+    t.string   "shipping_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items", force: true do |t|
+    t.integer  "order_id"
+    t.string   "product_name"
+    t.float    "price"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "total",          default: 0
+    t.boolean  "paid",           default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+    t.string   "payment_method"
+    t.string   "aasm_state"
+  end
+
+  add_index "orders", ["aasm_state"], name: "index_orders_on_aasm_state"
+  add_index "orders", ["token"], name: "index_orders_on_token"
+
+  create_table "photos", force: true do |t|
     t.integer  "product_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "quantity"
+    t.integer  "quantity",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "price",       default: 0.0
   end
 
   create_table "users", force: true do |t|
