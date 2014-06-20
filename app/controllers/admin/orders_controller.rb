@@ -7,7 +7,8 @@ class Admin::OrdersController < ApplicationController
 
   def change_state
     @order = Order.find_by_token(params[:id])
-    case @order.aasm_state
+    @state = @order.aasm_state
+    case @state
     when "ship"
       @orders.ship!
       redirect_to :back

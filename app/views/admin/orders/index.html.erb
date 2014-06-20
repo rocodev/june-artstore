@@ -22,14 +22,14 @@
         <td class="timeAgo">
           <% case order.aasm_state %>
           <% when "order_placed" %>
-            <%= link_to "取消訂單", "#cancel", :class => "btn btn-default btn-sm", :method => :post %>
+            <%= link_to "取消訂單", change_state_admin_order_path(order.token), :class => "btn btn-default btn-sm", :method => :post %>
           <% when "paid" %>
-            <%= link_to "出貨", "#ship", :class => "btn btn-default btn-sm", :method => :post %>
-            <%= link_to "取消訂單", "#cancel", :class => "btn btn-default btn-sm", :method => :post %>
+            <%= link_to "出貨", change_state_admin_order_path(order.token), :class => "btn btn-default btn-sm", :method => :post %>
+            <%= link_to "取消訂單", change_state_admin_order_path(order.token), :class => "btn btn-default btn-sm", :method => :post %>
           <% when "shipping" %>
-            <%= link_to "已到貨", "#deliver", :class => "btn btn-default btn-sm", :method => :post %>
+            <%= link_to "已到貨", change_state_admin_order_path(order.token), :class => "btn btn-default btn-sm", :method => :post %>
           <% when "shipped" %>
-            <%= link_to "退貨", "#return", :class => "btn btn-default btn-sm", :method => :post %>
+            <%= link_to "退貨", change_state_admin_order_path(order.token), :class => "btn btn-default btn-sm", :method => :post %>
           <% end %>
         </td>
       </tr>
