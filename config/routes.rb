@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
-    resources :orders, :only => [:index]
+    resources :orders, :only => [:index] do
+      member do
+        post :change_state
+      end
+    end
   end
 
   resources :products do
