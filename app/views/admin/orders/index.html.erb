@@ -8,6 +8,7 @@
         <th>使用者帳號</th>
         <th>付款方式</th>
         <th>訂單狀態</th>
+        <th>訂單選項</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,19 @@
         <td class="timeAgo"> <%= order.user.email %> </td>
         <td class="timeAgo"> <%= order.payment_method %> </td>
         <td class="timeAgo"> <%= order.aasm_state %> </td>
+        <td class="timeAgo">
+          <% case order.aasm_state %>
+          <% when "order_placed" %>
+            <%= link_to "取消訂單", "#cancel", :class => "btn btn-default btn-sm" %>
+          <% when "paid" %>
+            <%= link_to "出貨", "#ship", :class => "btn btn-default btn-sm" %>
+            <%= link_to "取消訂單", "#cancel", :class => "btn btn-default btn-sm" %>
+          <% when "shipping" %>
+            <%= link_to "已到貨", "#deliver", :class => "btn btn-default btn-sm" %>
+          <% when "shipped" %>
+            <%= link_to "退貨", "#return", :class => "btn btn-default btn-sm" %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
