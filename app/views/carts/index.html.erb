@@ -4,17 +4,23 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th></th>
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
         </tr>
       </thead>
       <tbody>
-        <% current_cart.items.each do |product| %>
+        <% current_cart.cart_items.each do |item| %>
         <tr>
-          <td><%= render_product_photo(product.default_photo) %></td>
-          <td><%= link_to(product.title, admin_product_path(product)) %></td>
-          <td><%= product.price %></td>
+          <td>
+            <%= link_to  cart_item_path(current_cart, item), :method => :delete do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+          <td><%= render_product_photo(item.product.default_photo) %></td>
+          <td><%= link_to(item.product.title, admin_product_path(item.product)) %></td>
+          <td><%= item.product.price %></td>
         </tr>
         <% end %>
 

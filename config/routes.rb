@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     collection do
       post :checkout
     end
+
+    # Set resources :cart_items may be misleading when rake routes(?)
+    resources :items, :controller => "cart_items" 
   end
 
   resources :orders do 
@@ -23,6 +26,9 @@ Rails.application.routes.draw do
       get :pay_with_credit_card
     end
   end
+
+  
+
 
   root :to => "products#index"
 end
