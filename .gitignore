@@ -17,3 +17,4 @@
 
 public/uploads
 cofig/database.yml
+.DS_Store

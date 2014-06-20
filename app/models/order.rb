@@ -20,4 +20,19 @@ class Order < ActiveRecord::Base
     self.total = current_cart.total_price
     self.save
   end
+
+  before_create :generate_token
+
+  def generate_token
+    self.token = SecureRandom.uuid
+  end  
+
+  def set_payment_with!(method)
+    self.update_column(:payment_method, method)
+  end
+
+  def pay!
+    self.update_column(:paid, true)
+  end
+  
 end
