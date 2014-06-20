@@ -1,16 +1,13 @@
 # == Schema Information
 #
-# Table name: photos
+# Table name: cart_items
 #
 #  id         :integer          not null, primary key
+#  cart_id    :integer
 #  product_id :integer
-#  image      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Photo < ActiveRecord::Base
-  belongs_to :product
-
-  mount_uploader :image, ImageUploader
+class CartItem < ActiveRecord::Base
 end
