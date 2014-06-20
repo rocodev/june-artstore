@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
     cart.items.each do |cart_item|
       item = items.build
       item.product_name = cart_item.title
-      item.quantity = 1
+      item.quantity = cart_item.quantity
       item.price = cart_item.price
       item.save
     end
@@ -19,5 +19,19 @@ class Order < ActiveRecord::Base
   def calculate_total!(current_cart)
     self.total = current_cart.total_price
     self.save
+  end
+
+  before_create :generate_token
+
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
+  def set_payment_with!(method)
+    self.update_column(:payment_method, method)
+  end
+
+  def pay!
+    self.update_column(:paid, true)
   end
 end
