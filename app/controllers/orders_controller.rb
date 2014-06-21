@@ -19,6 +19,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pay_with_credit_card
+    @order = current_user.orders.find_by(token: params[:id])
+    @order.set_payment_with!("credit_card")
+    @order.pay! # TODO: implement pay method later
+
+    redirect_to root_path, notice: "成功完成付款"
+  end
+
   private
 
   def order_params
