@@ -1,0 +1,42 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">詳細</th>
+			<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">付款</th>
+			<th class="col-xs-8 col-sm-8 col-md-8 col-lg-8">處理狀態</th>
+			<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">金額</th>
+			<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">最後更新</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<tr>
+				<td>
+					<%= link_to account_order_path(order.token) do %>
+						<i class="glyphicon glyphicon-th-list"></i>
+					<% end %>
+				</td>
+				<td>
+					<p class="text-center">
+						<% if order.paid? %>
+							<i class="glyphicon glyphicon-ok text-success"></i>
+							<br/>
+							<small>信用卡</small>
+						<% else %>
+							<i class="glyphicon glyphicon-remove text-danger"></i>
+							<br/>
+							<small>
+								<%= link_to order_path(order.token) do %>
+									前往結帳
+								<% end %>
+							</small>
+						<% end %>
+					</p>
+				</td>
+				<td>未出貨</td>
+				<td><%= order.total %></td>
+				<td><%= order.updated_at %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

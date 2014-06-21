@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 	root :to => "products#index"
 
 	resources :cart_items
-	resources :orders
+	resources :orders do
+		member do
+			get :pay_with_credit_card
+		end
+	end
 
 	resources :carts do
 		collection do 
@@ -17,6 +21,10 @@ Rails.application.routes.draw do
 		member do
 			post :add_to_cart
 		end
+	end
+
+	namespace :account do
+		resources :orders
 	end
 
 	namespace :admin do

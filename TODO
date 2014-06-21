@@ -78,6 +78,8 @@
 	- [v] 結帳訂單時需要登入
 		- [v] 只有登入才可以建立 order
 		- [v] order 的產品資訊及數量從 cart 來
+		- [v] 結帳完清空購物車
+		- [v] 結帳完導向 account/orders#index
 
-	- [ ] deploy 到 heroku 可以 demo
-	- [ ] 整理 inline css 出來
+- [ ] deploy 到 heroku 可以 demo
+- [ ] 整理 inline css 出來
