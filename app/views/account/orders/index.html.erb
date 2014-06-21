@@ -15,7 +15,7 @@
 			<% @orders.each do |order| %>
 				<tr>
 					<td>
-						<%= link_to account_order_path(order.token) do %>
+						<%= link_to order_path(order.token) do %>
 							<i class="glyphicon glyphicon-th-list"></i>
 						<% end %>
 					</td>
