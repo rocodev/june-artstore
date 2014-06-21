@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 
   validates :title,    presence: true
   validates :quantity, presence: true
+  validates :price,    presence: true
 
   def main_photo
     photos.first
