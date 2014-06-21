@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+
+	include AASM
+
 	belongs_to :creater, :class_name => "User", :foreign_key => :user_id
 	has_many :items, :class_name => "OrderItem", :dependent => :destroy
 	has_one :info, :class_name => "OrderInfo", :dependent => :destroy
@@ -32,6 +35,34 @@ class Order < ActiveRecord::Base
 
 	def pay!
 		self.update_column(:paid, true)
+	end
+
+	aasm :column => 'process_state' do
+		state :order_placed, :initial => true
+		state :paid, :after_commit => :pay!
+		event :make_payment do
+			transitions :from => :order_placed, :to => :paid
+		end
+
+		state :shipping
+		event :ship do
+			transitions :from => :paid, :to => :shipping
+		end
+
+		state :shipped
+		event :deliver do
+			transitions :from => :shipping, :to => :shipped
+		end
+
+		state :order_cancelled
+		event :cancell_order do
+			transitions :from => [:order_places, :paid], :to => :order_cancelled
+		end
+
+		state :good_returned
+		event :return_good do
+			transitions :from => [:shipped], :to => :good_returned
+		end
 	end
 
 end
