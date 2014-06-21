@@ -7,11 +7,11 @@ class Order < ActiveRecord::Base
 
 
   def build_item_cache_from_cart(cart)
-    cart.items.each do |cart_item|
+    cart.cart_items.each do |cart_item|
       item = items.build
-      item.product_name = cart_item.title
+      item.product_name = cart_item.product.title
       item.quantity = cart_item.quantity
-      item.price = cart_item.price
+      item.price = cart_item.product.price
       item.save
     end
   end
@@ -19,6 +19,12 @@ class Order < ActiveRecord::Base
   def calculate_total!(current_cart)
     self.total = current_cart.total_price
     self.save
+  end
+
+  def minus_inventory_by_order!(cart)
+    cart.cart_items.each do |cart_item|
+      cart_item.product.mini(cart_item.product,cart_item.quantity)
+    end
   end
 
   before_create :generate_token

@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
         current_cart.add_product_to_cart(@product, 1)
         flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
       else
-        flash[:warning] = "此物品已聽只銷售，無法加入購物車"
+        flash[:warning] = "此物品已停止銷售，無法加入購物車"
       end
       
     else
@@ -26,5 +26,9 @@ class ProductsController < ApplicationController
 
     redirect_to :back
 
+  end
+
+  def minus_products_been_sold
+    
   end
 end

@@ -26,8 +26,12 @@
           <td>
             目前購買數量:<%= item.quantity %>
             <%= form_for item, :url => cart_item_path(current_cart, item) do |f| %>
-              <%= f.select :quantity, (1..item.product.quantity).to_a %>
-              <%= f.submit "update", :disable_with => "Submitting..." %>
+              <% if item.product.quantity > 10 %>
+                <%= f.select :quantity, (1..10).to_a %>
+              <% else %>
+                <%= f.select :quantity, (1..item.product.quantity).to_a %>
+              <% end %>
+                <%= f.submit "update", :disable_with => "Submitting..." %>
             <% end %>
           </td> 
         </tr>

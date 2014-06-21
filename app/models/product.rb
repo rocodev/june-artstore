@@ -23,4 +23,9 @@ class Product < ActiveRecord::Base
   def default_photo
     photos.first
   end
+
+  def mini(product, quantity)
+    product.quantity-=quantity
+    product.save
+  end
 end
