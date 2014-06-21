@@ -24,5 +24,21 @@ class ApplicationController < ActionController::Base
     current_user.admin?
   end
 
+  def login_required
+    if current_user.blank?
+      respond_to do |format|
+        format.html {
+          authenticate_user!
+        }
+        format.js{
+          render :partial => "common/not_logined"
+        }
+        format.all {
+          head(:unauthorized)
+        }
+      end
+    end
+  end
+
 
 end

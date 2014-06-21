@@ -36,10 +36,10 @@
                   <ul class="dropdown-menu nav-dropdown-menu">
                     <% if current_user.is_admin %>
                       <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
-                      <li> <%= link_to("訂單列表", "#") %></li>
+                      <li> <%= link_to("訂單列表", admin_orders_path) %></li>
                       <li> <%= link_to("使用者列表", "#") %></li>
                     <% else %>
-                      <li> <%= link_to("我的後台", "#") %> </li>
+                      <li> <%= link_to("我的訂單", account_orders_path) %> </li>
                     <% end %>
                     <li class="divider"></li>
                     <% if current_user %>

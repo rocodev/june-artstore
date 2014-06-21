@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+  before_action :login_required
   
   def index
     @products = Product.all
