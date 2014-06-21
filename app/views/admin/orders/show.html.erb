@@ -56,19 +56,15 @@
       </tbody>
     </table>
 
-
     <h2> 訂單狀態 </h2>
     <% case @order.aasm_state %>
     <% when "order_placed" %>
-      <div class="pull-right">
-        <%= link_to("以信用卡付款", pay_with_credit_card_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
-        <%= link_to("以 ATM 付款", "#", :class => "btn btn-primary btn-lg btn-danger ") %>
-      </div>
+      此訂單尚未付款
     <% when "paid" %>
-      此訂單已完成付款
+      變更狀態為「出貨」？
+      <%= link_to("出貨", change_status_to_shipping_admin_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
     <% when "shipping" %>
-       變更狀態為「已取貨」？
-      <%= link_to("已取貨", change_status_to_shipped_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
+      商品配送中
     <% when "shipped" %>
       已取貨
     <% when "order_cancelled" %>
@@ -76,6 +72,7 @@
     <% when "good_returned" %>
       已退貨
     <% end %>
+
 
   </div>
 </div>

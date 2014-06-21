@@ -14,13 +14,7 @@
     <tr>
       <td><%= order.id %></td>
       <td> <%= order.total %></td>
-      <td>
-        <% if order.paid? %>
-          <%= order.payment_method %>
-        <% else %>
-          尚未付款
-        <% end %>
-      </td>
+      <td> <%= order.aasm_state %></td>
       <td><%= link_to("檢視", order_path(order.token),  :class => "btn btn-lg  pull-left")%></td>
     </tr>
     <% end %>
