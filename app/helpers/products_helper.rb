@@ -15,6 +15,7 @@ module ProductsHelper
 
       image_url = "http://placehold.it/#{volume}&text=No Pic"
     end
+
     image_tag(image_url, :class => "thumbnail")
 
   end

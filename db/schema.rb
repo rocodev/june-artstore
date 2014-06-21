@@ -11,46 +11,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615163348) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140621145624) do
+=======
+ActiveRecord::Schema.define(version: 20140617172437) do
+>>>>>>> a955128c9981f798687577928ec239732f747e56
 
-  create_table "installs", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "installs", ["email"], name: "index_installs_on_email", unique: true
-  add_index "installs", ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
-
-  create_table "photos", force: true do |t|
+  create_table "cart_items", force: true do |t|
+    t.integer  "cart_id"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
+    t.integer  "count",      default: 1
   end
 
-  add_index "photos", ["product_id"], name: "index_photos_on_product_id"
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_infos", force: true do |t|
+    t.integer  "order_id"
+    t.string   "billing_name"
+    t.string   "billing_address"
+    t.string   "shipping_name"
+    t.string   "shipping_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items", force: true do |t|
+    t.string   "product_name"
+    t.float    "price"
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "total"
+    t.boolean  "paid",           default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+    t.string   "payment_method"
+    t.string   "aasm_state",     default: "order_placed"
+  end
+
+  add_index "orders", ["aasm_state"], name: "index_orders_on_aasm_state"
+  add_index "orders", ["token"], name: "index_orders_on_token"
+
+  create_table "photos", force: true do |t|
+    t.integer  "product_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "quantity"
+    t.integer  "quantity",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
-    t.integer  "product_id"
+    t.float    "price",       default: 0.0
   end
-
-  add_index "products", ["product_id"], name: "index_products_on_product_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -66,7 +93,6 @@ ActiveRecord::Schema.define(version: 20140615163348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_admin",               default: false
-    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
