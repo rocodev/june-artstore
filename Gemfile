@@ -54,3 +54,6 @@ gem 'carrierwave'
 gem "mini_magick"
 
 gem "devise"
+
+# Use AASM for state machine
+gem 'aasm'
