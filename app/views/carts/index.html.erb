@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h2>購物車</h2>
-    <table class="table table-bordered">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th></th>
@@ -45,7 +45,12 @@
     <hr>
 
     <div class="checkout">
-      <%= link_to("確認結賬", checkout_carts_path, :method => :post, :class => "btn btn-primary btn-lg btn-danger pull-right")%>
+      <% if current_cart.cart_items.count > 0 %>
+        <%= link_to("確認結賬", checkout_carts_path, :method => :post, :class => "btn btn-primary btn-lg btn-danger pull-right")%>
+        <%= link_to("繼續選購", products_path,  :class => "btn btn-lg  pull-left")%>
+      <% else %>
+        <%= link_to("繼續選購", products_path,  :class => "btn btn-lg  pull-left")%>
+      <% end %>
     </div>
 
 
