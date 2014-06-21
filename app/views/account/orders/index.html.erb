@@ -1,0 +1,29 @@
+<h2> 訂單 </h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>訂單編號</th>
+      <th>總價</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td> <%= order.total %></td>
+      <td>
+        <% if order.paid? %>
+          <%= order.payment_method %>
+        <% else %>
+          尚未付款
+        <% end %>
+      </td>
+      <td><%= link_to("檢視", order_path(order.token),  :class => "btn btn-lg  pull-left")%></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
