@@ -1,0 +1,30 @@
+- 管理者必須要有一個後台
+ rails g controller admin::products 
+ 設定routes
+
+- Week2 homework
+  - #1
+    清空購物車
+      current_cart.clear!
+    從購物車內刪掉某些物品
+      rails g controller cart_items
+    購物車加入「數量」設計
+     cart_items => quantity
+    購物車的總價 => 小計 x 數量
+      total price => product price * item quantity
+    數量為0的貨物不能「購買」
+      if product.quantity > 0
+
+  - #2
+    配合作業#1支援「多重購買數量」
+    修改訂單畫面
+    訂單畫面美化
+  - #3
+    建立 account/orders 可以看到該使用者過去所有訂單
+    結帳後調轉到 account/orders#index
+  - #4
+    建立 admin/orders 可以看到系統內所有訂單
+    admin 的 order 列表應要能顯示訂單狀態
+    單張 order 應要可以要「按照狀態圖」改變狀態
+
+

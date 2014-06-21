@@ -1,0 +1,71 @@
+<div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div><%= link_to("Art Store", products_path, :class => "navbar-brand") %></div>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <!--
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                -->
+              </ul>
+              <ul class="navbar-right nav navbar-nav">
+                <li> 
+                  <%= link_to carts_path do  %>
+                  購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> ( <%=  cart_items_count(current_cart) %> )
+                  <% end %>
+                </li>
+                <li class="dropdown nav-dropdown">
+                  <% if current_user %>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                    <%= "Hi, " + current_user.email %> 
+                    <b class="caret"></b>
+                  </a>
+                
+                  <ul class="dropdown-menu nav-dropdown-menu">
+                    <% if current_user.is_admin %>
+                      <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
+                      <li> <%= link_to("訂單列表", admin_orders_path) %></li>
+                      <li> <%= link_to("使用者列表", "#") %></li>
+                    <% else %>
+                      <li> <%= link_to("我的訂單", account_orders_path) %> </li>
+                    <% end %>
+                    <li class="divider"></li>
+                    <% if current_user %>
+                      <li> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %> </li>
+                    <% else %>
+                      <li> <%= link_to("Sign Up", new_user_registration_path) %> </li>
+                      <li> <%= link_to("Sign In", new_user_session_path) %> </li>
+                    <% end %>
+
+                    
+                    <!--
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                    -->
+                  </ul>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+   

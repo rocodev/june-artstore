@@ -1,0 +1,44 @@
+      <div class="container">
+      <div>
+
+        <div class="admin-button">
+          <p>
+          <h2>Admin Panel 
+
+            <%= link_to("新增商品", new_admin_product_path, :class => "pull-right btn btn btn-primary") %>
+            
+          </h2>
+            
+          </p>
+        </div>
+      </div>
+
+      <table class="table table-striped admin-table">
+        <thead>
+          <tr>
+            <th class="col-xs-1"> # </th>
+            <th class="col-xs-2"> Photo </th>
+            <th class="col-xs-3"> Title </th>
+            <th class="col-xs-2"> Quantity </th>
+            <th class="col-xs-2"> Price </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td> <%= product.id %> </td>
+            <td> <%= image_tag product.image_url(:mini).to_s, :class => "img-thumbnail" %> </td>
+            <td> <%= link_to(product.title, product_path(product)) %> </td>
+            <td> <%= product.quantity %> </td>
+            <td> <%= product.price %> </td>
+            <td>
+              <%= link_to("Edit", edit_admin_product_path(product), :class => "btn btn-sm btn-default") %>
+              <%= link_to("Delete", admin_product_path(product), :class => "btn btn-sm btn-danger", :method => :delete, :confirm => "Are you sure>") %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>

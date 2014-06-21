@@ -1,0 +1,64 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+
+.nav-dropdown {
+
+}
+
+.nav-bar-cart {
+  float: right;
+}
+
+.index-photo {
+
+}
+
+.index-div {
+  display: inline-block;
+  height: 300px;
+  margin-left: 50px;
+  margin-top: 15px;
+
+}
+
+.show-photo {
+  margin: 50px;
+  float: left;
+}
+
+.show-div {
+  margin: 50px;
+}
+
+.show-title {
+  font-family: Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.show-description {
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.show-quantity {
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.show-price {
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.admin-table {
+  margin-top: 20px;
+  width: 1000px;
+}
+
+.admin-button {
+  display: block;
+}

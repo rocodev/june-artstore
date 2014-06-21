@@ -4,7 +4,16 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,6 +34,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+
+gem "devise"
+gem "bootstrap-sass"
+gem "carrierwave" # 上傳圖片
+gem "rmagick"
+gem "mini_magick"  # 取代鬧鬼的rmagick
+gem "simple_form", "~> 3.1.0.rc1"
+gem "aasm"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

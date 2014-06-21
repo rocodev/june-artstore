@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="show-photo img-thumbnail">
+      <%= render_product_photo(@product, :medium) %>
+  </div>
+  <div class="show-div">
+    <p class="show-title"> <h1> <%= @product.title %> </h1> </p>
+    <hr>
+    <p class="show-description"> <%= @product.description %> </p>
+    <hr>
+    <p class="show-quantity"> <%= "數量:" + @product.quantity.to_s %> </p>
+    <hr>
+    <p class="show-price"> <%= "價錢:" + @product.price.to_s %> </p>
+    <div class="pull-right">
+      <% if @product.quantity > 0 %>
+        <%= link_to("加入購物車", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
+      <% else %>
+        <button type="button" class="btn btn-lg btn-success" disabled="disabled">此貨品售罄</button>
+      <% end %>
+     </div>
+
+  </div>
+</div>
