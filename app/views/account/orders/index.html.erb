@@ -1,0 +1,58 @@
+<h1>訂單歷史</h1>
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">詳細</th>
+				<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">付款</th>
+				<th class="col-xs-7 col-sm-7 col-md-7 col-lg-7">處理狀態</th>
+				<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">特殊動作</th>
+				<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">金額</th>
+				<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">最後更新</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |order| %>
+				<tr>
+					<td>
+						<%= link_to order_path(order.token) do %>
+							<i class="glyphicon glyphicon-th-list"></i>
+						<% end %>
+					</td>
+					<td>
+						<p class="text-center">
+							<% if order.paid? %>
+								<i class="glyphicon glyphicon-ok text-success"></i>
+								<br/>
+								<small>信用卡</small>
+							<% else %>
+								<i class="glyphicon glyphicon-remove text-danger"></i>
+								<br/>
+								<small>
+									<%= link_to order_path(order.token) do %>
+										前往結帳
+									<% end %>
+								</small>
+							<% end %>
+						</p>
+					</td>
+					<td>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping" ||order.process_state == "order_placed" || order.process_state == "paid")? "btn-success" : "btn-default"%>" >已下訂</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping" || order.process_state == "paid")? "btn-success" : "btn-default"%>">已付款</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping")? "btn-success" : "btn-default"%>">出貨</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped")? "btn-success" : "btn-default"%>">已到貨</a>
+					</td>
+					<td>
+						<%= link_to("取消訂單", cancel_account_order_path(order) , :method => :post , :class => "btn btn-xs " + ((order.process_state == "order_cancelled")? "btn-danger" : "btn-default")) %>
+						<%= link_to("退貨", return_account_order_path(order) , :method => :post , :class => "btn btn-xs " + ((order.process_state == "good_returned")? "btn-danger" : "btn-default")) %>
+					</td>
+					<td><%= order.total %></td>
+					<td><%= order.updated_at %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

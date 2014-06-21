@@ -1,0 +1,67 @@
+<h1>訂單明細</h1>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>商品明細</th>
+				<th>單價</th>	
+				<th>數量</th>
+				<th>小計</th>	
+			</tr>
+		</thead>
+		<tbody>
+			<% @order_items.each do |order_item|%>
+				<tr>
+					<td><%= order_item.product_name %></td>
+					<td><%= order_item.price %></td>
+					<td><%= order_item.quantity %></td>
+					<td><%= order_item.price * order_item.quantity %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<hr/>
+
+<h1>寄送資訊</h1>
+<div class="container">
+	<h2>帳單資訊</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>訂購人</th>
+				<th>訂購人地址</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @order_info.billing_name %></td>
+				<td><%= @order_info.billing_address %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="container">
+	<h2>收件人資訊</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>收件人</th>
+				<th>收件人地址</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @order_info.shipping_name %></td>
+				<td><%= @order_info.shipping_address %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="pull-right">
+  <%= link_to("以信用卡付款", pay_with_credit_card_order_path(@order.token), :class => "btn btn-danger ") %>
+
+  <%= link_to("以 ATM 付款", "#", :class => "btn btn-danger ") %>
+</div>
