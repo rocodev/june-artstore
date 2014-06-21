@@ -2,6 +2,7 @@
   <div class="container">
     <%= link_to("首頁", root_path,:class => "navbar-text navbar-left") %>
     <%= link_to("我的商品清單", admin_products_path,:class => "navbar-text navbar-left") %>
+    <%= link_to("過去訂單", account_orders_path, :class => "navbar-text navbar-left") %>
 
     <ul class="nav navbar-nav navbar-right">
       <%= link_to carts_path do  %>
