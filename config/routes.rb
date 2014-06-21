@@ -24,11 +24,24 @@ Rails.application.routes.draw do
 	end
 
 	namespace :account do
-		resources :orders
+		resources :orders do
+			member do
+				post :cancel
+				post :return
+			end
+		end
 	end
 
 	namespace :admin do
 		root :to => "products#index"
 		resources :products
+		resources :orders do
+			member do
+				post :shipping
+				post :shipped
+				post :cancel
+				post :return
+			end
+		end
   end
 end

@@ -1,46 +1,51 @@
-<h1>購物車 <%= current_cart.id %></h1>
+<h1>購物車</h1>
 <hr>
 <div class="container">
-	<div class="row">
-	
-		<table class="table">
-			<thead>
-				<tr>
-					<th class="col-md-1">預覽</th>
-					<th class="col-md-6">名稱</th>
-					<th class="col-md-2">金額</th>
-					<th class="col-md-2">數量</th>
-					<th class="col-md-2">功能</th>
-				</tr>
-			</thead>
-			<% current_cart.cart_items.each do |item| %>
-				<tr>
-					<td><%= render_product_photo_medium(item.product.default_photo) %></td>
-					<td><%= link_to item.product.name, product_path(item.product) %></td>
-					<td><%= item.product.price %></td>
-					<td>
-						<%= simple_form_for item do |f| %>
-							<div class="form-group">
-								<%= f.input :quantity, :label => false, :collection => quantity_available_array(item.product), :selected => item.quantity, :input_html => { :class => "form-control" } %>
-							</div>
-							<div class="form-group">
-								<%= f.submit "更新", :class => "btn btn-success btn-xs pull-right" %>
-							</div>
-						<% end %>
-					</td>
-					<td>
-						<%= link_to "刪除", cart_item_path(item), :method => :delete, :class => "btn btn-default" %>
-					</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
-	<hr/>
-	<div class="row">
-		<p class="pull-right">總計： <%= render_cart_total_price current_cart %> 元</p>
-	</div>
-	<hr/>
-	<div class="row">
-		<%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-danger pull-right") %>
-	</div>
+	<% if current_cart.cart_items.count > 0 %>
+		<div class="row">
+		
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="col-md-1">預覽</th>
+						<th class="col-md-6">名稱</th>
+						<th class="col-md-2">金額</th>
+						<th class="col-md-2">數量</th>
+						<th class="col-md-2">功能</th>
+					</tr>
+				</thead>
+				<% current_cart.cart_items.each do |item| %>
+					<tr>
+						<td><%= render_product_photo_medium(item.product.default_photo) %></td>
+						<td><%= link_to item.product.name, product_path(item.product) %></td>
+						<td><%= item.product.price %></td>
+						<td>
+							<%= simple_form_for item do |f| %>
+								<div class="form-group">
+									<%= f.input :quantity, :label => false, :collection => quantity_available_array(item.product), :selected => item.quantity, :input_html => { :class => "form-control" } %>
+								</div>
+								<div class="form-group">
+									<%= f.submit "更新", :class => "btn btn-success btn-xs pull-right" %>
+								</div>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to "刪除", cart_item_path(item), :method => :delete, :class => "btn btn-default" %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<hr/>
+		<div class="row">
+			<p class="pull-right">總計： <%= render_cart_total_price current_cart %> 元</p>
+		</div>
+		<hr/>
+
+		<div class="row">
+			<%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-danger pull-right") %>
+		</div>
+	<% else %>
+		<div class="well">目前購物車中還沒有商品</div>
+	<% end %>
 </div>

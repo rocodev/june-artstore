@@ -1,0 +1,39 @@
+<h1>訂單管理</h1>
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>編號</th>
+				<th>處理狀態</th>
+				<th>設定</th>
+				<th>特殊狀態</th>
+				<th>訂單金額</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |order| %>
+				<tr>
+					<td><%= order.id %></td>
+					<td>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping" ||order.process_state == "order_placed" || order.process_state == "paid")? "btn-success" : "btn-default"%>" >已下訂</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping" || order.process_state == "paid")? "btn-success" : "btn-default"%>">已付款</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped" || order.process_state == "shipping")? "btn-success" : "btn-default"%>">出貨</a>
+						<i class="glyphicon glyphicon-chevron-right"></i>
+						<a href="" class="btn btn-xs <%= (order.process_state == "shipped")? "btn-success" : "btn-default"%>">已到貨</a>
+					</td>
+					<td>
+						<%= link_to("出貨", shipping_admin_order_path(order) , :method => :post , :class => "btn btn-xs btn-warning") %>
+						<%= link_to("已到貨", shipped_admin_order_path(order) , :method => :post , :class => "btn btn-xs btn-info") %>
+					</td>
+					<td>
+						<%= link_to("取消訂單", cancel_admin_order_path(order) , :method => :post , :class => "btn btn-xs " + ((order.process_state == "order_cancelled")? "btn-danger" : "btn-default")) %>
+						<%= link_to("退貨", cancel_admin_order_path(order) , :method => :post , :class => "btn btn-xs " + ((order.process_state == "good_returned")? "btn-danger" : "btn-default")) %>
+					</td>
+					<td><%= order.total %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

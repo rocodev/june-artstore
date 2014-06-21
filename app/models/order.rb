@@ -55,8 +55,8 @@ class Order < ActiveRecord::Base
 		end
 
 		state :order_cancelled
-		event :cancell_order do
-			transitions :from => [:order_places, :paid], :to => :order_cancelled
+		event :cancel_order do
+			transitions :from => [:order_placed, :paid], :to => :order_cancelled
 		end
 
 		state :good_returned
