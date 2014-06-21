@@ -19,6 +19,8 @@ class CartsController < ApplicationController
     @info = @order.build_info
   end
 
-
+  def show
+    
+  end
   
 end
