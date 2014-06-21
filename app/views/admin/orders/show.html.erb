@@ -62,7 +62,7 @@
       此訂單尚未付款
     <% when "paid" %>
       變更狀態為「出貨」？
-      <%= link_to("出貨", change_status_to_shipping_admin_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
+      <%= link_to("出貨", change_state_to_shipping_admin_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
     <% when "shipping" %>
       商品配送中
     <% when "shipped" %>

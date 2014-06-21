@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :products
     resources :orders do
       member do 
-        get :change_status_to_shipping
-        get :change_status_to_order_cancelled
-        get :change_status_to_good_returned
+        get :change_state_to_shipping
+        get :change_state_to_order_cancelled
+        get :change_state_to_good_returned
       end
     end
   end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :orders do 
     member do 
       get :pay_with_credit_card
-      get :change_status_to_shipped
+      get :change_state_to_shipped
     end
   end
 

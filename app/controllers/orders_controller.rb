@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     redirect_to account_orders_path, :notice => "成功完成付款"
   end
 
-  def change_status_to_shipped
+  def change_state_to_shipped
     @order =  current_user.orders.find_by_token(params[:id])
     @order.shipped!
     redirect_to :back, :notice => "變更狀態為取貨完成"

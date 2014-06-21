@@ -68,7 +68,7 @@
       此訂單已完成付款
     <% when "shipping" %>
        變更狀態為「已取貨」？
-      <%= link_to("已取貨", change_status_to_shipped_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
+      <%= link_to("已取貨", change_state_to_shipped_order_path(@order.token), :class => "btn btn-primary btn-lg btn-danger ") %>
     <% when "shipped" %>
       已取貨
     <% when "order_cancelled" %>
