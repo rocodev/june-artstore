@@ -1,3 +1,34 @@
+﻿
+﻿
+﻿﻿作業#1
+
+1. 清空購物車  (Done)
+2. 從購物車內刪掉某些物品 (Done)
+3. 購物車加入「數量」設計    (pending)
+4. 購物車的總價=> 小計x 數量   (pending)
+5. 數量為 0 的貨物不能「購買」 (Done)
+
+
+作業#2
+1. 配合作業#1 支援「多重購買數量」 (pending)
+2. 並修改訂單畫面 (pending)
+3. 訂單畫面美化 (pending)
+
+回家作業#3
+1. 建立 account/orders 可以看到該使用者過去所有訂單   (Done)
+2. 結賬後跳轉到account/orders#index  (Done)
+
+回家作業#4
+1. 建立 admin/orders 可以看到系統內所有訂單  (Done)
+2. admin 的order 列表應要能顯示訂單狀態   (Done)
+3. 單張order 應要可以要「按照狀態圖」改變狀態 (pending)
+
+
+作業#5
+1. 信用卡付款成功也要寄信通知  (Done)
+2. 消費者可以透過email 裡的連結檢視原先的order  (Done)
+﻿
+
 == README
 
 This README would normally document whatever steps are necessary to get the

@@ -1,0 +1,51 @@
+ <div class="row">
+   <div class="col-md-5">
+     <%= render_product_photo(@product.default_photo, :medium) %>
+   </div>
+ 
+   <div class="col-md-7">
+     <h2> <%= render_product_name(@product) %> </h2>
+
+     <div style="height:100px;">
+       <p>
+         <%= render_product_desc(@product) %>
+       </p>
+
+
+     </div>
+     <div> 數量 : <%= render_product_quantity(@product) %> </div>
+     <div class="product-price"> $ <%= render_product_price(@product) %> </div>
+
+    
+    <%= simple_form_for @product, :html => { :class => "form form-horizontal"  }, :url => url_for(:action => 'add_to_cart'), :method => 'post' do |f| %>
+
+    
+  <div class="form-group">
+    <% if !(render_product_quantity(@product) == 0) %>
+    <div class="col-sm-2">
+      <%= f.input :quantity, :collection => 1..@product.quantity %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    
+    <%= f.submit "Submit", :class => "btn btn-default" , :disable_with => 'Submiting...' %>
+    <% # render :partial => "add_to_cart_submit_button", :collection => @product, :as => :product %> 
+    <% # 為什麼這邊無法把 @product 的變數 傳過去 partial 的頁面呢?  %>
+    <% else %> 
+     商品目前無庫存 
+    <% end  %>
+  </div>
+
+    <% end %> 
+
+
+
+
+     <div class="pull-right">
+      <%= link_to("加入購物車", add_to_cart_product_path(@product) , :method => :post , :class => "btn btn-primary btn-lg btn-danger") %>
+     </div>
+     
+    </div>
+
+</div>
