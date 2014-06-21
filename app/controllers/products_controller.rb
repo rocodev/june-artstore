@@ -1,0 +1,27 @@
+class ProductsController < ApplicationController
+
+  def index
+    @products = Product.order("id DESC")
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
+  def add_to_cart
+    @product = Product.find(params[:id])
+    #current_cart就是一個Cart物件
+    if !current_cart.items.include?(@product)
+    #利用current_cart的method add_prodcut_to_cart把產品加進Cart
+      current_cart.add_product_to_cart(@product)
+      flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
+    else
+      flash[:warning] = "你的購物車內已有此物品"
+    end
+ 
+    redirect_to :back
+ 
+  end
+
+
+end

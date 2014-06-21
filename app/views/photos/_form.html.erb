@@ -1,0 +1,13 @@
+<%= form_for ([@product, @product.photos.build]) do |f| %>
+  <p>
+    <%= f.label :image_name%><br>
+    <%= f.text_field :image_name %>
+  </p>
+  <p>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
