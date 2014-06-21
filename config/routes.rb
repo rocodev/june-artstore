@@ -1,4 +1,47 @@
 Rails.application.routes.draw do
+
+  root 'products#index'
+
+  devise_for :users
+  
+  namespace :admin do
+    resources :products
+  end
+
+  resources :products
+
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
+  resources :carts do
+    collection do
+      get 'checkout'
+      get 'item_clear'
+      get 'item_clear_only/:item_id' => 'carts#item_clear_only'
+    end
+    resources :cart_items
+  end
+  #get 'carts/checkout' => 'carts#checkout'
+
+  resources :orders do
+    member do
+      get :pay_with_credit_card
+    end
+  end
+
+  resources :account do
+    collection do
+      get 'orders'
+    end
+  end
+
+  #namespace
+  #要把admin功能關起來，所以用namespace來設定。
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

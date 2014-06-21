@@ -1,0 +1,16 @@
+<div class="container">
+ <div class="row">
+  <div class="text-center col-md-6">
+    <p>商品圖片</p>
+		<p><%= render_product_photo(@product) %></p>
+  </div>
+  <div class="col-md-6">
+   <p class="text-center">商品介紹</p>
+   <p> 產品名稱： <%= render_product_name(@product) %></p>
+   <p> 產品描述： <%= render_product_description(@product) %></p>
+   <p> 產品價格：<%= render_product_price(@product) %> 美金</p>
+   <p> 產品庫存：<%= render_product_quantity(@product) %>個</p>
+   <p class="pull-right"><%= link_to("加入購物車", add_to_cart_product_path(@product), :method => "post", class: "btn btn-success ") %></p>
+  </div>
+ </div>
+</div>
