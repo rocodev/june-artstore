@@ -3,11 +3,16 @@ Rails.application.routes.draw do
 
   root to: "products#index"
 
-  resources :products, only: [:index, :show]
+  resources :products do
+    member do
+      post :add_to_cart # add_to_cart_product POST /products/:id/add_to_cart(.:format)
+    end
+  end
 
   namespace :admin do
     resources :products
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
