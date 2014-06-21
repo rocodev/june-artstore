@@ -34,6 +34,8 @@ gem 'simple_form', '3.1.0rc1'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'aasm'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
