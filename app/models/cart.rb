@@ -8,4 +8,13 @@ class Cart < ActiveRecord::Base
   def add_product_to_cart(product)
     items << product
   end
+
+  def total_price
+    items.sum(:price)
+    # SELECT SUM(`products`.`price`) AS sum_id FROM `products`
+    # INNER JOIN `cart_items` ON `products`.`id` = `cart_items`.`product_id`
+    # WHERE `cart_items`.`cart_id` = x
+  end
+  # items.inject(0) { |sum, item| sum + item.price }
+  # items.map(&:price).inject(:+)
 end
