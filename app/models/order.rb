@@ -50,7 +50,6 @@ class Order < ActiveRecord::Base
     self.update_column(:paid, true)
   end
 
-
   include AASM
 
   aasm do

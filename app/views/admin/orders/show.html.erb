@@ -1,0 +1,73 @@
+<h1>
+This is the order list  of this account  !!
+</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>訂單編號</th>
+      <th>訂單產品名稱</th>
+      <th>數量</th>
+      <th>單價</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% @order.items.each do |item| %>
+    <tr>
+       <td> 
+        <%= link_to(@order.id , accounts_order_path(@order)) %>
+       </td>
+      <td><%= item.product_name  %></td>
+      <td><%= item.quantity  %> </td>
+      <td><%= item.price  %> </td>
+     
+      <% end %> 
+
+    </tr>
+
+  </tbody>
+
+
+</table>
+
+  <div class="pull-right">總價 : <%= @order.total %></div>
+<hr> 
+
+<table class="table table-bordered">
+	<thead>
+      <tr>
+      <th>訂單編號#</th>
+      <th>訂購人帳號</th>
+      <th>付款方式</th>
+      <th>訂單現在狀態</th>
+      <th>變更狀態為 </th> 
+      <th>付款人</th>
+      <th>付款人住址</th>
+      <th>收件人</th>
+      <th>收件人住址</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+         <% #order.info.each do |info| %>
+    <tr>
+      <td><%= @order.id %></td>
+      <td><%= @order.user.email %> 
+      <td><%= @order.payment_method %></td>
+      <td><%= @order.aasm_state  %></td>
+      <%= simple_form_for [:admin, @order], :html => { :class => "form form-horizontal" } do |f| %>
+      <td><%= f.input :aasm_state, :collection => show_order_aasm_state(@order), :include_blank => false %>
+      <%= f.submit "Submit", :class => "btn btn-default" , :disable_with => 'Submiting...' %> </td>
+      <% end %>  
+      <td><%= @order.info.billing_name  %> </td>
+      <td><%= @order.info.billing_address  %> </td>
+      <td><%= @order.info.shipping_name %></td>
+      <td><%= @order.info.shipping_address %></td>
+      <%# end %> 
+
+    </tr>
+   
+
+  </tbody>
+
+
+</table>

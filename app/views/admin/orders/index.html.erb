@@ -16,7 +16,7 @@ This is the order list  of this account  !!
       <% order.items.each do |item| %>
     <tr>
        <td> 
-        <%= link_to(order.id , order_path(order.token)) %>
+        <%= link_to(order.id , admin_order_path(order)) %>
        </td>
       <td><%= item.product_name  %></td>
       <td><%= item.quantity  %> </td>
@@ -37,6 +37,7 @@ This is the order list  of this account  !!
 	<thead>
       <tr>
       <th>訂單編號#</th>
+      <th>訂購人帳號</th>
       <th>付款方式</th>
       <th>付款狀態</th>
       <th>付款人</th>
@@ -51,6 +52,7 @@ This is the order list  of this account  !!
       <% #order.info.each do |info| %>
     <tr>
       <td><%= order.id %></td>
+      <td><%= order.user.email %> 
       <td><%= order.payment_method %></td>
       <td><%= order.aasm_state  %></td>
       <td><%= order.info.billing_name  %> </td>
@@ -63,8 +65,6 @@ This is the order list  of this account  !!
     <% end %>
 
   </tbody>
-
-
 
 
 </table>

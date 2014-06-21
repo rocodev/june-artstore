@@ -23,7 +23,7 @@
   <div class="form-group">
     <% if !(render_product_quantity(@product) == 0) %>
     <div class="col-sm-2">
-      <%= f.input :quantity, :collection => 1..@product.quantity  %>
+      <%= f.input :quantity, :collection => 1..@product.quantity %>
     </div>
   </div>
 
