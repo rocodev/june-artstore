@@ -58,16 +58,16 @@
       </tbody>
     </table>
 
-    <% if !@order.paid? %>
+    <% if @order.paid? %>
+
+      此訂單已完成付款
+
+    <% else %>
 
       <div class="pull-right">
         <%= link_to "以信用卡付款", "#", class: "btn btn-primary btn-lg btn-danger" %>
         <%= link_to "以 ATM 付款", "#", class: "btn btn-primary btn-lg btn-danger" %>
       </div>
-
-    <% else %>
-
-      此訂單已完成付款
 
     <% end %>
 
