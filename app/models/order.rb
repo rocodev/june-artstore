@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
   aasm do
     state :order_placed, initial: true
 
-    state :paid, after_commit: :pay!
+    state :paid, after_commit: :pay! # paid 狀態後執行 pay! 方法
     event :make_payment do
       transitions from: :order_placed, to: :paid
     end

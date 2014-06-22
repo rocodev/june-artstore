@@ -11,13 +11,13 @@ Rails.application.routes.draw do
 
   resources :carts do
     collection do
-      post :checkout
+      post :checkout # checkout_carts POST /carts/checkout(.:format)
     end
   end
 
   resources :orders do
     member do
-      get :pay_with_credit_card
+      get :pay_with_credit_card # pay_with_credit_card_order GET /orders/:id/pay_with_credit_card(.:format)
     end
   end
 
