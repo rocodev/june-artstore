@@ -11,22 +11,36 @@
         <%= render_product_desc(@product) %>
       </p>
     </div>
-
+    <%# simple_form_for cart_items.find_by(@product do |f| %>
+    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
     <!-- <div> 數量 : <%# render_product_quantity(@product) %> </div> -->
-    <div class="">
-      數量：
-      <select class="product-quantity form-control" style="display: inline-block; width: 70px;">
-        <% @product.quantity.to_i.times do |i| %>
-          <option value=""> <%= i+1 %> </option>
-        <% end %>
-      </select>
-    </div>
+      <%# f.input :quantity, label: '數量：', collection: 1..@product.quantity, :class => "product-quantity form-control", :style => "display: inline-block; width: 70px;" %>
+      <%# f.button :submit %>
+      <%# hidden_field_tag(:@product, @product) %>
+      <% select_num_arr = Array.new %>
+      <% @product.quantity.to_i.times do |i| %>
+        <% value = i + 1 %>
+        <% text = value.to_s %>
+        <% option = [text, value] %>
+        <% select_num_arr << option %>
+      <% end %>
+      <%= select_tag(:num, options_for_select(select_num_arr, selected: :num)) %>
+      <div class="pull-right">
+        <%= submit_tag("加入購物車", :class => "btn btn-primary btn-lg btn-danger") %>
+      </div>
+      <%# select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option )) %>
+      <!-- <select class="product-quantity form-control" style="display: inline-block; width: 70px;">
+        <%# @product.quantity.to_i.times do |i| %>
+          <option value=""> <%# i+1 %> </option>
+        <%# end %>
+      </select> -->
+    <% end %>
 
     <div class="product-price"> $ <%= render_product_price(@product) %> </div>
 
-    <div class="pull-right">
-      <%= link_to("加入購物車", add_to_cart_product_path(@product, 5) , :method => :post , :class => "btn btn-primary btn-lg btn-danger") %>
-    </div>
+    <!-- <div class="pull-right"> -->
+      <%# link_to("加入購物車", add_to_cart_product_path(@product, :num => 2) , :method => :post , :class => "btn btn-primary btn-lg btn-danger") %>
+    <!-- </div> -->
   </div>
 </div>
 

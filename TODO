@@ -1,6 +1,14 @@
 
+All:
+ ☐ rails-101
+ ☐ rails-102
+ ☐ rails-view-book
+ ☐ edx-SaaS
+ ☐ $25000的all src code
+ ☐ Download files
+
 Hw2-1:
-  ✔ 清空購物車 @done (14-06-18 19:55)
+ ✔ 清空購物車 @done (14-06-18 19:55)
      @orders_controller
      def create
        ...
@@ -9,7 +17,7 @@ Hw2-1:
        end
        ...
      end
-  ✔ 從購物車內刪掉某些物品 @done (14-06-18 21:23)
+ ✔ 從購物車內刪掉某些物品 @done (14-06-18 21:23)
      @CartItemsController < ApplicationController
        def destroy
          @cart_item = CartItem.find_by_product_id(params[:id])
@@ -17,18 +25,58 @@ Hw2-1:
          redirect_to :back
        end
      end
-  ✔ 購物車加入 "數量" 設計 @done (14-06-18 22:57)
-  ☐ 購物車的總價 => 小計 x 數量
-  ☐ 數量為0的貨物不能"購買"
-  ☐ 清空購物車時，要同時扣掉被購買品項的庫存數
+ ✔ 購物車加入 "數量" 設計 @done (14-06-18 22:57)
+ ☐ 購物車的總價 => 小計 x 數量
+ ☐ 數量為0的貨物不能"購買"
+ ☐ 清空購物車時，要同時扣掉被購買品項的庫存數
 
 Question:
-  ☐ Why checkout.html 生成訂單後，會導到order token的頁面
-  ☐ logger.(debug|info|warn|error|fatal) 不同method的差別
-  ☐ Differen user should have different cart?
-  ☐ Product被刪除後，id並不會重新更新
+ ☐ Why checkout.html 生成訂單後，會導到order token的頁面
+ 
+ ☐ logger.(debug|info|warn|error|fatal) 不同method的差別
+ 
+ ☐ Differen user should have different cart?
+ 
+ ☐ Product被刪除後，id並不會重新更新
+ 
+ ☐ <%= select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option )) %> syntax meaning?
+ 
+ ☐ simple_form only have simple_form_for which can only be applied on attributes a model has?
+ 
+ ☐ Seems don't need to pass the product as argument when send 'post' on show_url because the controller can get the product by product_id from the show_url in params[:id] ?
+    So you can comment/delete the hidden_field_tag as below
+    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+      <%# hidden_field_tag(:@product, @product) %>
+ 
+ ☐ Want to send/render anything from/on client's html, you almost have to use the ruby's built-in html-tag ?
+ 
+ ☐ How to use helper in html/css/js or controller or model ?
+ 
+ ☐ Syntax Confusing
+   1. xxx：yyy vs ：xxx => yyy
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+   <%= form_tag(add_to_cart_product_path, method: "post") do %> 
 
+   2. xxx： ：yyy
+   <%= select_tag(:num, options_for_select(select_num_arr, selected: :num)) %>
 
+   3. w/wo ()
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+   has_many :cart_items, :dependent => :destroy
+
+   4. "" vs ''(what is the convention?)
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+   <%= form_tag(add_to_cart_product_path, :method => 'post') do %> 
+ 
+ ☐ session vs cache(what is the usual applied scenario?)
+
+ ☐ Cart(small icon) should show the product types or the sum of all cart_items?
+
+ ☐ Is it appropriate timing to clear the cart after order created?
+Tips:
+ ☐ Any path can try to use the default path create by resources(automatically CRUD by rails)
+
+ ☐ Formula should be hide/placed in the model/controller
 購物: 
  ☐ 身為消費者，我要在前台能夠找到商品並加到購物車
  ☐ 身為消費者，我要在前台能夠將多樣商品加到購物車，並生成一張訂單

@@ -13,10 +13,12 @@ class Cart < ActiveRecord::Base
 
 	def add_product_to_cart(product, num)
 		items << product
-		items.last.update_attributes(quantity: num)
+		cart_items.last.update_attributes(quantity: num)
 	end
-
+	
 	def total_price
-		items.inject(0) {|sum, item| sum + item.price}
+		items.inject(0) do |sum, item| 
+			sum + (item.price * cart_items.find_by_product_id(item.id).quantity)
+		end
 	end		
 end

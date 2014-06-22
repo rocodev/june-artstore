@@ -7,6 +7,7 @@
 #  product_id :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  quantity   :integer
 #
 
 class CartItem < ActiveRecord::Base

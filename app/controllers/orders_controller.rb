@@ -10,11 +10,12 @@ class OrdersController < ApplicationController
       @order.calculate_total!(current_cart)
       
       # @cart_items = CartItem.find_by_cart_id(current_cart.id)
+      #redirect_to root_path
+      redirect_to order_path(@order.token)
       current_cart.cart_items.each do |cart_item|
         cart_item.destroy
       end
-      #redirect_to root_path
-      redirect_to order_path(@order.token)
+
     else
       render "carts/index"
     end
@@ -31,6 +32,11 @@ class OrdersController < ApplicationController
     @order.set_payment_with!("credit_card")
     #@order.pay!
     @order.make_payment!
+
+    # current_cart.cart_items.each do |cart_item|
+    #   cart_item.destroy
+    # end
+
     redirect_to root_path, :notice => "成功完成付款"
   end
   private

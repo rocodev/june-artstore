@@ -23,10 +23,10 @@
             </td>
             <td> <%= product.price %> </td>
             <td>
-              
+              <%=  quantity = current_cart.cart_items.find_by_product_id(product.id).quantity %>
             </td>
             <td>
-              1111
+              <%= product.price * quantity %>
             </td>
             <td>
               <%= link_to("刪除", cart_item_path(product), :method => :delete,:class => "btn btn-danger") %>

@@ -8,16 +8,21 @@
         <tr>
           <th width="80%">商品明細</th>
           <th>單價</th>
+          <th>數量</th>
+          <th>小計</th>
         </tr>
       </thead>
       <tbody>
         <% current_cart.items.each do |product| %>
         <tr>
           <td>           
-
-            <%= link_to(product.title, admin_product_path(product)) %>
+            <%= link_to(product.title, product_path(product)) %>
           </td>
           <td> <%= product.price %> </td>
+          <td>
+            <%=  quantity = current_cart.cart_items.find_by_product_id(product.id).quantity %>
+          </td>
+          <td> <%= product.price * quantity %> </td>
         </tr>
         <% end %>
 
