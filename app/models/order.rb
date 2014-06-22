@@ -40,11 +40,11 @@ class Order < ActiveRecord::Base
   before_create :generate_token
 
   def build_item_cache_from_cart(cart)
-    cart.items.each do |cart_item|
-      order_item = items.build
-      order_item.product_name = cart_item.title
-      order_item.quantity = 1
-      order_item.price = cart_item.price
+    cart.cart_items.each do |cart_item|
+      order_item              = items.build
+      order_item.product_name = cart_item.product.title
+      order_item.quantity     = cart_item.quantity
+      order_item.price        = cart_item.product.price
       order_item.save
     end
   end
