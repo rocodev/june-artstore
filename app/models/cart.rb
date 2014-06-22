@@ -14,11 +14,16 @@ class Cart < ActiveRecord::Base
   end
 
   def total_price
-    items.sum(:price)
-    # SELECT SUM(`products`.`price`) AS sum_id FROM `products`
-    # INNER JOIN `cart_items` ON `products`.`id` = `cart_items`.`product_id`
-    # WHERE `cart_items`.`cart_id` = x
+    cart_items.inject(0) { |sum, item| sum + (item.product.price * item.quantity) }
   end
+  # cart_items.map { |item| item.product.price * item.quantity }.sum
+  # cart_items.to_enum.sum { |item| item.product.price * item.quantity }
+
+  # items.sum(:price)
+  # SELECT SUM(`products`.`price`) AS sum_id FROM `products`
+  # INNER JOIN `cart_items` ON `products`.`id` = `cart_items`.`product_id`
+  # WHERE `cart_items`.`cart_id` = x
+
   # items.inject(0) { |sum, item| sum + item.price }
   # items.map(&:price).inject(:+)
 
