@@ -17,3 +17,6 @@
 
 # Ignore image files
 /public/uploads
+
+# Ignore rubymine config file
+.idea
