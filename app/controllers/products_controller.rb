@@ -9,11 +9,15 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    if current_cart.items.exclude?(@product)
-      current_cart.add_product_to_cart(@product)
-      flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
+    if @product.quantity > 0
+      if current_cart.items.exclude?(@product)
+        current_cart.add_product_to_cart(@product)
+        flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
+      else
+        flash[:alert] = "你的購物車內已有此物品"
+      end
     else
-      flash[:alert] = "你的購物車內已有此物品"
+      flash[:alert] = "此物品已停止銷售，你無法將它加入購物車"
     end
 
     redirect_to :back
