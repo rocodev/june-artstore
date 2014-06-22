@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
       @order.build_item_cache_from_cart(current_cart)
       @order.calculate_total!(current_cart)
       @order.minus_inventory_by_order!(current_cart)
+      OrderMailer.notify_order_place(@order).deliver
       current_cart.clear!
 
       redirect_to order_path(@order.token)
