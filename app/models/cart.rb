@@ -17,4 +17,9 @@ class Cart < ActiveRecord::Base
   end
   # items.inject(0) { |sum, item| sum + item.price }
   # items.map(&:price).inject(:+)
+
+  # 清空購物車
+  def clear!
+    cart_items.delete_all
+  end
 end
