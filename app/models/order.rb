@@ -39,6 +39,8 @@ class Order < ActiveRecord::Base
 
   before_create :generate_token
 
+  scope :recent, ->{ order(id: :desc)}
+
   def build_item_cache_from_cart(cart)
     cart.cart_items.each do |cart_item|
       order_item              = items.build
