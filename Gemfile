@@ -36,6 +36,12 @@ gem 'carrierwave'
 gem "mini_magick"
 
 
+gem "omniauth"
+gem "omniauth-facebook" 
+gem "auto-facebook", "0.42"
+
+gem "settingslogic", "~> 2.0.9"
+
 group :development do 
   gem "annotate"
   gem "magic_encoding"
