@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     collection do
       post :checkout # checkout_carts POST /carts/checkout(.:format)
     end
+
+    resources :items, only: :destroy, controller: "cart_items"
   end
 
   resources :orders do
