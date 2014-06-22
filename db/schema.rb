@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622051250) do
+ActiveRecord::Schema.define(version: 20140622103548) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
     t.integer  "product_id"
+    t.integer  "quantity",   default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

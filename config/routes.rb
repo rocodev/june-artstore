@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       post :checkout # checkout_carts POST /carts/checkout(.:format)
     end
 
-    resources :items, only: :destroy, controller: "cart_items"
+    resources :items, only: [:update, :destroy], controller: "cart_items"
   end
 
   resources :orders do

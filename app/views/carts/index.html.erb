@@ -9,6 +9,7 @@
           <th></th>
           <th>單價</th>
           <th></th>
+          <th>數量</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,15 @@
             <td>
               <%= link_to cart_item_path(current_cart, item), method: :delete do %>
                 <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= form_for item, as: :item, url: cart_item_path(current_cart, item) do |f| %>
+                <%= f.select :quantity, %w(1 2 3 4 5) %>
+
+                <%= button_tag(type: "submit", class: "btn btn-default btn-xs") do %>
+                  <i class="glyphicon glyphicon-repeat"></i>
+                <% end %>
               <% end %>
             </td>
           </tr>
