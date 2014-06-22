@@ -1,0 +1,45 @@
+1. where is definition of cart_item_path 
+2. what's the parameter of cart_item_path?
+
+It's better to compare "before" and "after" to learn what has been done in development.
+- to help to realize what's the thought behind that modification
+- s.t. we can learn the skill
+
+app/model/order.rb
+- :dependent => :destroy是什麼意思
+- accepts_nested_attributes_for 的意義是什麼?
+
+app/controllers/application_controller.rb
+- protect_from_forgery with :exception的意思是什麼?
+- @current_cart ||= find_cart的意思是什麼?
+- 單獨一個cart的意思是什麼? (是return值嗎?)
+
+app/controllers/cart_items_controller.rb
+- redirect_to :back是direct到哪裏去?
+
+app/controller/orders_controller.rb
+- 
+
+app/controllers/carts_controller.rb
+- :only => [:checkout] 的意思是什麼? 
+- 為何是current_user.orders.build 而不是 current_user.orders.new?
+
+app/controllers/accout/orders_controller.rb
+- current_user.orders.recent的意思是什麼?
+
+app/controllers/admin/orders_controller.rb
+- before_fiter的:excep=>[:index] 是什麼意思?
+- Order.recent是什麼意思?
+
+app/controllers/account/orders_controller.rb
+- current_user.orders.recent是什麼意思?
+
+app/views/layouts/applicaton.html.erb
+- 在裏面的yield是什麼意思?
+
+app/views/products/index.erb
+- render :partial => "product_item", :collection=> @products, :as => :product是什麼意思?
+
+app/helpers/carts_helper.rb
+- 為什麼不用current_cart.cart_items.count => 難道是因為只有cart是包含cart_items嗎?
+
