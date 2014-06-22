@@ -7,6 +7,7 @@
       <th>生成時間</th>
       <th>訂購者</th>
       <th>訂單狀態</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +18,20 @@
       <td> <%= render_order_user_name(order) %>
       </td>
       <td> <%= render_order_state(order) %> </td>
-    </tr>
-    <% end %>
+      <td>
+        <%= simple_form_for [:admin, order ]  do |f| %>
 
-  </tbody>
+       <%= f.select :aasm_state,['make_payment','ship','deliver','cancell_order','return_good'] %>
+
+       <%= button_tag(type: 'submit', class: "btn btn-default btn-xs") do %>
+
+       <i class="glyphicon glyphicon-repeat"></i>
+       <% end %>
+
+       <% end %>
+     </td>
+   </tr>
+   <% end %>
+
+ </tbody>
 </table>
