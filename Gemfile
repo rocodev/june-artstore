@@ -40,7 +40,7 @@ gem "omniauth"
 gem "omniauth-facebook" 
 gem "auto-facebook", "0.42"
 
-gem "settingslogic", "~> 2.0.9"
+gem "settingslogic"
 
 group :development do 
   gem "annotate"

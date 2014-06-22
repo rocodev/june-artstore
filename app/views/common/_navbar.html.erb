@@ -22,7 +22,7 @@
 
         <% if !current_user %>
         <li> <%= link_to("登入", new_user_session_path) %> </li>
-        <li> <%= link_to("Facebook Login", 'http://artstore.dev' + user_omniauth_authorize_path(:facebook)) %> </li>
+        <li> <%= link_to("Facebook Login", Settings.domain + user_omniauth_authorize_path(:facebook)) %> </li>
 
         <% else %>
 

@@ -214,7 +214,7 @@ DEPENDENCIES
   roadie
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  settingslogic (~> 2.0.9)
+  settingslogic
   simple_form (= 3.1.0rc1)
   spring
   sqlite3
