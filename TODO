@@ -26,7 +26,7 @@ Hw2-1:
        end
      end
  ✔ 購物車加入 "數量" 設計 @done (14-06-18 22:57)
- ☐ 購物車的總價 => 小計 x 數量
+ ✔ 購物車的總價 => 小計 x 數量 @done (14-06-22 09:28)
  ☐ 數量為0的貨物不能"購買"
  ☐ 清空購物車時，要同時扣掉被購買品項的庫存數
 
@@ -73,6 +73,18 @@ Question:
  ☐ Cart(small icon) should show the product types or the sum of all cart_items?
 
  ☐ Is it appropriate timing to clear the cart after order created?
+
+ ☐ "has_many :items, :through => :cart_items, :source => :product" why not ":products" ?
+
+class User < ActiveRecord::Base
+  has_many :followings
+  has_many :followers, through: : followings
+end
+
+class Following < ActiveRecord::Base
+  belongs_to :user
+  belongs_to followers, class_name: "user"
+end
 Tips:
  ☐ Any path can try to use the default path create by resources(automatically CRUD by rails)
 

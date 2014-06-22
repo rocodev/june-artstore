@@ -35,4 +35,12 @@ module ProductsHelper
   def render_product_price(product)
     product.price
   end
+
+  def render_product_buy(product)
+    if product.quantity == 0
+      submit_tag("加入購物車", :class => "btn btn-primary btn-lg btn-danger disabled")
+    else
+      submit_tag("加入購物車", :class => "btn btn-primary btn-lg btn-danger")
+    end
+  end
 end

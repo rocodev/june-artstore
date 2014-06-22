@@ -18,7 +18,7 @@
       <%# f.button :submit %>
       <%# hidden_field_tag(:@product, @product) %>
       <% select_num_arr = Array.new %>
-      <% @product.quantity.to_i.times do |i| %>
+      <% @product.quantity.times do |i| %>
         <% value = i + 1 %>
         <% text = value.to_s %>
         <% option = [text, value] %>
@@ -26,7 +26,8 @@
       <% end %>
       <%= select_tag(:num, options_for_select(select_num_arr, selected: :num)) %>
       <div class="pull-right">
-        <%= submit_tag("加入購物車", :class => "btn btn-primary btn-lg btn-danger") %>
+        <%= render_product_buy(@product) %>
+        <%# submit_tag("加入購物車", :class => "btn btn-primary btn-lg btn-danger disabled") %>
       </div>
       <%# select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option )) %>
       <!-- <select class="product-quantity form-control" style="display: inline-block; width: 70px;">
