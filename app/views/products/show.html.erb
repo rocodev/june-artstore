@@ -13,9 +13,10 @@
       <p><b><%= @product.description %> </b></p>
       <p><b>庫存：<%= @product.quantity %> </b></p>
       <p><b>價格：<%= @product.price %> </b></p>
-      <%= simple_form_for @product, url: add_to_cart_product_path(@product), method: :post, html: { role: 'form', class: 'form-inline' } do |f| %>
+      <%= simple_form_for @cart_item, html: { role: 'form', class: 'form-inline' } do |f| %>
         <div class="form-group">
-          <%= f.input :item_quantity, label: "數量：", as: :fake, collection: 1..@product.quantity, :input_html => {:class => "form-control"} %>
+          <%= f.input :quantity, label: "數量：", collection: 1..@product.quantity, :input_html => {:class => "form-control"} %>
+          <%= f.input :product_id, as: :hidden, :input_html => { :value => @product.id }%>
         </div>
         <div class="form-group">
           <%= f.button :submit, :value => "加入購物車", :disable_with => 'Submiting....', class: "btn btn-primary" %>

@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @cart_item = current_cart.cart_items.build(quantity: 1)
   end
 
   def del_from_cart
@@ -19,27 +20,4 @@ class ProductsController < ApplicationController
     redirect_to carts_path
   end
 
-  def add_to_cart
-
-    @product = Product.find(params[:id])
-    @item_quantity = params[:item_quantity]
-
-    if !current_cart.items.include?(@product)
-      add_product_to_cart
-    else
-      flash[:warning] = "你的購物車內已有此物品"
-    end
-
-    redirect_to :back
-
-  end
-
-  private
-  def add_product_to_cart
-    if current_cart.add_product_to_cart(@product, @item_quantity)
-      flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
-    else
-      flash[:warning] = "你輸入的數量不正確"
-    end
-  end
 end
