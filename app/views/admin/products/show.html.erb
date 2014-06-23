@@ -4,4 +4,4 @@
 <h4> 商品名稱 : <%= @product.title %></h4>
 <h4> 商品介紹 : <%= @product.description %> </h4>
 <h4> 商品圖片 : </h4>
-<%= image_tag(@product.photo_url) %>
+<%= render_product_photo(@product.default_photo) %>
