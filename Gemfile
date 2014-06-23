@@ -54,3 +54,10 @@ gem 'simple_form'
 
 #for state machines
 gem "aasm"
+
+group :development do
+  gem "letter_opener"
+  gem "roadie"
+end
+
+gem "stripe"
