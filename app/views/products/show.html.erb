@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-5">
+    <%= render_product_photo(@product.default_photo, :medium) %>
+  </div>
+
+  <div class="col-md-7">
+    <h2> <%= render_product_name(@product) %> </h2>
+
+    <div style="height:100px;">
+      <p>
+      <%= render_product_desc(@product) %>
+      </p>
+    </div>
+    <div> 庫存數量 : <%= render_product_quantity(@product) %> </div>
+    <% if @product.quantity > 0 %>
+    <div> 購買數量 : 
+      <%= simple_form_for @product, :url => add_to_cart_product_path , :method => "post" ,:html => { :class => 'simple-form form-inline' } do |f| %>
+        <%= f.select :quantity, [1,2,3,4,5] %>
+    </div>
+
+    <div class="product-price"> <%= number_to_currency(render_product_price(@product)) %> </div>
+    <div class="pull-right">
+        <%= f.submit "購買", :class => "btn btn-primary btn-lg btn-danger pull-right", :disable_with => 'Submiting...' %>
+      <% end %>
+    </div>
+    <% else %>
+      <div class="pull-left">
+        此商品目前缸貨，無法購買
+      </div>
+    <% end %>
+
+  </div>
+</div>
