@@ -7,3 +7,4 @@ class CartItem < ActiveRecord::Base
     self.save
   end
 end
+

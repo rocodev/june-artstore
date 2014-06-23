@@ -7,7 +7,9 @@ class Cart < ActiveRecord::Base
     if current_item
       current_item.increment_quantity
     else
-      items << product
+      cart_item = cart_items.build
+      cart_item.product_id = product
+      cart_item.save
     end
   end
 
