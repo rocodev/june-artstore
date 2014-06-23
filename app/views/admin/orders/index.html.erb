@@ -1,0 +1,44 @@
+ <div class="row">
+  <div class="col-md-12">
+    <h2> 所有訂單 </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="30%">編號</th>
+          <th>用戶</th>
+          <th>訂購時間</th>
+          <th>付款方式</th>
+          <th>金額</th>
+          <th>處理進度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= order.user_id %>
+          </td>
+          <td>
+            <div>
+              <%= order.token %>
+            </div>
+            <div>
+              <%= link_to("訂單明細", admin_order_path(order.token)) %>
+            </div>
+          </td>
+          <td> <%= order.created_at %> </td>
+          <td>
+            <%= order.payment_method %>
+          </td>
+          <td>
+            <%= order.total %>
+          </td>
+          <td> 
+            <%= order.aasm_state %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

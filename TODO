@@ -38,13 +38,19 @@ Hw2-2:
 
 
 Hw2-3:
- ☐ 建立account/orders 可以看到該使用者過去所有訂單
- ☐ 結帳後跳轉到account/orders#index
- ☐ Add a place to redirect to orders#index
+ ✔ 建立account/orders 可以看到該使用者過去所有訂單 @done (14-06-23 11:04)
+ ✔ 結帳後跳轉到account/orders#index @done (14-06-23 11:04)
+ ✔ Add a place to redirect to orders#index @done (14-06-23 11:04)
  ☐ A state can do order-cancelled
  ☐ A state can continue to complete payment
  ☐ Change state description into Chinese
  ☐ Change order created_at time from UTC into UTC+8
+
+Hw2-4:
+ ✔ 建立admin/orders可以看到系統內所有訂單 @done (14-06-23 17:47)
+ ✔ admin的order列表應要能顯示訂單狀態 @done (14-06-23 17:45)
+ ☐ 單張order應要可以"按照狀態圖"改變狀態"
+
 Question:
  ☐ Why checkout.html 生成訂單後，會導到order token的頁面
  
@@ -68,7 +74,7 @@ Question:
  ☐ How to use helper in html/css/js or controller or model ?
  
  ☐ Syntax Confusing
-   1. xxx：yyy vs ：xxx => yyy
+   1. xxx：yyy(latest version) vs ：xxx => yyy(old version)
    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
    <%= form_tag(add_to_cart_product_path, method: "post") do %> 
 
@@ -76,10 +82,13 @@ Question:
    <%= select_tag(:num, options_for_select(select_num_arr, selected: :num)) %>
 
    3. w/wo ()
+   ruby and rails
    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+
+   *rails only
    has_many :cart_items, :dependent => :destroy
 
-   4. "" vs ''(what is the convention?)
+   4. ""(recommendation) vs ''(what is the convention?)
    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
    <%= form_tag(add_to_cart_product_path, :method => 'post') do %> 
  
@@ -88,9 +97,11 @@ Question:
  ☐ Cart(small icon) should show the product types or the sum of all cart_items?
 
  ☐ Is it appropriate timing to clear the cart after order created?
+   better: current_cart.cart_items.destroy_all
 
  ☐ "has_many :items, :through => :cart_items, :source => :product" why not ":products" ?
- 
+ 區別用途
+
  ☐ When to use like the "followers" below
     class User < ActiveRecord::Base
       has_many :followings
@@ -108,8 +119,13 @@ Question:
  ☐ As above one, all the instance variables(@product) defined in the controller can be used or any variables except class variables(@@product) ?
 
  ☐ How is current_user be created? (Can't find the method like current_cart)
+   建議用上(github文件)往下找
 
  ☐ Method want to be used in both of all controllers and helper should be defined in application_controller.rb as 'helper_method'? But what if i want it to be use also in all models?
+
+ ☐ How to manage the more and more carts in db?
+
+ ☐ How can keep the last time's cart_items when re-login?
 Tips:
  ☐ Any path can try to use the default path create by resources(automatically CRUD by rails)
 

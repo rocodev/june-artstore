@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
     is_admin
   end         
 
-
-
 end
+
+
+bruce = User.last
+bruce.admin?
