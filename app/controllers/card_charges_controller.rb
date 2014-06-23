@@ -8,13 +8,12 @@ class CardChargesController < ApplicationController
     @order = current_user.orders.find_by_token(params[:order_id])
     @amount = @order.total * 100 # in cents
    
-    Stripe.api_key = 'sk_test_xqK1VfZDctClitJxLwwb5BZC'
+    Stripe.api_key = Settings.stripe_api_key
  
     customer = Stripe::Customer.create(
       :email => current_user.email,
       :card  => params[:stripeToken]
       )
- 
  
     charge = Stripe::Charge.create(
       :customer    => customer.id,

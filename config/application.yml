@@ -4,6 +4,8 @@ defaults: &defaults
   facebook_secret: "58e61dd1cd1b7867cc5b31c39c413f1a"
   mailgun_name: "postmaster@sandbox53016.mailgun.org"
   mailgun_password: "3zowvqctegc9"
+  stripe_api_key: "sk_test_xqK1VfZDctClitJxLwwb5BZC"
+  stripe_publish_key: "pk_test_AW8FPwJaTPFdPnAjBKnmmUL7"
 
 development:
   <<: *defaults
