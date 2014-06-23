@@ -1,0 +1,41 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+          總價
+        </th>
+        <th>
+          狀態
+        </th>
+        <th>
+          訂單日期
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each_with_index do |order, idx| %>
+        <tr>
+          <td>
+            <%= idx+1 %>
+          </td>
+          <td>
+            <%= render_order_total(order) %>
+          </td>
+          <td>
+            <%= render_order_aasm_state(order) %>
+          </td>
+          <td>
+            <%= render_order_created_at(order) %>
+          </td>
+          <td>
+            <%= link_to("前往", admin_order_path(order), class: "btn btn-primary") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

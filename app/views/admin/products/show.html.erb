@@ -1,0 +1,19 @@
+<div class='container'>
+  <%= link_to("編輯", edit_admin_product_path(@product), :class => "btn btn-primary") %>
+  <div class='row'>
+    <div class='col-lg-12'>
+      <h3 class="bg-info"> <%= @product.title %> </h3>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-lg-5'>
+      <%= product_render_photo(@product, :medium) %>
+    </div>
+    <div class='col-lg-7'>
+      <h2> <%= @product.title %> </h2>
+      <p><b><%= @product.description %> </b></p>
+      <p><b>數量：<%= @product.quantity %> </b></p>
+      <p><b>價格：<%= @product.price %> </b></p>
+    </div>
+  </div>
+</div>

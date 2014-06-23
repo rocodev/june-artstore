@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2> 購物車 </h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品資訊</th>
+            <th></th>
+            <th>單價</th>
+            <th>數量</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_cart.cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= product_render_photo(cart_item.product) %></td>
+            <td>
+              <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+            </td>
+            <td> <%= cart_item.product.price %> </td>
+            <td>
+              <%= simple_form_for cart_item, html: { role: 'form', class: 'form-inline' } do |f| %>
+                  <div class="form-group">
+                    <%= f.input :quantity, label: false, collection: 1..cart_item.product.quantity, :input_html => {:class => "form-control"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.button :submit, :value => "更新", :disable_with => 'Submiting....', class: "btn btn-primary" %>
+                  </div>
+              <% end %>
+            </td>
+            <td><%= link_to("刪除", cart_item_path(cart_item), :method => :delete, :class => "btn btn-primary") %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="total group">
+        <span class="pull-right">
+            <span> 總計 <%= render_cart_total_price(current_cart) %> NTD
+            </span>
+        </span>
+      </div>
+      <hr>
+      <div class="checkout">
+        <%= link_to("確認結賬", checkout_cart_path(current_cart) , :method => :post , :class => "btn btn-primary btn-lg btn-danger pull-right") %>
+      </div>
+    </div>
+  </div>
+</div>

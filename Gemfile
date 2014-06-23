@@ -38,3 +38,19 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#for account authentication
+gem 'devise'
+
+#for front-end
+gem 'bootstrap-sass'
+
+#for upload file
+gem 'carrierwave'
+#for process uploaded image
+gem 'subexec', :git => "https://github.com/nulayer/subexec.git"
+gem 'mini_magick'
+
+gem 'simple_form'
+
+#for state machines
+gem "aasm"

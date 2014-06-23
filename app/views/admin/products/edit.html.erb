@@ -1,0 +1,23 @@
+<div class="container">
+  <%= simple_form_for  [:admin, @product], html: { role: 'form' } do |f| %>
+    <div class="form-group">
+      <%= f.input :title, label: "標題", :input_html => {:class => "form-control"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :description, label: "敘述", :input_html => {:class => "form-control"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :quantity, label: "數量", :input_html => {:class => "form-control"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :price, label: "價格", :input_html => {:class => "form-control"} %>
+    </div>
+
+    <div class="form-action">
+      <%= f.button :submit, :disable_with => 'Submiting....', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

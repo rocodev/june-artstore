@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore image files
+/public/uploads
+
+# Ignore rubymine config file
+.idea
