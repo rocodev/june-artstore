@@ -1,0 +1,22 @@
+<%= f.input :title, label: "標題", label_html: { class: "col-sm-2 control-label" },
+                                  input_html: { class: "form-control" } %>
+
+
+<%= f.input :description, as: :text, label: "敘述", label_html: { class: "col-sm-2 control-label" },
+                                                   input_html: { class: "form-control", rows: 10, } %>
+
+<%= f.input :price, label: "價格", label_html: { class: "col-sm-2 control-label" },
+                                  input_html: { class: "form-control" } %>
+
+<%= f.input :quantity, label: "數量", label_html: { class: "col-sm-2 control-label" },
+                                     input_html: { class: "form-control" } %>
+
+<%= render_photo(product.main_photo) %>
+
+<%= f.simple_fields_for :photos, product.photos.build do |build| %>
+  <%= build.input :image, as: :file, label: "圖片上傳", label_html: { class: "col-sm-2 control-label" } %>
+<% end %>
+
+<div class="col-sm-offset-2 col-sm-10">
+  <%= f.submit "送出", disable_with: "...", class: "btn btn-primary" %>
+</div>
