@@ -18,7 +18,7 @@
         <td class="timeAgo"> <%= time_ago_in_words(order.created_at) %> 之前 </td>
         <td class="timeAgo"> <%= order.user.email %> </td>
         <td class="timeAgo"> <%= order.payment_method %> </td>
-        <td class="timeAgo"> <%= order.aasm_state %> </td>
+        <td class="timeAgo"> <%= render_order_state(order) %> </td>
         <td class="timeAgo">
           <% case order.aasm_state %>
           <% when "order_placed" %>
