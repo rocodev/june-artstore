@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Admin::OrdersHelper
 
   def render_order_options_for_admin(order)

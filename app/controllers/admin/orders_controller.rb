@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::OrdersController < AdminController
 
   before_filter :find_order, :except => [:index]

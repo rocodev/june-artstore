@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CartItemsController < ApplicationController
 
   before_action :authenticate_user!
