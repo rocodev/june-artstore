@@ -35,6 +35,7 @@ end
 
 
 gem "devise"
+gem 'stripe'
 
 
 gem "bootstrap-sass"
