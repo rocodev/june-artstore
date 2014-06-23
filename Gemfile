@@ -42,6 +42,8 @@ gem "auto-facebook", "0.42"
 
 gem "settingslogic"
 
+gem "stripe"
+
 group :development do 
   gem "annotate"
   gem "magic_encoding"
