@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
 
   before_action :authenticate_user!
 
+  def index
+    @orders = current_user.orders
+  end
+
   def create
     @order = current_user.orders.build(order_params)
 
@@ -37,7 +41,8 @@ class OrdersController < ApplicationController
     #   cart_item.destroy
     # end
 
-    redirect_to root_path, :notice => "成功完成付款"
+    # redirect_to root_path, :notice => "成功完成付款"
+    redirect_to orders_path, :notice => "成功完成付款"
   end
   private
 

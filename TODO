@@ -27,9 +27,24 @@ Hw2-1:
      end
  ✔ 購物車加入 "數量" 設計 @done (14-06-18 22:57)
  ✔ 購物車的總價 => 小計 x 數量 @done (14-06-22 09:28)
- ☐ 數量為0的貨物不能"購買"
+ ✔ 數量為0的貨物不能"購買" @done (14-06-22 10:43)
  ☐ 清空購物車時，要同時扣掉被購買品項的庫存數
 
+Hw2-2:
+✔ 配作業#1 支援多重購買數量 @done (14-06-23 10:41)
+ ☐ 修改訂單畫面
+ ☐ 訂單畫面美化
+
+
+
+Hw2-3:
+ ☐ 建立account/orders 可以看到該使用者過去所有訂單
+ ☐ 結帳後跳轉到account/orders#index
+ ☐ Add a place to redirect to orders#index
+ ☐ A state can do order-cancelled
+ ☐ A state can continue to complete payment
+ ☐ Change state description into Chinese
+ ☐ Change order created_at time from UTC into UTC+8
 Question:
  ☐ Why checkout.html 生成訂單後，會導到order token的頁面
  
@@ -75,20 +90,37 @@ Question:
  ☐ Is it appropriate timing to clear the cart after order created?
 
  ☐ "has_many :items, :through => :cart_items, :source => :product" why not ":products" ?
+ 
+ ☐ When to use like the "followers" below
+    class User < ActiveRecord::Base
+      has_many :followings
+      has_many :followers, through: : followings
+    end
 
-class User < ActiveRecord::Base
-  has_many :followings
-  has_many :followers, through: : followings
-end
+    class Following < ActiveRecord::Base
+      belongs_to :user
+      belongs_to :follower, class_name: 'User'
+    end
+ 
+ ☐ Is the "@XXX/@XXXs" can be used as default in the html.erb under the same name of model's "Views/XXXs/yyyy.html.erb" folder?
+   (ex. @product/@products can be automatically used in "Views/products/show.html.erb")
 
-class Following < ActiveRecord::Base
-  belongs_to :user
-  belongs_to followers, class_name: "user"
-end
+ ☐ As above one, all the instance variables(@product) defined in the controller can be used or any variables except class variables(@@product) ?
+
+ ☐ How is current_user be created? (Can't find the method like current_cart)
+
+ ☐ Method want to be used in both of all controllers and helper should be defined in application_controller.rb as 'helper_method'? But what if i want it to be use also in all models?
 Tips:
  ☐ Any path can try to use the default path create by resources(automatically CRUD by rails)
 
  ☐ Formula should be hide/placed in the model/controller
+
+ ☐ Get all avaiable urls by "rake routes" or open in browser with "http:xxx.domain.com/rails/info"
+
+ ☐ Can use "do...end" to  replace the "(...)", so you can add more flexibilty
+    <%= link_to carts_path do  %>
+      購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> ( <%= cart_items_count(current_cart) %>) 
+    <% end %>
 購物: 
  ☐ 身為消費者，我要在前台能夠找到商品並加到購物車
  ☐ 身為消費者，我要在前台能夠將多樣商品加到購物車，並生成一張訂單

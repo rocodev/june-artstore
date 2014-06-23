@@ -38,8 +38,11 @@
 
             <li class="divider"></li>
             <% end %>
-
-
+            <li> 
+              <%= link_to orders_path do  %>
+                歷史訂單
+              <% end %>
+            </li> 
             <li> 
               <%= link_to("登出", destroy_user_session_path, :method => :delete ) %>
             </li>
