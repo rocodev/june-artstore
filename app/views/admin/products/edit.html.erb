@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+  <%= f.input :title, label: '標題' %>
+  <%= f.input :description, label: '產品敘述' %>
+  <%= f.input :quantity, label: '數量' %>
+  <%= f.simple_fields_for :photos do |c| %>
+      <%= c.input :image , :as => :file %>
+  <% end %>
+  <%= f.input :price, label: '價格' %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

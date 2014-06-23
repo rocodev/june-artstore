@@ -1,0 +1,31 @@
+<% @products.each do |product| %>
+  <div class="products row">
+    <div class="col-md-12">
+      <!-- title and pics -->
+      <div class="col-md-4">
+        <div class="col-md-12 title">
+          <h3><%= link_to(render_product_name(product), product_path(product)) %></h3>
+        </div>
+        <div class="col-md-12">
+          <%= render_product_photo(product.default_photo) %>
+        </div>
+      </div>
+      <!-- info -->
+      <div class="col-md-8">
+        <div class="col-md-12">
+          <h4>產品資訊</h4>
+        </div>
+        <div class="col-md-12">
+
+          <p><%= product.description %></p>
+          <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, tenetur, provident, consequuntur, obcaecati non assumenda sunt voluptatibus accusamus expedita praesentium corrupti saepe quo neque dignissimos quia quidem voluptatem possimus officiis.</span>
+          <span>Laborum, necessitatibus fugiat non optio iusto ullam blanditiis inventore harum explicabo neque ex atque iure eos quibusdam vel porro nobis quaerat omnis praesentium tenetur reprehenderit. Modi odio eveniet ullam praesentium.</span>
+          <span>Illum, animi, alias odit hic eum doloribus aliquam rerum iusto libero temporibus autem officiis sint ea saepe molestiae nemo illo recusandae labore similique blanditiis unde mollitia quibusdam. Enim, doloribus, quod!</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <%= link_to("產品細節", product_path(product), :class => "addToCart btn btn-info pull-right") %>
+    </div>
+  </div>
+<% end %>
