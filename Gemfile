@@ -29,6 +29,7 @@ group :development do
   gem "better_errors", "~> 0.9.0"
   gem "guard-livereload"
   gem "binding_of_caller"
+  gem "letter_opener"
 end
 
 
