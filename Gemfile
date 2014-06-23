@@ -30,6 +30,7 @@ group :development do
   gem "guard-livereload"
   gem "binding_of_caller"
   gem "letter_opener"
+  gem "roadie"
 end
 
 
