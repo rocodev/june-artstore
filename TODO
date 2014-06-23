@@ -1,0 +1,197 @@
+
+All:
+ ☐ rails-101
+ ☐ rails-102
+ ☐ rails-view-book
+ ☐ edx-SaaS
+ ☐ $25000的all src code
+ ☐ Download files
+
+Hw2-1:
+ ✔ 清空購物車 @done (14-06-18 19:55)
+     @orders_controller
+     def create
+       ...
+       current_cart.cart_items.each do |cart_item|
+         cart_item.destroy
+       end
+       ...
+     end
+ ✔ 從購物車內刪掉某些物品 @done (14-06-18 21:23)
+     @CartItemsController < ApplicationController
+       def destroy
+         @cart_item = CartItem.find_by_product_id(params[:id])
+         @cart_item.destroy    
+         redirect_to :back
+       end
+     end
+ ✔ 購物車加入 "數量" 設計 @done (14-06-18 22:57)
+ ✔ 購物車的總價 => 小計 x 數量 @done (14-06-22 09:28)
+ ✔ 數量為0的貨物不能"購買" @done (14-06-22 10:43)
+ ☐ 清空購物車時，要同時扣掉被購買品項的庫存數
+
+Hw2-2:
+✔ 配作業#1 支援多重購買數量 @done (14-06-23 10:41)
+ ☐ 修改訂單畫面
+ ☐ 訂單畫面美化
+
+
+
+Hw2-3:
+ ✔ 建立account/orders 可以看到該使用者過去所有訂單 @done (14-06-23 11:04)
+ ✔ 結帳後跳轉到account/orders#index @done (14-06-23 11:04)
+ ✔ Add a place to redirect to orders#index @done (14-06-23 11:04)
+ ☐ A state can do order-cancelled
+ ☐ A state can continue to complete payment
+ ☐ Change state description into Chinese
+ ☐ Change order created_at time from UTC into UTC+8
+
+Hw2-4:
+ ✔ 建立admin/orders可以看到系統內所有訂單 @done (14-06-23 17:47)
+ ✔ admin的order列表應要能顯示訂單狀態 @done (14-06-23 17:45)
+ ☐ 單張order應要可以"按照狀態圖"改變狀態"
+
+Question:
+ ☐ Why checkout.html 生成訂單後，會導到order token的頁面
+ 
+ ☐ logger.(debug|info|warn|error|fatal) 不同method的差別
+ 
+ ☐ Differen user should have different cart?
+ 
+ ☐ Product被刪除後，id並不會重新更新
+ 
+ ☐ <%= select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option )) %> syntax meaning?
+ 
+ ☐ simple_form only have simple_form_for which can only be applied on attributes a model has?
+ 
+ ☐ Seems don't need to pass the product as argument when send 'post' on show_url because the controller can get the product by product_id from the show_url in params[:id] ?
+    So you can comment/delete the hidden_field_tag as below
+    <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+      <%# hidden_field_tag(:@product, @product) %>
+ 
+ ☐ Want to send/render anything from/on client's html, you almost have to use the ruby's built-in html-tag ?
+ 
+ ☐ How to use helper in html/css/js or controller or model ?
+ 
+ ☐ Syntax Confusing
+   1. xxx：yyy(latest version) vs ：xxx => yyy(old version)
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+   <%= form_tag(add_to_cart_product_path, method: "post") do %> 
+
+   2. xxx： ：yyy
+   <%= select_tag(:num, options_for_select(select_num_arr, selected: :num)) %>
+
+   3. w/wo ()
+   ruby and rails
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+
+   *rails only
+   has_many :cart_items, :dependent => :destroy
+
+   4. ""(recommendation) vs ''(what is the convention?)
+   <%= form_tag(add_to_cart_product_path, :method => "post") do %> 
+   <%= form_tag(add_to_cart_product_path, :method => 'post') do %> 
+ 
+ ☐ session vs cache(what is the usual applied scenario?)
+
+ ☐ Cart(small icon) should show the product types or the sum of all cart_items?
+
+ ☐ Is it appropriate timing to clear the cart after order created?
+   better: current_cart.cart_items.destroy_all
+
+ ☐ "has_many :items, :through => :cart_items, :source => :product" why not ":products" ?
+ 區別用途
+
+ ☐ When to use like the "followers" below
+    class User < ActiveRecord::Base
+      has_many :followings
+      has_many :followers, through: : followings
+    end
+
+    class Following < ActiveRecord::Base
+      belongs_to :user
+      belongs_to :follower, class_name: 'User'
+    end
+ 
+ ☐ Is the "@XXX/@XXXs" can be used as default in the html.erb under the same name of model's "Views/XXXs/yyyy.html.erb" folder?
+   (ex. @product/@products can be automatically used in "Views/products/show.html.erb")
+
+ ☐ As above one, all the instance variables(@product) defined in the controller can be used or any variables except class variables(@@product) ?
+
+ ☐ How is current_user be created? (Can't find the method like current_cart)
+   建議用上(github文件)往下找
+
+ ☐ Method want to be used in both of all controllers and helper should be defined in application_controller.rb as 'helper_method'? But what if i want it to be use also in all models?
+
+ ☐ How to manage the more and more carts in db?
+
+ ☐ How can keep the last time's cart_items when re-login?
+Tips:
+ ☐ Any path can try to use the default path create by resources(automatically CRUD by rails)
+
+ ☐ Formula should be hide/placed in the model/controller
+
+ ☐ Get all avaiable urls by "rake routes" or open in browser with "http:xxx.domain.com/rails/info"
+
+ ☐ Can use "do...end" to  replace the "(...)", so you can add more flexibilty
+    <%= link_to carts_path do  %>
+      購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> ( <%= cart_items_count(current_cart) %>) 
+    <% end %>
+購物: 
+ ☐ 身為消費者，我要在前台能夠找到商品並加到購物車
+ ☐ 身為消費者，我要在前台能夠將多樣商品加到購物車，並生成一張訂單
+ ☐ 身為消費者，當系統生成一張訂單後，我可以填寫寄送資訊，並且用信用卡結帳
+ ☐ 身為消費者，當我用信用卡結帳後，我的信箱要能收到一張訂單確認信
+
+Admin 管理訂單:
+  ☐ 身為管理者，可以在後台看訂單，訂單狀態分為未結帳、已結帳、出貨中、已出貨、辦理退貨
+  ☐ 身為管理者，我可以在後台對單張訂單做狀態改變
+  ☐ 身為管理者，當我在將商品設為已出貨時，消費者應該收到一張已出貨的通知信  
+  ☐ 身為商家，當消費者確定購物結帳後，該商品的庫存必須按照數量減少
+
+
+Admin:
+  ✔ Admin Should able to see admin panel link in dropdown menu @done (14-06-13 01:59)
+    Product:
+      ✔ Refine with Product List with table @done (14-06-13 02:14)
+      ✔ should able update image when create product @done (14-06-13 04:09)
+      ☐ should able to upload image after update
+
+其他:
+ ✔ 套 Bootstrap 版 @done (14-06-12 18:33)
+   ✔  Login / Logout using bootstrap nav @done (14-06-12 18:33)
+   ✔ SimpleForm with Bootstrap @done (14-06-13 02:39)
+ ✔ 安裝 Carrierwave @done (14-06-13 03:21)
+ ☐ Search function ( using Ransack )
+
+有空想做的:
+ ☐ 重新整理登入 / 登出畫面
+ ☐ 加入 Facebook Login 
+
+
+--- ✄ -----------------------
+
+身為商家的管理者，我要能夠在後台上架我的東西，並設定能夠販賣:
+ ✔ 管理者必須要有一個後台 @done (14-06-12 17:56)
+ ✔ 後台必須要可以新增產品 @done (14-06-12 17:56)
+ ✔ 產品內容必須要有標題、文字、數量 @done (14-06-12 18:02)
+ ✔ 產品必須要有價格 @done (14-06-13 03:21)
+ ✔ 產品內容必須要有圖片 @done (14-06-13 03:21)
+
+身為商家的管理者，我要能夠在後台設定權限，權限分成管理者以及消費者:
+   ✔ 身為管理者，才可以進入後台 @done (14-06-13 03:39)
+   ✔ 身為管理者，必須要登入且是 admin @done (14-06-13 03:39)
+   ✔ 管理者身份必須要被分為 admin / user @done (14-06-13 03:39)
+
+
+任何使用者都要能看到首頁:
+  ✔ 首頁應該要能夠看到所有商品 @done (14-06-13 03:39)
+  ✔ 任何使用者都要能看到首頁 @done (14-06-13 03:39)
+
+
+
+任何使用者都要能看到產品頁:
+ ✔ 產品頁應該能要看到標題 @done (14-06-13 04:09)
+ ✔ 產品頁應該要能看到敘述 @done (14-06-13 04:09)
+ ✔ 產品頁應該要能看到圖片 @done (14-06-13 04:09)
+

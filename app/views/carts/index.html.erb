@@ -1,0 +1,55 @@
+ <div class="row">
+   <div class="col-md-12">
+ 
+    <h2> 購物車 </h2>
+ 
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>商品圖片</th>
+          <th>商品名稱</th>
+          <th>單價</th>
+          <th>數量</th>
+          <th>小計</th>
+          <th>編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_cart.items.each do |product| %>
+        <tr>
+          <td><%= render_product_photo(product.default_photo) %></td>
+            <td> 
+              <%= link_to(product.title, product_path(product)) %>
+            </td>
+            <td> <%= product.price %> </td>
+            <td>
+              <%=  quantity = current_cart.cart_items.find_by_product_id(product.id).quantity %>
+            </td>
+            <td>
+              <%= product.price * quantity %>
+            </td>
+            <td>
+              <%= link_to("刪除", cart_item_path(product), :method => :delete,:class => "btn btn-danger") %>
+            </td>
+          </tr>
+          <% end %>
+ 
+        </tbody>
+      </table>
+ 
+      <div class="total group">
+        <span class="pull-right">
+           <span> 總計 <%= render_cart_total_price(current_cart) %> NTD  
+        </span>
+      </div>
+  
+      <hr>
+      <div class="checkout">
+          <%= link_to("確認結賬", checkout_carts_path , :method => :post , :class => "btn btn-primary btn-lg btn-danger pull-right") %>
+      </div>
+ 
+ 
+    </div>
+ 
+ 
+  </div>
