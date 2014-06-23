@@ -1,27 +1,41 @@
 class Admin::OrdersController < ApplicationController
 
+   before_filter :find_order, :except => [:index]
+
   def index
     # TODO Pagenavi
-    @orders = Order.all.limit(10)
+    @orders = Order.all.limit(50)
   end
 
-  def change_state
+  def show
+    @order_info = @order.info
+    @order_items = @order.items
+  end
+
+  def ship
+    @order.ship!
+    redirect_to :back
+  end
+
+  def shipped
+    @order.deliver!
+    redirect_to :back
+  end
+
+  def cancel
+    @order.cancel_order!
+    redirect_to :back
+  end
+
+  def return
+    @order.return_good!
+    redirect_to :back
+  end
+
+  protected
+
+  def find_order
     @order = Order.find_by_token(params[:id])
-    @state = @order.aasm_state
-    case @state
-    when "ship"
-      @orders.ship!
-      redirect_to :back
-    when "deliver"
-      @orders.deliver!
-      redirect_to :back
-    when "cancel"
-      @orders.cancel_order!
-      redirect_to :back
-    when "return"
-      @orders.return_good!
-      redirect_to :back
-    end
   end
 
 end
