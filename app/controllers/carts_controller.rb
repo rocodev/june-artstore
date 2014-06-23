@@ -10,7 +10,7 @@ class CartsController < ApplicationController
   end
 
   def empty
-    current_cart.empty_cart (current_cart)
+    current_cart.empty_cart
     redirect_to root_path, :notice => "已清空購物車"
   end
 

@@ -8,7 +8,7 @@ module CartsHelper
   end
 
   def render_empty_cart_button(cart)
-    if cart_items_count(current_cart) > 0 
+    if cart_items_count(cart) > 0 
       link_to("清空購物車", empty_carts_path, :method => :post, :class => "btn btn-primary btn-lg btn-danger pull-left")       
     end
   end

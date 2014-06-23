@@ -12,10 +12,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     
     if !current_cart.items.include?(@product)
-      current_cart.add_product_to_cart(@product)
+      current_cart.add_product_to_cart(@product,params[:product][:quantity])
       flash[:notice] = "你已成功將#{@product.title}加入購物車"
     else
-      current_cart.add_product_to_cart(@product)
+      current_cart.add_product_to_cart(@product,params[:product][:quantity])
       flash[:warning] = "#{@product.title}的數量已更新"
     end
 
