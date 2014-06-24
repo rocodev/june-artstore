@@ -6,13 +6,8 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
 
     if @order.save
-      @order.build_item_cache_from_cart(current_cart)
-      @order.caculate_total!(current_cart)
 
-      # 寄信
-      OrderMailer.notify_order_placed(@order).deliver
-      # 確認結賬、訂單產生後後清空購物車
-      current_cart.clear
+      OrderPlacingService.new(current_cart, @order).place_order!
       # 產生 token 保密訂單網址
       redirect_to order_path(@order.token)
     else

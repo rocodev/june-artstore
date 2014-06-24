@@ -23,7 +23,7 @@ class Cart < ActiveRecord::Base
   end
 
   # 清空購物車
-  def clear
+  def clear!
     # delete_all 是內建的 method，可一次清空
     # destroy_all 會一個一個 row 刪（？）
     cart_items.delete_all
