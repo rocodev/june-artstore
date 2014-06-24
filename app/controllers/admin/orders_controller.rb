@@ -1,7 +1,16 @@
 class Admin::OrdersController < AdminController
 
+
+
   def index
     @orders = Order.all
+  end
+
+  def show
+    @order = Order.find_by_token(params[:id])
+
+    @order_info = @order.info
+    @order_items = @order.items
   end
 
   def update

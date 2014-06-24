@@ -24,6 +24,8 @@ class CardChargesController < ApplicationController
  
     @order.set_payment_with!("credit_card")
     @order.make_payment! 
+
+    CardChargesMailer.notify_card_charges_placed(@order).deliver
  
     redirect_to order_path(@order.token), :notice => "成功完成付款"
  
