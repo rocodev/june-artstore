@@ -24,7 +24,8 @@ class CardChargesController < ApplicationController
 
     @order.set_payment_with!("credit_card")
     @order.make_payment!
-
+    OrderMailer.notify_card_paid(@order).deliver
+    
     redirect_to order_path(@order.token), :notice => "成功完成付款"
 
     rescue Stripe::CardError => e

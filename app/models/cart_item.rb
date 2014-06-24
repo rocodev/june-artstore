@@ -7,8 +7,8 @@ class CartItem < ActiveRecord::Base
 
   private
   def check_product_quantity
-    
-    if product.quantity < quantity
+
+    if quantity == nil || product.quantity < quantity
       errors.add(:quantity, "You order too many")
     end
   end
