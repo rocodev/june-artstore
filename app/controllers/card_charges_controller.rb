@@ -22,8 +22,10 @@ class CardChargesController < ApplicationController
       :currency    => 'usd'
     )
  
+    CardChargeMailer.card_charge_placed(@order).deliver
     @order.set_payment_with!("credit_card")
     @order.make_payment! 
+    
  
     redirect_to order_path(@order.token), :notice => "成功完成付款"
  

@@ -12,5 +12,4 @@ class OrderMailer < ActionMailer::Base
 
     mail(:to => @user.email , :subject => " [ArtStore] 感謝您完成本次的下單，以下是您這次購物明細 #{order.token}")
   end
-
 end

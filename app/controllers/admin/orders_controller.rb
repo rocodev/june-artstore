@@ -7,9 +7,7 @@ class Admin::OrdersController < AdminController
     @orders = Order.recent
   end
 
-
   def show
-    
     @order_info = @order.info
     @order_items = @order.items
   end
