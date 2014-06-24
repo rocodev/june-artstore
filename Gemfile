@@ -7,6 +7,9 @@ gem 'rails', '4.1.0'
 group :development do
      # Use sqlite3 as the database for Active Record
      gem 'sqlite3'
+     #Mailer
+     gem "letter_opener" #本機看信
+     gem 'roadie' #可在信裡面引入CSS
 end
 
 group :production do
@@ -62,3 +65,6 @@ gem "mini_magick"
 
 #FSM
 gem 'aasm'
+
+#credit card
+gem 'stripe'
