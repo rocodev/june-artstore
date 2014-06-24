@@ -51,3 +51,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 # 有線狀態機
 gem 'aasm'
+# 線上刷卡
+gem 'stripe'
