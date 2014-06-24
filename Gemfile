@@ -53,3 +53,8 @@ gem 'mini_magick'
 gem 'aasm'
 # 線上刷卡
 gem 'stripe'
+
+group :development do
+  # 在本機看信
+  gem "letter_opener"
+end

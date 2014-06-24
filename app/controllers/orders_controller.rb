@@ -8,6 +8,9 @@ class OrdersController < ApplicationController
     if @order.save
       @order.build_item_cache_from_cart(current_cart)
       @order.caculate_total!(current_cart)
+
+      # 寄信
+      OrderMailer.notify_order_placed(@order).deliver
       # 確認結賬、訂單產生後後清空購物車
       current_cart.clear
       # 產生 token 保密訂單網址
