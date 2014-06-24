@@ -1,3 +1,4 @@
 <link rel="stylesheet" type="text/css" href="/assets/application.css" />
   <h2>您的消費總額<%= @order.total %>已完成付款</h2>
+  <%= link_to("訂單連結", order_url(@order.token)) %>
 </div>
