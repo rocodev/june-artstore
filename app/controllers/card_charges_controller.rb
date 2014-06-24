@@ -26,6 +26,8 @@ class CardChargesController < ApplicationController
     @order.make_payment!
 
     redirect_to order_path(@order.token), :notice => "成功完成付款"
+    # 寄信
+    PaymentMailer.notify_payment_completed(@order).deliver
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
