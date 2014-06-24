@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :info
 
+  include Tokenable
+
   def build_item_cache_from_cart(cart)
     cart.items.each do |cart_item|
       # https://github.com/rails/rails/blob/959fb8ea651fa6638aaa7caced20d921ca2ea5c1/activerecord/lib/active_record/relation.rb#L84
@@ -21,13 +23,6 @@ class Order < ActiveRecord::Base
   def caculate_total!(current_cart)
     self.total = current_cart.total_price
     self.save
-  end
-
-  before_create :generate_token
-
-  def generate_token
-    # http://ruby-doc.org/stdlib-2.1.0/libdoc/securerandom/rdoc/SecureRandom.html
-    self.token = SecureRandom.uuid
   end
 
   def set_payment_with!(method)
