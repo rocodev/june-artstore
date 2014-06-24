@@ -77,5 +77,7 @@
       ✔ admin 的 order 列表要能顯示訂單狀態 @done (14-06-20 13:26)
       ✔ 單張 order 應該要可以依照狀態圖改變狀態 @done (14-06-23 17:22)
    ☐ Week3 Homework
-      ☐ 信用卡付款成功也要可以寄信
-      ☐ 消費者可以透過 email 裡的連結檢視原先的 order
+      ✔ 信用卡付款成功也要可以寄信 @done (14-06-24 20:43)
+      ✔ 消費者可以透過 email 裡的連結檢視原先的 order @done (14-06-24 21:12)
+      ☐ 安裝 SettingsLogic
+      ☐ 把 key 放到  SettingsLogic 的 yml 裏面
