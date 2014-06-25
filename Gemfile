@@ -54,6 +54,8 @@ gem 'aasm'
 # 線上刷卡
 gem 'stripe'
 
+gem 'settingslogic'
+
 group :development do
   # 在本機看信
   gem "letter_opener"
