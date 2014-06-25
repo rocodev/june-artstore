@@ -1,4 +1,8 @@
 defaults: &defaults
+  mail:
+    user_name: "postmaster@sandboxc429a9c3e2a6491da69d4593dc8fcf34.mailgun.org"
+    password: "9dtq9y2j4n23"
+    domain: "sandboxc429a9c3e2a6491da69d4593dc8fcf34.mailgun.org"
   stripe:
     api_key: 'sk_test_oRx3n1ew0kZIkY9hLvPMV8Dy'
     public_key: 'pk_test_jS6BKf6bMnfVZ9BiaUf533kd'
