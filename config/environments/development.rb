@@ -34,6 +34,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { :host => 'artstore.dev' }
+
+   config.action_mailer.smtp_settings = {
+    :port => 587,
+    :address => 'smtp.mailgun.org',
+    :user_name => '秘密',
+    :password => '秘密',
+    :domain => '秘密',
+    :authentication => :plain,
+  }
+
+  config.action_mailer.delivery_method = :smtp
 end
