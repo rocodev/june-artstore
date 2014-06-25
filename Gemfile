@@ -32,6 +32,8 @@ gem "aasm"
 gem 'letter_opener'
 gem 'roadie'
 gem 'stripe'
+gem 'settingslogic'
+gem 'minitest'
 
 
 

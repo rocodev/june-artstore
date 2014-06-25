@@ -40,9 +40,9 @@ Rails.application.configure do
    config.action_mailer.smtp_settings = {
     :port => 587,
     :address => 'smtp.mailgun.org',
-    :user_name => '秘密',
-    :password => '秘密',
-    :domain => '秘密',
+    :user_name => Settings.mailgun.user_name,
+    :password => Settings.mailgun.password,
+    :domain => Settings.mailgun.domain,
     :authentication => :plain,
   }
 
