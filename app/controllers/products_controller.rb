@@ -28,7 +28,4 @@ class ProductsController < ApplicationController
 
   end
 
-  def minus_products_been_sold
-    
-  end
 end
