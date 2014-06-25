@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 
 gem "devise"
 gem "aasm"
+gem 'letter_opener'
+gem 'roadie'
 
 
 gem "bootstrap-sass"
