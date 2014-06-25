@@ -31,6 +31,7 @@ gem "devise"
 gem "aasm"
 gem 'letter_opener'
 gem 'roadie'
+gem 'stripe'
 
 
 
