@@ -55,9 +55,14 @@ gem 'simple_form'
 #for state machines
 gem "aasm"
 
+#for dispaly email at local 
 group :development do
   gem "letter_opener"
   gem "roadie"
 end
 
+#for credit card payment
 gem "stripe"
+
+#for store secure key info
+gem "settingslogic"

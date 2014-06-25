@@ -1,0 +1,13 @@
+defaults: &defaults
+  stripe:
+    api_key: 'sk_test_oRx3n1ew0kZIkY9hLvPMV8Dy'
+    public_key: 'pk_test_jS6BKf6bMnfVZ9BiaUf533kd'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
-  Stripe.setPublishableKey('pk_test_jS6BKf6bMnfVZ9BiaUf533kd');
+  Stripe.setPublishableKey("<%= Setting.stripe.public_key %>");
 </script>
 <%= form_tag order_card_charges_path(@order.token), :id => "payment-form", :class => "form form-horizontal" do %>
 <span class="payment-errors"></span>
