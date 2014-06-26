@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 625e58cbb5ea5e155464ea2d79497838313352f2
+  branch: rails-4.1
+  specs:
+    ransack (1.2.4)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+      polyamorous (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -116,6 +128,8 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
+    polyamorous (1.0.0)
+      activerecord (>= 3.0)
     polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -216,6 +230,7 @@ DEPENDENCIES
   letter_opener
   mini_magick
   rails (= 4.1.0)
+  ransack!
   roadie
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

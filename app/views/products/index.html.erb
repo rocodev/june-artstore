@@ -1,3 +1,9 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :搜尋 %>
+  <%= f.search_field :title_start %>
+  <%= f.submit %>
+<% end %>
+
 <div class="row">
 
   <%= render :partial => "product_item", :collection => @products , :as => :product %> 

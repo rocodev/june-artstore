@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.order("id DESC")
+    @q = Product.search(params[:q])
+    if !params[:q].blank?
+      @products = @q.result(distinct: true)
+    else
+      @products = Product.order("id DESC")
+    end
   end
 
 
