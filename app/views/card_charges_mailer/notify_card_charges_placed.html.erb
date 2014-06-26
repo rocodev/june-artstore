@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="/assets/application.css" />
+ 
+ <div class="row">
+   <div class="col-md-12">
+ 
+    <h2> 付款成功 </h2>
+ 
+    <%= "0.0.0.0:3000/" + link_to(@order.token, order_path(@order.token)) %> 
+ 
+ 
+  </div>
+ 
+ 
+</div>
