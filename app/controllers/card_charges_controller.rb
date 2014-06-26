@@ -7,20 +7,7 @@ class CardChargesController < ApplicationController
     @order = current_user.orders.find_by_token(params[:order_id])
     @amount = @order.total * 100 # in cents
    
-    Stripe.api_key = 'sk_test_hlkxcfM6uYxGzLbsEtpncc3o'
- 
-    customer = Stripe::Customer.create(
-      :email => current_user.email,
-      :card  => params[:stripeToken]
-      )
- 
- 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => @order.token ,
-      :currency    => 'usd'
-    )
+    CardchargesSettingService.new(current_user,@order,@amount).pay!
  
     @order.set_payment_with!("credit_card")
     @order.make_payment! 
@@ -29,6 +16,7 @@ class CardChargesController < ApplicationController
  
     redirect_to order_path(@order.token), :notice => "成功完成付款"
  
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       render "orders/pay_with_credit_card"
