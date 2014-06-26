@@ -14,6 +14,16 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>  
+          <%= search_form_for @q do |f| %>
+            <%= f.search_field :title_or_description_cont %>
+            <%= f.submit %>
+          <% end %>
+
+        </li>
+
+
+
         <li>
           <%= link_to carts_path do %>
             購物車 <i class="glyphicon glyphicon-shopping-cart"></i> (<%= cart_items_count(current_cart) %>)
