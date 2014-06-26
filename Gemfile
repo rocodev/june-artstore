@@ -43,7 +43,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'aasm'
 gem 'ransack', github: "activerecord-hackery/ransack", branch: "rails-4.1"
-
+gem 'settingslogic'
 
 group :development do 
   gem "annotate"

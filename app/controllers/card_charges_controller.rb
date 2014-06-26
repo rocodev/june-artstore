@@ -7,7 +7,7 @@ class CardChargesController < ApplicationController
     @order = current_user.orders.find_by_token(params[:order_id])
     @amount = @order.total * 100 # in cents
    
-    CardchargesSettingService.new(current_user,@order,@amount).pay!
+    CardchargesSettingService.new(current_user,@order,@amount).pay!(params[:stripeToken])
  
     @order.set_payment_with!("credit_card")
     @order.make_payment! 

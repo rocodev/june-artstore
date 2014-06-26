@@ -6,14 +6,14 @@ class CardchargesSettingService
 
   end
 
-  def pay!
+  def pay!(card_number)
 
-    Stripe.api_key = 'sk_test_hlkxcfM6uYxGzLbsEtpncc3o'
+    Stripe.api_key = Settings.stripe_secret_key
  
     customer = Stripe::Customer.create(
       :email => @user.email,
-      :card  => params[:stripeToken]
-      )
+      :card  => card_number
+    )
  
  
     charge = Stripe::Charge.create(

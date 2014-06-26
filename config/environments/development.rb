@@ -21,8 +21,8 @@ Rails.application.configure do
    :address => "smtp.mailgun.org",
    :port => 587,
    :domain => "sandbox70614.mailgun.org",
-   :user_name => "postmaster@sandbox70614.mailgun.org",
-   :password => "4ca5d2jc4qi4"
+   :user_name => Settings.mailgun_user_name,
+   :password => Settings.mailgun_password
   }
  config.action_mailer.raise_delivery_errors = false
 

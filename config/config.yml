@@ -1,0 +1,17 @@
+defaults: &defaults
+  app_name: "Shopping Cart"
+  domain: "http://www.shoppingCart.com"
+  stripe_secret_key: "sk_test_hlkxcfM6uYxGzLbsEtpncc3o"
+  stripe_publishable_key: "pk_test_dtG5bFe89zQK8T6YR4wU7wjv"
+  mailgun_user_name: "postmaster@sandbox70614.mailgun.org"
+  mailgun_password: "4ca5d2jc4qi4"
+development:
+  <<: *defaults
+  domain: "http://childview.dev"
+
+test:
+  <<: *defaults
+  domain: "http://childview.dev"
+
+production:
+  <<: *defaults
