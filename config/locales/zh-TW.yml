@@ -1,0 +1,9 @@
+zh-TW:
+  ransack:
+    predicates:
+      cont: "包含"
+      in: "範圍"
+    attributes:
+      product:
+        title: "標題"
+        price: "價格"

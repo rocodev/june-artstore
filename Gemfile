@@ -55,7 +55,7 @@ gem 'simple_form'
 #for state machines
 gem "aasm"
 
-#for dispaly email at local 
+#for dispaly email at local
 group :development do
   gem "letter_opener"
   gem "roadie"
@@ -66,3 +66,6 @@ gem "stripe"
 
 #for store secure key info
 gem "settingslogic"
+
+#for search product
+gem "ransack"

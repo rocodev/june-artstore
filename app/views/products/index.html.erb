@@ -1,20 +1,47 @@
 <div class='container'>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>產品</th>
-        <th>連結</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td> <%= product.title %></td>
-          <td>
-            <%= link_to('Show', product_path(product), :class => "btn btn-info") %>
-          </td>
-        </tr>
+  <div class="row">
+    <div class="col-sm-3 bg-info">
+      <%= search_form_for @q do |f| %>
+        <div class="form-group">
+          <%= f.label :title_cont, class: "control-label" %>
+          <%= f.search_field :title_cont, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price_in, class: "control-label" %>
+          <div class="row">
+            <div class="col-sm-5">
+              <%= f.search_field :price_gteq, class: "form-control" %>
+            </div>
+            <div class="col-sm-1">
+            <p>~</p>
+            </div>
+            <div class="col-sm-5">
+              <%= f.search_field :price_lteq, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <%= f.submit class: "btn btn-primary pull-right"%>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+    <div class="col-sm-9">
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>產品</th>
+            <th>連結</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td> <%= product.title %></td>
+              <td>
+                <%= link_to('Show', product_path(product), :class => "btn btn-info") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

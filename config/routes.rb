@@ -14,12 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products do
-    member do
-      post :add_to_cart
-      post :del_from_cart
-    end
-  end
+  resources :products
 
   resources :carts do
     member do
