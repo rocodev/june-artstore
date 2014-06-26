@@ -33,9 +33,6 @@ gem 'letter_opener'
 gem 'roadie'
 gem 'stripe'
 gem 'settingslogic'
-gem 'minitest'
-
-
 
 gem "bootstrap-sass"
 gem "simple_form", "3.1.0rc1"
