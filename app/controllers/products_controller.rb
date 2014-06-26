@@ -2,6 +2,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = @q.result(distinct: true)
+
+    if @products.length == 0
+      flash[:notice] = "無符合項目！"
+      @products = Product.order("id DESC")
+    end
+    
     @products ||= Product.order("id DESC")
   end
 
