@@ -1,14 +1,15 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = @q.result(distinct: true)
+    @products = Product.order("id DESC")
+  end
 
+  def search
+    @products = @q.result(distinct: true)
     if @products.length == 0
       flash[:notice] = "無符合項目！"
-      @products = Product.order("id DESC")
+      redirect_to :root
     end
-    
-    @products ||= Product.order("id DESC")
   end
 
   def show
