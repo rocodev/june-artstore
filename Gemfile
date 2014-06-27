@@ -56,6 +56,8 @@ gem 'stripe'
 
 gem 'settingslogic'
 
+gem 'ransack'
+
 group :development do
   # 在本機看信
   gem "letter_opener"
