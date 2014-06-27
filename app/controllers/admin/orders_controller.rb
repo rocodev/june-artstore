@@ -9,19 +9,15 @@ class Admin::OrdersController < ApplicationController
     @order_items = @order.items
   end
 
-  def change_state_to_shipping
-    @order.ship!
-    redirect_to :back, :notice => "變更狀態為已出貨"
-  end
 
 
   def change_state_to_order_cancelled
-    @order.order_cancelled!
+    @order.cancell_order!
     redirect_to :back, :notice => "訂單已取消"
   end
 
   def change_state_to_good_returned
-    @order.good_returned!
+    @order.return_good!
   end
 
   protected

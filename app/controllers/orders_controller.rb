@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
   def change_state_to_shipped
     @order =  current_user.orders.find_by_token(params[:id])
-    @order.shipped!
+    @order.deliver!
     redirect_to :back, :notice => "變更狀態為取貨完成"
   end
 
