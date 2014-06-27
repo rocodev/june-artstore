@@ -44,7 +44,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to carts_path do %>
-            購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> (<%= cart_items_count(current_cart) %>)
+            購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> <span class="badge"><%= cart_items_count(current_cart) %></span>
           <% end %>
         </li>
         <% if !current_user %>

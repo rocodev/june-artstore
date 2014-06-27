@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 625e58cbb5ea5e155464ea2d79497838313352f2
+  branch: rails-4.1
+  specs:
+    ransack (1.2.4)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+      polyamorous (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -99,12 +111,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
-    ransack (1.2.3)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
     rest-client (1.6.7)
@@ -168,7 +174,7 @@ DEPENDENCIES
   letter_opener
   mini_magick
   rails (= 4.1.0)
-  ransack
+  ransack!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   settingslogic

@@ -56,7 +56,7 @@ gem 'stripe'
 
 gem 'settingslogic'
 
-gem 'ransack'
+gem 'ransack', github: "activerecord-hackery/ransack", branch: "rails-4.1"
 
 group :development do
   # 在本機看信
