@@ -12,13 +12,16 @@
           <%= link_to("Products", products_path) %>
         </li>
 
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>  
+
           <%= search_form_for @q do |f| %>
             <%= f.search_field :title_or_description_cont %>
             <%= f.submit %>
           <% end %>
+
 
         </li>
 
