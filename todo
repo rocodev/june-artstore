@@ -81,5 +81,5 @@
       ✔ 消費者可以透過 email 裡的連結檢視原先的 order @done (14-06-24 21:12)
       ✔ 安裝 SettingsLogic @done (14-06-27 16:03)
       ✔ 把 key 放到  SettingsLogic 的 yml 裏面 @done (14-06-27 16:03)
-      ☐ 把 OrderChargesController 收納成 Service Object
+      ☐ 把 CardChargesController 收納成 Service Object
       ☐ 用 ransack 實作搜尋產品功能
