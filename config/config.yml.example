@@ -3,6 +3,9 @@ defaults: &defaults
     stripe:
       secret_key: 
       publishable_key: 
+    mailgun:
+      username: 
+      password: 
 development:
   <<: *defaults
 
