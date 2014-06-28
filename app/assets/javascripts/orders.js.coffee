@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ($) ->
   $("#payment-form").submit (event) ->
     $form = $(this)
@@ -11,9 +8,9 @@ jQuery ($) ->
     
     # Prevent the form from submitting with the default action
     false
- 
+
   return
- 
+
 stripeResponseHandler = (status, response) ->
   $form = $("#payment-form")
   if response.error

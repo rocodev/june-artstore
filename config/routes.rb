@@ -35,13 +35,14 @@ Rails.application.routes.draw do
       get :pay_with_credit_card
       get :change_state_to_shipped
     end
+    resources :card_charges
   end
 
   namespace :account do
     resources :orders
   end
 
-  resources :card_charges
+  
 
 
   root :to => "products#index"

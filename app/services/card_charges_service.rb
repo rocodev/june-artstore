@@ -1,16 +1,17 @@
 class CardChargesService
-  def initialize(user,order,amount)
+  def initialize(user,order,amount,params)
     @user = user
     @order = order
     @amount = amount
+    @params = params
   end
 
   def charge_card!
     Stripe.api_key = Settings.stripe.test_secret_key
  
     customer = Stripe::Customer.create(
-      :email => current_user.email,
-      :card  => params[:stripeToken]
+      :email => @user.email,
+      :card  => @params
       )
  
  
@@ -23,11 +24,7 @@ class CardChargesService
  
     @order.set_payment_with!("credit_card")
     @order.make_payment! 
- 
-    
- 
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      render "orders/pay_with_credit_card"
+    OrderMailer.notify_order_paid_by_credit(@order).deliver
+
   end
 end
