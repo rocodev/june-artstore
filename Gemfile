@@ -40,6 +40,8 @@ gem "stripe"
 gem "aasm"
 
 gem "settingslogic"
+gem "will_paginate"
+gem "ransack"
 
 
 group :development do 
