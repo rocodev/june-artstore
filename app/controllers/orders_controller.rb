@@ -7,8 +7,7 @@ class OrdersController < ApplicationController
 
     if @order.save
 
-      OrderPlacingService.new(current_cart, order).place_order!
-
+      OrderPlacingService.new(current_cart, @order).place_order!
 
       redirect_to order_path(@order.token)
     else
