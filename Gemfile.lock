@@ -122,6 +122,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    settingslogic (2.0.9)
     simple_form (3.1.0.rc1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -175,6 +176,7 @@ DEPENDENCIES
   roadie
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  settingslogic
   simple_form (= 3.1.0rc1)
   spring
   sqlite3
