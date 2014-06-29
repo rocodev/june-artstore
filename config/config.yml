@@ -1,0 +1,19 @@
+defaults: &defaults
+  app_name "ArtStore"
+    stripe:
+      secret_key: 'pk_test_DYE2pvvyhidmgMyXbpAJD8tj'
+      publishable_key: 'pk_test_DYE2pvvyhidmgMyXbpAJD8tj'
+    mailgun:
+      username: 'postmaster@sandbox20dcf32f59b041e19ca737391343d98b.mailgun.org'
+      password: '7iygr7tzyqi7'
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
