@@ -14,6 +14,13 @@
 
       </ul>
 
+      <%= form_tag search_products_path, :class => "navbar-form navbar-left" do %>
+        <div class="form-group">
+          <input type="text" name="q" class="form-control" value="<%=params[:q] %>" placeholder="Search Product" />
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
 
         <li> 
