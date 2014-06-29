@@ -1,4 +1,4 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < AdminController
 
   before_filter :find_order, :except => [:index]
 
