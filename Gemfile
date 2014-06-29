@@ -68,3 +68,5 @@ gem 'aasm'
 
 #credit card
 gem 'stripe'
+# hide keys
+gem "settingslogic"

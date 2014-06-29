@@ -18,3 +18,4 @@
 # Ignore upload files
 .DS_Store
 /public/uploads/product/photo/
+/config/config.yml
