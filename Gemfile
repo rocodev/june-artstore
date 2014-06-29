@@ -43,6 +43,8 @@ group :development do
   gem "letter_opener"
   gem 'roadie'
 end
+
+gem 'stripe'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
