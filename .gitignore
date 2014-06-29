@@ -14,3 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+public/uploads
+cofig/database.yml
+.DS_Store
+/config/application.yml
+.rvmrc
+
