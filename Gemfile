@@ -38,3 +38,28 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Devise 提供使用者登入功能
+gem 'devise'
+# 加入 bootstrap css framework
+gem 'bootstrap-sass'
+# Rails forms made easy
+gem 'simple_form'
+
+# 圖片上傳
+gem 'carrierwave'
+# 圖片壓縮 resize
+gem 'mini_magick'
+# 有線狀態機
+gem 'aasm'
+# 線上刷卡
+gem 'stripe'
+
+gem 'settingslogic'
+
+gem 'ransack', github: "activerecord-hackery/ransack", branch: "rails-4.1"
+gem 'will_paginate'
+
+group :development do
+  # 在本機看信
+  gem "letter_opener"
+end

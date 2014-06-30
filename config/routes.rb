@@ -1,4 +1,52 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
+  namespace :admin do
+    resources :products
+    resources :orders, :only => [:index, :show] do
+      member do
+        post :cancel
+        post :ship
+        post :shipped
+        post :return
+      end
+    end
+  end
+
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+    collection do
+      post :search
+    end
+  end
+
+  resources :carts do
+    collection do
+      post 'checkout'
+    end
+  end
+
+  resources :orders do
+    member do
+      get :pay_with_credit_card
+    end
+    resources :card_charges
+  end
+
+  resources :cart_items, :only => [:destroy, :update]
+
+  namespace :account do
+    resources :orders, :only => [:index]
+  end
+
+  # 暫時先把 root 放到這邊
+  root :to => "products#index"
+
+  # 設定 host url
+  default_url_options :host => "artstore.dev"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
