@@ -70,3 +70,5 @@ gem 'aasm'
 gem 'stripe'
 # hide keys
 gem "settingslogic"
+
+
