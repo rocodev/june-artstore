@@ -1,0 +1,10 @@
+defaults: &defaults
+  app_name: "ArtStore"
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

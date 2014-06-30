@@ -6,9 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body style="padding-top: 70px;">
+  <div class="container">
+    <%= render :partial => "partial/nav" %>
+    <%= notice_message %>
+  
+    <%= yield %>
+  </div>
 </body>
 </html>
