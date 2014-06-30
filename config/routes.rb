@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       post :add_to_cart
       post :delete_from_cart
     end
+    collection do 
+      post :search
+    end
   end
 
   resources :carts do 

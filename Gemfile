@@ -70,5 +70,7 @@ gem 'aasm'
 gem 'stripe'
 # hide keys
 gem "settingslogic"
+gem "will_paginate"
+gem "ransack"
 
 
