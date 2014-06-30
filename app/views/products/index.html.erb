@@ -1,0 +1,15 @@
+<div class="row">
+
+	<%= search_form_for @search do |f| %>
+		<div class="field">
+			<%= f.label :title_cont, "Name contains" %>
+			<%= f.text_field :title_cont %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Search" %>
+		</div>
+	<% end %>
+
+  <%= render :partial => "product_item", :collection => @products , :as => :product %> 
+
+</div>

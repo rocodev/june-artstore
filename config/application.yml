@@ -1,0 +1,19 @@
+# config/application.yml
+defaults: &defaults
+  stripe:
+    publishable_key: "pk_test_h6kAy3622fWlr1ZDYFi5geoD"
+    api_key: "sk_test_6wWptHVBceNrlYCKC41ytWJi"
+  mailgun:
+    address: "smtp.mailgun.org"
+    username: "postmaster@sandboxad785490a2c449099845ba78fba93c62.mailgun.org"
+    password: "3ezk5e6b7d48"
+    domain: "sandboxad785490a2c449099845ba78fba93c62.mailgun.org"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

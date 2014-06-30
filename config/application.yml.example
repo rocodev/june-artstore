@@ -1,0 +1,19 @@
+# config/application.yml
+defaults: &defaults
+  stripe:
+    publishable_key: 
+    api_key: 
+  mailgun:
+    address: 
+    username: 
+    password: 
+    domain: 
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
