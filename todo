@@ -82,4 +82,4 @@
       ✔ 安裝 SettingsLogic @done (14-06-27 16:03)
       ✔ 把 key 放到  SettingsLogic 的 yml 裏面 @done (14-06-27 16:03)
       ✔ 把 CardChargesController 收納成 Service Object @done (14-06-27 19:28)
-      ☐ 用 ransack 實作搜尋產品功能
+      ✔ 用 ransack 實作搜尋產品功能 @done (14-06-30 17:59)

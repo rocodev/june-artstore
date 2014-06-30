@@ -57,6 +57,7 @@ gem 'stripe'
 gem 'settingslogic'
 
 gem 'ransack', github: "activerecord-hackery/ransack", branch: "rails-4.1"
+gem 'will_paginate'
 
 group :development do
   # 在本機看信

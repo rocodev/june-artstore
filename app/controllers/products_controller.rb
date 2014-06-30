@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_filter :validate_search_key, :only => [:search]
+
   def index
     # 依 ID 降冪排序（最新的產品在最上面）
     @products = Product.order("id DESC")
@@ -7,6 +9,13 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def search
+    if @quert_string.present?
+      search_result = Product.ransack(@search_criteria).result(:distinct => true)
+      @products = search_result.paginate(:page => params[:page], :per_page => 20)
+    end
   end
 
   def add_to_cart
@@ -36,6 +45,17 @@ class ProductsController < ApplicationController
 
     redirect_to :back
 
+  end
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
   end
 
 end
