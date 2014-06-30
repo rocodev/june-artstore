@@ -1,3 +1,10 @@
+
+<%= content_for :handwrite_javascript do %>
+<script>
+  $( "button.continue" ).html( "Next Step..." );
+</script>
+<% end %>
+
  <div class="row">
    <div class="col-md-5">
      <%= render_product_photo(@product.default_photo, :medium) %>

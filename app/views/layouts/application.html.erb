@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
   <title> ArtStore </title>
 
@@ -20,5 +20,10 @@
     <%= yield %>
 
   </div>
+
+<%= javascript_include_tag "application" %>
+
+<%= yield :handwrite_javascript %>
+
 </body>
 </html>
