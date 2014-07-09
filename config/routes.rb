@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   namespace :admin do
-    resources :products
+    resources :products do
+      resources :photos
+    end
   end
 
   root 'admin/products#index'

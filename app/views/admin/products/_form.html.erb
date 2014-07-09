@@ -1,18 +1,10 @@
 
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
+  <%= f.input :title, :input_html=>{:class => "form-control"}, :wrapper_html=>{ :class => "form-group"} ,:label => "名稱" , :type=>"text"%>
 
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control" ,:rows=>"8" %>
-  </div>
+  <%= f.input :description, :input_html=>{:class =>"form-control", :rows=>"8"}, :wrapper_html=>{:class=>"form-group"}, :label=>"商品描述"%>
 
-  <div class="form-group">
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity, class: "form-control" %>
-  </div>
+  <%= f.input :quantity, :input_html=>{:class=>"form-control"}, :wrapper_html=>{:class=>"form-group"}, :label=>"數量" %>
+
 
 

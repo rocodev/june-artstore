@@ -7,7 +7,11 @@ class Admin::ProductsController < ApplicationController
 
 
 	def index
-		@products = Product.all
+		@products = Product.all.order("created_at DESC").paginate(:page => params[:page], :per_page=>20)
+	end
+
+	def show
+		@photos = @product.photos
 	end
 
 	def new
@@ -28,7 +32,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def update
-		if @product.create
+		if @product.update(product_params)
 			redirect_to admin_products_path
 		else
 			render :edit
@@ -38,7 +42,7 @@ class Admin::ProductsController < ApplicationController
 
 	def destroy
 		if @product.destroy
-			redirect_to aadmin_products_path
+			redirect_to admin_products_path
 		end
 	end
 
